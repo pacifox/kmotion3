@@ -353,27 +353,27 @@ def create_mask(kmotion_dir, feed, mask_hex_str):
     mask_hex_split = mask_hex_str.split('#')
     px_yptr = 0
     
-    for y in range(10):
+    for y in range(15):
         
         tmp_dec = int(mask_hex_split[y], 16)
         px_xptr = 0
         image_line = ''
         
-        for x in range(10, 0, -1):
+        for x in range(15, 0, -1):
         
             px_mult = (image_width - px_xptr) / x
             px_xptr += px_mult
             
-            bin_ = tmp_dec & 512
+            bin_ = tmp_dec & 16384
             tmp_dec <<= 1
             
-            if bin_ == 512:
+            if bin_ == 16384:
                 image_line += black_px * px_mult
             else:
                 image_line += white_px * px_mult
         
                 
-        px_mult = (image_height - px_yptr) / (10 - y)
+        px_mult = (image_height - px_yptr) / (15 - y)
         px_yptr += px_mult
             
         mask += image_line * px_mult
