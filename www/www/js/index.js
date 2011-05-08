@@ -5974,7 +5974,7 @@ KM.conf_feed_html = function(camera) {
         ' Camera name : " ' + camera + ' : ' +
         '<input type="text" id="feed_name" size="15" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' "' +
-    '</div>' + 
+    '</div>' +
 
     '<div class="divider">' +
         '<img src="images/config_divider.png" alt="" >' + 
