@@ -5866,8 +5866,8 @@ KM.conf_feed_html = function(camera) {
     // return:
     //
     
-    var image_width = 340;
-    var image_height = 250;
+    var image_width = 345;
+    var image_height = 255;
     
     var mask = '';
     var mask_width = image_width / 15;
@@ -6113,12 +6113,12 @@ KM.conf_feed_html = function(camera) {
 
     KM.config.mask = '';
     var mask_lines = KM.www_rc.feed_mask[KM.config.camera].split('#');
-    for (var i = 0; i < 10; i++) {
-        KM.config.mask += KM.pad_out(parseInt(mask_lines[i], 16).toString(2), 10);
+    for (var i = 0; i < 15; i++) {
+        KM.config.mask += KM.pad_out(parseInt(mask_lines[i], 16).toString(2), 15);
     }
     if (KM.www_rc.feed_enabled[KM.config.camera]) {
         // if enabled show the mask and enable ptz button
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 225; i++) {
             if (KM.config.mask.charAt(i) === '1') {
                 document.getElementById('mask_img_' + (i + 1)).src = 'images/mask.png'
             }
@@ -6246,7 +6246,7 @@ KM.conf_feed_grey = function () {
     for (var i = 1; i < 11; i++) {
         document.getElementById('feed_text_' + i).style.color = KM.GHOST
     }
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 255; i++) {
         document.getElementById('mask_img_' + (i + 1)).src = 'images/mask_trans.png'
     }
     document.getElementById('image').src = 'images/gcam.png';
@@ -6277,7 +6277,7 @@ KM.conf_feed_ungrey = function () {
     KM.conf_feed_net_highlight();
     document.getElementById('image').src = 'images/bcam.png';
     // if enabled show the mask
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 225; i++) {
         if (KM.config.mask.charAt(i) === '1') {
             document.getElementById('mask_img_' + (i + 1)).src = 'images/mask.png'
         }
@@ -6325,8 +6325,8 @@ KM.conf_feed_apply = function () {
 
     var tmp = '';
     KM.www_rc.feed_mask[KM.config.camera] = '';
-    for (var i = 0; i < 10; i++) {
-        tmp = KM.config.mask.substr(i * 10, 10);
+    for (var i = 0; i < 15; i++) {
+        tmp = KM.config.mask.substr(i * 15, 15);
         KM.www_rc.feed_mask[KM.config.camera] += parseInt(tmp, 2).toString(16) + '#';	
     }
 
