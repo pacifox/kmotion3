@@ -142,8 +142,13 @@ def gen_threads_conf(kmotion_dir, feed_list, ramdisk_dir, images_dbase_dir, pars
 
 gap 2
 pre_capture 1
-post_capture 16
-
+post_capture 16'''
+        
+        # feed mask, needs to be here in case user wants their own mask 
+        if parser.get('motion_feed%02i' % feed, 'feed_mask') != '0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#':
+            print >> f_obj1, 'mask_file %s/core/masks/mask%0.2d.pgm' % (kmotion_dir, feed)            
+            
+        print >> f_obj1,  '''
 # ------------------------------------------------------------------------------
 # 'user' section from 'virtual_motion_conf/thread%02i.conf'
 # ------------------------------------------------------------------------------
@@ -161,6 +166,7 @@ post_capture 16
             print >> f_obj1, user_conf
         
         print >> f_obj1, '''
+        
 # ------------------------------------------------------------------------------
 # 'override' section
 # ------------------------------------------------------------------------------
@@ -218,10 +224,6 @@ webcam_localhost on
             print >> f_obj1, 'ffmpeg_cap_new off'
             
         print >> f_obj1, '' 
-            
-        # feed mask
-        if parser.get('motion_feed%02i' % feed, 'feed_mask') != '0#0#0#0#0#0#0#0#0#0#':
-            print >> f_obj1, 'mask_file %s/core/masks/mask%0.2d.pgm' % (kmotion_dir, feed)            
             
         # prefix to 'walk backwards' from the 'target_dir'
         rel_prefix = ('../' * len(ramdisk_dir.split('/')))[:-1]
