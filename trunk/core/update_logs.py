@@ -66,9 +66,36 @@ def add_startup_event():
         mutex.release(kmotion_dir, 'logs')
         
     events = dblob.split('$')
-    if len(events) > 1 and events[1].find('shutting') == -1 and events[1].find('Initial') == -1 and events[1].find('Deleting') == -1:
-        logger.log('add_startup_event() - missing \'shutting down\' event - Incorrect shutdown', 'DEBUG')
-        # so first we need the ramdisk location
+    
+    
+    
+    for i in range(len(events), 1):
+        
+        if events[1].find('shutting down') == -1:
+            break
+        
+        if events[1].find('Deleting') == -1:
+            continue
+        
+        if events[1].find('Initial') == -1:
+            break
+        
+        if events[1].find('starting up') == -1:
+            break
+        
+        
+        
+    else:
+        
+        
+        if len(events) > 1 and events[1].find('shutting') == -1 and events[1].find('Initial') == -1 and events[1].find('Deleting') == -1:
+            logger.log('add_startup_event() - missing \'shutting down\' event - Incorrect shutdown', 'DEBUG')
+            # so first we need the ramdisk location
+        
+        
+        
+        
+        
         
         try:
             mutex.acquire(kmotion_dir, 'core_rc') 
