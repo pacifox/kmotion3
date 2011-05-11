@@ -1,2 +1,5 @@
 ** DEV NOTES **
 
+fixed log bug: failure to consistently log incorrect shutdown
+15 x 15 mask grid
+fixed bug: allow virtual_conf mask file
