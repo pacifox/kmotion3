@@ -5393,7 +5393,7 @@ KM.conf_backdrop_html = function() {
     //
     
     KM.session_id.current++;
-    var button_width = 197;
+    var button_width = 248;
     // awkward hacks to keep consistant interface across browsers
     var title_str = 'title_FF';
     if (KM.browser.browser_OP) title_str = 'title_OP';
@@ -5894,6 +5894,17 @@ KM.conf_feed_html = function(camera) {
     '<div class="config_tick_box">' +	
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_enabled();">' +
         'Enable camera' + 
+    '</div>' +	
+    
+    '<div class="config_tick_box">' +	
+        '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_PAL();">' +
+        'PAL' + 	
+    '</div>' +	
+    '<div class="config_tick_box">' +
+        '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_NTSC();">' +
+        'NTSC' + 	
+    '</div>' +	
+	
     '</div>' +
 
     '<div class="divider">' +
