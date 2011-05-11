@@ -5887,31 +5887,35 @@ KM.conf_feed_html = function(camera) {
         '<div class="margin_left_20px">' + 
             '<img id="image" ' +
             'style="width: ' + image_width + 'px; height: ' + image_height + 
-            'px;" src="images/gcam.png" alt=""> ' +	
+            'px;" src="images/gcam.png" alt=""> ' +
+	
+        '<input type="button" id="conf_applyxxxxxxx" OnClick="KM.conf_miscxxxxxxxx();" value="All"> ' +
+        '<input type="button" id="conf_applyxxxxxxx" OnClick="KM.conf_miscxxxxxxxx();" value="Invert"> ' +
+        '<input type="button" id="conf_applyxxxxxxx" OnClick="KM.conf_miscxxxxxxxx();" value="None"> ' +
+	
         '</div>' +
     '</div>' +
-
-    '<div class="config_tick_box">' +	
+    
+    '<div class="config_tick_box" style="width:212px;">' +	
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_enabled();">' +
         'Enable camera' + 
     '</div>' +	
     
-    '<div class="config_tick_box">' +	
+    '<div class="config_tick_box" style="width:150px;">' +	
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_PAL();">' +
         'PAL' + 	
     '</div>' +	
+    
     '<div class="config_tick_box">' +
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_NTSC();">' +
         'NTSC' + 	
     '</div>' +	
 	
-    '</div>' +
-
     '<div class="divider">' +
         '<img src="images/config_divider.png" alt="" >' + 
     '</div>' +
 
-    '<div style="float:left; width:75px;" class="config_text disabled margin_top_4px" id="feed_text_1">' +
+    '<div style="float:left; width:85px;" class="config_text disabled margin_top_4px" id="feed_text_1">' +
         '<span class="margin_top_3px">Device&nbsp;:</span><br>' +
         '<div class="margin_top_3px"></div>' +
         'URL&nbsp;:<br>' +
@@ -5921,7 +5925,7 @@ KM.conf_feed_html = function(camera) {
         'Width&nbsp;:<br>' +
     '</div>' +
 
-    '<div style="float:left; width:110px;" class="config_text_basic margin_top_4px">' +
+    '<div style="float:left; width:190px;" class="config_text_basic margin_top_4px">' +
         '<select id="feed_device" onchange="KM.conf_feed_net_highlight();" disabled>' +
             '<option value="0">/dev/video0</option>' +	
             '<option value="1">/dev/video1</option>' +	
@@ -5941,18 +5945,18 @@ KM.conf_feed_html = function(camera) {
             '<option value="15">/dev/video15&nbsp;</option>' +	
             '<option value="URL http://">Network Cam</option>' +	
         '</select>' +
-        '<input type="text" id="feed_url" style="width: 120px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        '<input type="text" id="feed_lgn_name" style="width: 120px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        '<input type="text" id="feed_url" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        '<input type="text" id="feed_lgn_name" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         '<input type="text" id="feed_width" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' px' +
     '</div>' +
 
-    '<div style="float:left; width:75px;" class="config_text disabled margin_top_4px" id="feed_text_2">' +
+    '<div style="float:left; width:110px;" class="config_text disabled margin_top_4px" id="feed_text_2">' +
         'Input&nbsp;:<br>' +
         '<div class="margin_top_3px"></div>' +
         'Proxy&nbsp;:<br>' +
         '<div class="margin_top_3px"></div>' +
-        'Pass&nbsp;:<br>' +
+        'Password&nbsp;:<br>' +
         '<div class="margin_top_3px"></div>' +
         'Height&nbsp;:<br>' +
     '</div>' +
@@ -5969,10 +5973,10 @@ KM.conf_feed_html = function(camera) {
         '<option value="5">5</option>' +	
         '<option value="6">6</option>' +	
         '<option value="7">7</option>' +	
-        '<option value="8">-&nbsp;&nbsp;</option>' +	
+        '<option value="8">N/A</option>' +	
     '</select><br>' +
-    '<input type="text" id="feed_proxy" style="width: 120px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-    '<input type="password" id="feed_lgn_pw" style="width: 120px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+    '<input type="text" id="feed_proxy" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+    '<input type="password" id="feed_lgn_pw" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     '<input type="text" id="feed_height" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     ' px' +
     '</div>' +
