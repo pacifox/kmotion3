@@ -344,8 +344,8 @@ Main display section - CSS specific to 'config' - General
 }
 
 #main_display .config_backdrop {
-	width: 790px;
-	height: 540px;
+	width: 992px;
+	height: 640px;
 	margin-top: 11px;
 	margin-left: auto;
 	margin-right: auto;
