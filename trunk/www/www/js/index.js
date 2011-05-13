@@ -5854,7 +5854,7 @@ Displays and processes the feed config screens
 **************************************************************************** */
 
 
-KM.conf_feed_html = function(camera) {
+KM.conf_feed_html = function (camera) {
 
     // A function that generates the feed config HTML. It create the feed 
     // config screen on the config backdrop 'slab'. The mask selecting 
@@ -5882,17 +5882,19 @@ KM.conf_feed_html = function(camera) {
     }
 
     html_str += '<br>' +
-
-    '<div style="float:left; width:360px;">' +
+    
+    '<div style="float:left; width:370px;">' +
         '<div class="margin_left_20px">' + 
             '<img id="image" ' +
             'style="width: ' + image_width + 'px; height: ' + image_height + 
             'px;" src="images/gcam.png" alt=""> ' +
 	
-        '<input type="button" id="conf_applyxxxxxxx" OnClick="KM.conf_miscxxxxxxxx();" value="All"> ' +
-        '<input type="button" id="conf_applyxxxxxxx" OnClick="KM.conf_miscxxxxxxxx();" value="Invert"> ' +
-        '<input type="button" id="conf_applyxxxxxxx" OnClick="KM.conf_miscxxxxxxxx();" value="None"> ' +
-	
+            '<input type="button" id="mask_all" style="width:115px;" ' +
+            'OnClick="KM.conf_feed_mask_button(1);" value="Mask All" disabled>' +
+            '<input type="button" id="mask_invert" style="width:115px;" ' +
+            'OnClick="KM.conf_feed_mask_button(2);" value="Mask Invert" disabled>' +
+            '<input type="button" id="mask_none" style="width:115px;" ' +
+            'OnClick="KM.conf_feed_mask_button(3);" value="Mask None" disabled>' +
         '</div>' +
     '</div>' +
     
@@ -6185,6 +6187,45 @@ KM.conf_toggle_feed_mask = function (mask_num) {
 };
 
 
+KM.conf_feed_mask_button = function (button_num) {
+
+    // A function that performs mask wide operations
+    //
+    // expects:
+    // 'button_num' ... the mask button clicked
+    //			1: mask all, 2: mask invert, 3: mask none
+    //
+    // return:
+    //
+    
+    for (var mask_num = 1; mask_num < 226; mask_num++) {
+    
+	if (button_num === 1) {
+	    document.getElementById('mask_img_' + mask_num).src = 'images/mask.png';
+	    KM.config.mask = KM.config.mask.substr(0, mask_num - 1) + '1' + KM.config.mask.substr(mask_num);
+	    
+	} else if (button_num === 2) {
+	    if (KM.config.mask.substr(mask_num - 1, 1) === '0') {
+	    
+		KM.config.mask = KM.config.mask.substr(0, mask_num - 1) + '1' + KM.config.mask.substr(mask_num);
+		document.getElementById('mask_img_' + mask_num).src = 'images/mask.png';
+		
+	    } else {
+	     
+		KM.config.mask = KM.config.mask.substr(0, mask_num - 1) + '0' + KM.config.mask.substr(mask_num);
+		document.getElementById('mask_img_' + mask_num).src = 'images/mask_trans.png'; 
+	    }
+	
+	} else if (button_num === 3) {
+	    document.getElementById('mask_img_' + mask_num).src = 'images/mask_trans.png';
+	    KM.config.mask = KM.config.mask.substr(0, mask_num - 1) + '0' + KM.config.mask.substr(mask_num);
+	}
+    }
+    KM.conf_config_track.mask_modified(KM.config.camera);
+    KM.conf_feed_highlight_apply();
+};
+
+
 KM.conf_feed_net_highlight = function () {
 
     // A function that enables/disables user inputs for net cams
@@ -6252,8 +6293,9 @@ KM.conf_feed_grey = function () {
     KM.conf_error_daemon(KM.session_id.current);
     var ids = ['feed_device', 'feed_input', 'feed_url', 'feed_proxy', 
     'feed_lgn_name', 'feed_lgn_pw', 'feed_width', 'feed_height', 'feed_name', 
-    'feed_box', 'feed_fps', 'feed_quality', 'feed_kbs', 'feed_snap_enabled', 
-    'feed_snap', 'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
+    'feed_box', 'mask_all', 'mask_invert', 'mask_none', 'feed_fps', 
+    'feed_quality', 'feed_kbs', 'feed_snap_enabled', 'feed_snap', 
+    'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
 
     for (var i = 0; i < ids.length; i++) {
         document.getElementById(ids[i]).disabled = true;
@@ -6280,8 +6322,9 @@ KM.conf_feed_ungrey = function () {
     KM.conf_live_feed_daemon(KM.session_id.current, KM.config.camera);
     var ids = ['feed_device', 'feed_input', 'feed_url', 'feed_proxy', 
     'feed_lgn_name', 'feed_lgn_pw', 'feed_width', 'feed_height', 'feed_name', 
-    'feed_box', 'feed_fps', 'feed_quality', 'feed_kbs', 'feed_snap_enabled', 
-    'feed_snap', 'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
+    'feed_box', 'mask_all', 'mask_invert', 'mask_none', 'feed_fps', 
+    'feed_quality', 'feed_kbs', 'feed_snap_enabled', 'feed_snap', 
+    'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
 
     for (var i = 0; i < ids.length; i++) {
         document.getElementById(ids[i]).disabled = false;
