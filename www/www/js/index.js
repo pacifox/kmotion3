@@ -6049,7 +6049,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
     
     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
-        'Schedule: '+ 
+        'Schedule : '+ 
 	
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
@@ -6078,7 +6078,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
 
     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
-        'Schedule: '+ 
+        'Schedule : '+ 
 	
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
@@ -6090,19 +6090,33 @@ KM.conf_feed_html = function (camera) {
         '<img src="images/config_divider_xl.png" alt="" >' + 
     '</div>' +
     
-     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	
+    
+    
+    
+    
+    
+    
+    
+    
+     '<div class="config_tick_box disabled margin_top_4px" style="width:418px;" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
-        'Enable email notification on motion detection. Email : ' +
-	
-        '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+        'Enable email notification on motion detection.' +
+    '</div>' +
+    
+     '<div class="config_tick_box disabled margin_top_4px" style="width:57px;" id="feed_text_10">' +	       
+        'Email :' +
     '</div>' +
 	
+     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	       
+        '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+    '</div>' +
+    
      '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
         '*WARNING* may cause a high volume of emails.' +
     '</div>' +
     
     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
-        'Schedule: '+ 
+        'Schedule : '+ 
     
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
@@ -6114,30 +6128,37 @@ KM.conf_feed_html = function (camera) {
      
      
      
-     
-     
-     
-     
-     
-     
-     
     '<div class="divider">' +
         '<img src="images/config_divider_xl.png" alt="" >' + 
     '</div>' +
+     
+     
+     
+     
+     
+     
     
-     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	
+     '<div class="config_tick_box disabled margin_top_4px" style="width:418px;" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
-        'Enable audiable file to be played on motion. File : ' +
-	
-        '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+        'Enable audiable file to be played on motion.' +
     '</div>' +
+    
+     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	       
+        'File : <input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+    '</div>' +
+	
+    
+    
+    
+    
+    
 	
      '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
         'Files are read from the \'Audible\' dir in kmotion.' +
     '</div>' +
     
     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
-        'Schedule: '+ 
+        'Schedule : '+ 
     
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
