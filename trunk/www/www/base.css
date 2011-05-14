@@ -361,12 +361,8 @@ Main display section - CSS specific to 'config' - General
 /*}*/
 
 #main_display .config_divider {
-	display: block;
 	font-size: 1px;
 	text-align: center;
-	padding-top: 30px;
-	padding-bottom: 10px;
-	border: 1px solid red;
 }
 
 #main_display .config_button { 
