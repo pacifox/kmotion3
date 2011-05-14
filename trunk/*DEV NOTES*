@@ -1,5 +1,19 @@
 ** DEV NOTES **
 
+removed "enable additional live image updates may increase server load in config
+
+
+
+
+
+
+
+
+
+
+
+
 fixed log bug: failure to consistently log incorrect shutdown
 15 x 15 mask grid
 fixed bug: allow virtual_conf mask file
+mask all, invert, none buttons

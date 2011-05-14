@@ -6010,38 +6010,57 @@ KM.conf_feed_html = function (camera) {
         'Click on the image to edit the motion mask.' +
     '</div>' +
 
+    //'<div class="divider">' +
+        //'<img src="images/config_divider_xl.png" alt="" >' + 
+    //'</div>' +
+
+    //'<div class="config_button disabled margin_top_4px" id="feed_text_6">' +
+        //'Record : ' +
+        //'<input type="text" id="feed_fps" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        //' fps, &nbsp;&nbsp;Image (frame & snap) quality : ' +
+        ////'<input type="text" id="feed_quality" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        ////' %, &nbsp;&nbsp;Movie quality : ' +
+        ////'<input type="text" id="feed_kbs" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        ////' kbs' +
+    //'</div>' +
+
     '<div class="divider">' +
         '<img src="images/config_divider_xl.png" alt="" >' + 
-    '</div>' +
-
-    '<div class="config_button disabled margin_top_4px" id="feed_text_6">' +
-        'Record : ' +
-        '<input type="text" id="feed_fps" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        ' fps, &nbsp;&nbsp;Image (frame & snap) quality : ' +
-        '<input type="text" id="feed_quality" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        ' %, &nbsp;&nbsp;Movie quality : ' +
-        '<input type="text" id="feed_kbs" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        ' kbs' +
-    '</div>' +
-
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
-    '</div>' +
-
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
-        '<input type="checkbox" id="feed_frame_enabled" onclick="KM.conf_feed_frame_selected();" disabled>' +
-        'Enable frame mode. Record motion events as a series of discrete frames.' +
     '</div>' +
 
     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_8">' +	
         '<input type="checkbox" id="feed_ffmpeg_enabled" onclick="KM.conf_feed_ffmpeg_selected();" disabled>' +
-        'Enable movie mode. Record motion events as a (flash swf) movie.' +
+        'Enable movie mode. Record motion events as a (flash swf) movie. Low bandwidth playback.' +
+    '</div>' +
+    
+    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+        '<input type="checkbox" id="feed_frame_enabled" onclick="KM.conf_feed_frame_selected();" disabled>' +
+        'Enable frame mode. Record motion events as a series of discrete frames. High bandwidth playback.' +
     '</div>' +
 
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_9">' +	
-        '<input type="checkbox" id="feed_updates" onclick="KM.conf_feed_highlight_apply();" disabled>' +
-        'Enable additional live image updates. May increases server load.' +
+    '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+        'at : ' +
+        '<input type="text" id="feed_fps" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        ' fps, &nbsp;&nbsp;(5 fps recommended)' +
+        //'<input type="text" id="feed_quality" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        //' %, &nbsp;&nbsp;Movie quality : ' +
+        //'<input type="text" id="feed_kbs" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        //' kbs' +
     '</div>' +
+    
+    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+        'Schedule: '+ 
+	
+	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	    '<option value="0">None</option>' +
+	'</select>' +
+    
+    '</div>' +
+    
+    //'<div class="config_tick_box disabled margin_top_4px" id="feed_text_9">' +	
+        //'<input type="checkbox" id="feed_updates" onclick="KM.conf_feed_highlight_apply();" disabled>' +
+        //'Enable additional live image updates. May increases server load.' +
+    //'</div>' +
 
     '<div class="divider">' +
         '<img src="images/config_divider_xl.png" alt="" >' + 
@@ -6049,11 +6068,93 @@ KM.conf_feed_html = function (camera) {
 
     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
-        'Enable snapshot mode. Record an image in time lapse mode with a pause between images<br>&nbsp;of : ' + 
-        '<input type="text" id="feed_snap" size="6" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        'Enable snapshot mode. Record an image in time lapse mode with a pause between images' +
+     '</div>' +
+     
+    '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+        'of : ' +
+        '<input type="text" id="feed_snap" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' Seconds (300 Seconds recommended)' +
     '</div>' +
 
+    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+        'Schedule: '+ 
+	
+	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	    '<option value="0">None</option>' +
+	'</select>' +
+    
+    '</div>' +
+    
+    '<div class="divider">' +
+        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '</div>' +
+    
+     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	
+        '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
+        'Enable email notification on motion detection. Email : ' +
+	
+        '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+    '</div>' +
+	
+     '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+        '*WARNING* may cause a high volume of emails.' +
+    '</div>' +
+    
+    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+        'Schedule: '+ 
+    
+	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	    '<option value="0">None</option>' +
+	'</select>' +
+	
+     '</div>' +
+    
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    '<div class="divider">' +
+        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '</div>' +
+    
+     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	
+        '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
+        'Enable audiable file to be played on motion. File : ' +
+	
+        '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+    '</div>' +
+	
+     '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+        'Files are read from the \'Audible\' dir in kmotion.' +
+    '</div>' +
+    
+    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+        'Schedule: '+ 
+    
+	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	    '<option value="0">None</option>' +
+	'</select>' +
+	
+     '</div>' +
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
     '<div class="divider">' +
         '<img src="images/config_divider_xl.png" alt="" >' + 
     '</div>' +
