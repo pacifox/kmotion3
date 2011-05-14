@@ -2,7 +2,7 @@
 ramdisk_dir = /dev/shm/kmotion_ramdisk
 
 [version]
-string = 2.15a Beta
+string = 3.00 Alpha
 
 [workaround]
 motion_reload_bug = True
