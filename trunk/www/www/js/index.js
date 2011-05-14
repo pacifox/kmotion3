@@ -5898,26 +5898,26 @@ KM.conf_feed_html = function (camera) {
         '</div>' +
     '</div>' +
     
-    '<div class="config_tick_box" style="width:212px;">' +	
+    '<div class="config_text" style="width:212px;">' +	
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_enabled();">' +
         'Enable camera' + 
     '</div>' +	
     
-    '<div class="config_tick_box" style="width:150px;">' +	
+    '<div class="config_text" style="width:150px;">' +	
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_PAL();">' +
         'PAL' + 	
     '</div>' +	
     
-    '<div class="config_tick_box">' +
+    '<div class="config_text">' +
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_NTSC();">' +
         'NTSC' + 	
     '</div>' +	
-	
-    '<div class="divider">' +
+    
+    '<div class="config_divider">' +
         '<img src="images/config_divider.png" alt="" >' + 
     '</div>' +
 
-    '<div style="float:left; width:85px;" class="config_text disabled margin_top_4px" id="feed_text_1">' +
+    '<div style="float:left; width:85px;" class="config_text disabled" id="feed_text_1">' +
         '<span class="margin_top_3px">Device&nbsp;:</span><br>' +
         '<div class="margin_top_3px"></div>' +
         'URL&nbsp;:<br>' +
@@ -5983,7 +5983,7 @@ KM.conf_feed_html = function (camera) {
     ' px' +
     '</div>' +
 
-    '<div class="divider">' +
+    '<div class="config_divider">' +
         '<img src="images/config_divider.png" alt="" >' + 
     '</div>' +
 
@@ -6098,16 +6098,13 @@ KM.conf_feed_html = function (camera) {
     
     
     
-     '<div class="config_tick_box disabled margin_top_4px" style="width:418px;" id="feed_text_10">' +	
+     '<div class="config_tick_box disabled margin_top_4px" style="width:445px;" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable email notification on motion detection.' +
     '</div>' +
     
-     '<div class="config_tick_box disabled margin_top_4px" style="width:57px;" id="feed_text_10">' +	       
-        'Email :' +
-    '</div>' +
-	
      '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	       
+        'Email : ' +	       
         '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
     '</div>' +
     
@@ -6138,9 +6135,9 @@ KM.conf_feed_html = function (camera) {
      
      
     
-     '<div class="config_tick_box disabled margin_top_4px" style="width:418px;" id="feed_text_10">' +	
+     '<div class="config_tick_box disabled margin_top_4px" style="width:460px;" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
-        'Enable audiable file to be played on motion.' +
+        'Enable audible file to be played on motion detection.' +
     '</div>' +
     
      '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	       

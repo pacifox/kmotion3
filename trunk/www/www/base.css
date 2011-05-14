@@ -352,12 +352,21 @@ Main display section - CSS specific to 'config' - General
 	background-image: url('./images/backdrop.png');
 }
 
-#main_display .config_tick_box { 
-	color: #818181; 
-	font-size: 17px;
-	font-weight: bold;
-	margin-left: 20px;
-	float: left;
+/*#main_display .config_tick_box { */
+	/*color: #818181; */
+	/*font-size: 17px;*/
+	/*font-weight: bold;*/
+	/*margin-left: 20px;*/
+	/*float: left;*/
+/*}*/
+
+#main_display .config_divider {
+	display: block;
+	font-size: 1px;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	border: 1px solid red;
 }
 
 #main_display .config_button { 
@@ -373,6 +382,7 @@ Main display section - CSS specific to 'config' - General
 	font-size: 17px;
 	font-weight: bold;
 	margin-left: 20px;
+	float: left;
 }
 
 #main_display .config_text_basic { 

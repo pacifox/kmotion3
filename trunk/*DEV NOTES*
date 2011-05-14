@@ -1,6 +1,7 @@
 ** DEV NOTES **
 
 removed "enable additional live image updates may increase server load in config
+removed image quality & movie quality settings in config
 
 
 
