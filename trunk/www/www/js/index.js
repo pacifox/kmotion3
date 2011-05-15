@@ -2781,6 +2781,8 @@ KM.display_archive_ = function () {
 	    '<span id="config_clock"> - </span>' +
 	'</div>' +
 	
+	
+	
 	'<div class="divider">' +
 	    '<img src="images/archive_divider.png" style="width:' + backdrop_width + 'px;" alt="" />' + 
 	'</div>' +
@@ -5406,9 +5408,7 @@ KM.conf_backdrop_html = function() {
     '<div id="' + title_str + '">' +
         '<span class="italic">kmotion</span>: Config' +
     '</div>' +
-    '<div class="divider">' +
-        '<img src="images/divider_xl.png" alt="" />' + 
-    '</div>' +
+    
     '<div id="config_bar" class="config_bar">' +
         '<form name="config" action="" onsubmit="return false">' +
             '<select id="config_select" onchange="KM.conf_select_config();" onclick="KM.conf_select_config();" ' +

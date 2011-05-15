@@ -343,14 +343,12 @@ Main display section - CSS specific to 'config' - General
 }
 
 #main_display .config_bar {
-	margin-top: 10px;
 	text-align: center;
 }
 
 #main_display .config_backdrop {
 	width: 992px;
 	height: 640px;
-	margin-top: 11px;
 	margin-left: auto;
 	margin-right: auto;
 	background-image: url('./images/backdrop.png');
