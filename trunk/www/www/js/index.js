@@ -6438,7 +6438,7 @@ KM.conf_feed_highlight_apply = function () {
 
 KM.conf_feed_apply = function () {
 
-    // A function that check and apply the changes
+    // A function that checks and applys the changes
     //
     // expects:
     //
