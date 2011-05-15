@@ -5889,7 +5889,7 @@ KM.conf_feed_html = function (camera) {
             'style="width: ' + image_width + 'px; height: ' + image_height + 
             'px;" src="images/gcam.png" alt=""> ' +
 	
-            '<input type="button" id="mask_all" style="width:115px;" ' +
+            '<input type="button" id="mask_all" style="width:115px; background-color:lightgreen";' +
             'OnClick="KM.conf_feed_mask_button(1);" value="Mask All" disabled>' +
             '<input type="button" id="mask_invert" style="width:115px;" ' +
             'OnClick="KM.conf_feed_mask_button(2);" value="Mask Invert" disabled>' +
@@ -5928,7 +5928,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
 
     '<div style="float:left; width:190px;" class="config_text_basic margin_top_4px">' +
-        '<select id="feed_device" onchange="KM.conf_feed_net_highlight();" disabled>' +
+        '<select id="feed_device" onchange="KM.conf_feed_net_highlight();" disabled style="background-color:lightgreen;">' +
             '<option value="0">/dev/video0</option>' +	
             '<option value="1">/dev/video1</option>' +	
             '<option value="2">/dev/video2</option>' +	
