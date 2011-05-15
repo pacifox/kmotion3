@@ -356,26 +356,18 @@ Main display section - CSS specific to 'config' - General
 	background-image: url('./images/backdrop.png');
 }
 
-/*#main_display .config_tick_box { */
-	/*color: #818181; */
-	/*font-size: 17px;*/
-	/*font-weight: bold;*/
-	/*margin-left: 20px;*/
-	/*float: left;*/
-/*}*/
-
 #main_display .config_divider {
 	font-size: 1px;
 	text-align: center;
 }
 
-/*#main_display .config_button { */
-	/*color: #818181; */
-	/*font-size: 17px;*/
-	/*font-weight: bold;*/
-	/*margin-left: 24px;*/
-	/*float: left;*/
-/*}*/
+#main_display .config_tick_margin { 
+	color: #818181; 
+	font-size: 17px;
+	font-weight: bold;
+	margin-left: 16px;
+	float: left;
+}
 
 #main_display .config_text_margin { 
 	color: #818181; 
