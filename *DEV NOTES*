@@ -3,7 +3,7 @@
 removed "enable additional live image updates may increase server load in config
 removed image quality & movie quality settings in config
 
-
+bad shutdown still not recorded in logs properly !!!
 
 
 
