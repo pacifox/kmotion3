@@ -2781,8 +2781,6 @@ KM.display_archive_ = function () {
 	    '<span id="config_clock"> - </span>' +
 	'</div>' +
 	
-	
-	
 	'<div class="divider">' +
 	    '<img src="images/archive_divider.png" style="width:' + backdrop_width + 'px;" alt="" />' + 
 	'</div>' +
