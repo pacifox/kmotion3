@@ -5889,7 +5889,7 @@ KM.conf_feed_html = function (camera) {
             'style="width: ' + image_width + 'px; height: ' + image_height + 
             'px;" src="images/gcam.png" alt=""> ' +
 	
-            '<input type="button" id="mask_all" style="width:115px; background-color:lightgreen";' +
+            '<input type="button" id="mask_all" style="width:115px;"' +
             'OnClick="KM.conf_feed_mask_button(1);" value="Mask All" disabled>' +
             '<input type="button" id="mask_invert" style="width:115px;" ' +
             'OnClick="KM.conf_feed_mask_button(2);" value="Mask Invert" disabled>' +
@@ -5898,36 +5898,36 @@ KM.conf_feed_html = function (camera) {
         '</div>' +
     '</div>' +
     
-    '<div class="config_text" style="width:212px;">' +	
+    '<div class="config_text_margin" style="width:212px;">' +	
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_enabled();">' +
         'Enable camera' + 
     '</div>' +	
     
-    '<div class="config_text" style="width:150px;">' +	
+    '<div class="config_text_margin" style="width:150px;">' +	
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_PAL();">' +
         'PAL' + 	
     '</div>' +	
     
-    '<div class="config_text">' +
+    '<div class="config_text_margin">' +
         '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_NTSC();">' +
         'NTSC' + 	
-    '</div>' +	
+    '</div>' +
     
     '<div class="config_divider">' +
-        '<img src="images/config_divider.png" alt="" >' + 
+	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div style="float:left; width:85px;" class="config_text disabled" id="feed_text_1">' +
-        '<span class="margin_top_3px">Device&nbsp;:</span><br>' +
-        '<div class="margin_top_3px"></div>' +
+    '<div style="float:left; width:85px;" class="config_text_margin disabled" id="feed_text_1">' +
+        '<span style="margin-top:4px;">Device&nbsp;:</span><br>' +
+        '<div style="margin-top:6px;"></div>' +
         'URL&nbsp;:<br>' +
-        '<div class="margin_top_3px"></div>' +
+        '<div style="margin-top:6px;"></div>' +
         'Name&nbsp;:<br>' +
-        '<div class="margin_top_3px"></div>' +
+        '<div style="margin-top:6px;"></div>' +
         'Width&nbsp;:<br>' +
     '</div>' +
 
-    '<div style="float:left; width:190px;" class="config_text_basic margin_top_4px">' +
+    '<div style="float:left; width:190px;" class="config_text">' +
         '<select id="feed_device" onchange="KM.conf_feed_net_highlight();" disabled style="background-color:lightgreen;">' +
             '<option value="0">/dev/video0</option>' +	
             '<option value="1">/dev/video1</option>' +	
@@ -5947,19 +5947,19 @@ KM.conf_feed_html = function (camera) {
             '<option value="15">/dev/video15&nbsp;</option>' +	
             '<option value="URL http://">Network Cam</option>' +	
         '</select>' +
-        '<input type="text" id="feed_url" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        '<input type="text" id="feed_lgn_name" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        '<input type="text" id="feed_width" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        '<input type="text" id="feed_url" style="width: 150px; height: 15px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        '<input type="text" id="feed_lgn_name" style="width: 150px; height: 15px; margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+        '<input type="text" id="feed_width" size="4" style="margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' px' +
     '</div>' +
 
-    '<div style="float:left; width:110px;" class="config_text disabled margin_top_4px" id="feed_text_2">' +
+    '<div style="float:left; width:110px;" class="config_text_margin disabled" id="feed_text_2">' +
         'Input&nbsp;:<br>' +
-        '<div class="margin_top_3px"></div>' +
+        '<div style="margin-top:6px;"></div>' +
         'Proxy&nbsp;:<br>' +
-        '<div class="margin_top_3px"></div>' +
+        '<div style="margin-top:6px;"></div>' +
         'Password&nbsp;:<br>' +
-        '<div class="margin_top_3px"></div>' +
+        '<div style="margin-top:6px;"></div>' +
         'Height&nbsp;:<br>' +
     '</div>' +
 
@@ -5977,36 +5977,36 @@ KM.conf_feed_html = function (camera) {
         '<option value="7">7</option>' +	
         '<option value="8">N/A</option>' +	
     '</select><br>' +
-    '<input type="text" id="feed_proxy" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-    '<input type="password" id="feed_lgn_pw" style="width: 150px; height: 15px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-    '<input type="text" id="feed_height" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+    '<input type="text" id="feed_proxy" style="width: 150px; height: 15px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+    '<input type="password" id="feed_lgn_pw" style="width: 150px; height: 15px; margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
+    '<input type="text" id="feed_height" size="4" style="margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     ' px' +
     '</div>' +
 
     '<div class="config_divider">' +
-        '<img src="images/config_divider.png" alt="" >' + 
+	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_button disabled margin_top_4px" id="feed_text_3">' +
+    '<div class="config_text_margin disabled" id="feed_text_3">' +
         ' Camera name : " ' + camera + ' : ' +
         '<input type="text" id="feed_name" size="15" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' "' +
     '</div>' +
 
-    '<div class="divider">' +
-        '<img src="images/config_divider.png" alt="" >' + 
+    '<div class="config_divider">' +
+	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_4">' +	
+    '<div class="config_text_margin disabled" id="feed_text_4">' +	
         '<input type="checkbox" id="feed_box" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable motion highlighting (Draw box)' + 
     '</div>' +
 
-    '<div class="divider">' +
-        '<img src="images/config_divider.png" alt="" >' + 
+    '<div class="config_divider">' +
+	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_button disabled margin_top_4px" id="feed_text_5">' +
+    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_5">' +
         'Click on the image to edit the motion mask.' +
     '</div>' +
 
@@ -6024,21 +6024,21 @@ KM.conf_feed_html = function (camera) {
         ////' kbs' +
     //'</div>' +
 
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_8">' +	
+    '<div class="config_text_margin disabled" id="feed_text_8">' +	
         '<input type="checkbox" id="feed_ffmpeg_enabled" onclick="KM.conf_feed_ffmpeg_selected();" disabled>' +
         'Enable movie mode. Record motion events as a (flash swf) movie. Low bandwidth playback.' +
     '</div>' +
     
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled" id="feed_text_7">' +	
         '<input type="checkbox" id="feed_frame_enabled" onclick="KM.conf_feed_frame_selected();" disabled>' +
         'Enable frame mode. Record motion events as a series of discrete frames. High bandwidth playback.' +
     '</div>' +
 
-    '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+    '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
         'at : ' +
         '<input type="text" id="feed_fps" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' fps, &nbsp;&nbsp;(5 fps recommended)' +
@@ -6048,13 +6048,11 @@ KM.conf_feed_html = function (camera) {
         //' kbs' +
     '</div>' +
     
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled" id="feed_text_7">' +	
         'Schedule : '+ 
-	
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
-    
     '</div>' +
     
     //'<div class="config_tick_box disabled margin_top_4px" id="feed_text_9">' +	
@@ -6062,122 +6060,82 @@ KM.conf_feed_html = function (camera) {
         //'Enable additional live image updates. May increases server load.' +
     //'</div>' +
 
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	
+    '<div class="config_text_margin disabled" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable snapshot mode. Record an image in time lapse mode with a pause between images' +
      '</div>' +
      
-    '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+    '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
         'of : ' +
         '<input type="text" id="feed_snap" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' Seconds (300 Seconds recommended)' +
     '</div>' +
 
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled" id="feed_text_7">' +	
         'Schedule : '+ 
-	
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
-    
     '</div>' +
     
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     '<div class="config_tick_box disabled margin_top_4px" style="width:445px;" id="feed_text_10">' +	
+
+     '<div class="config_text_margin disabled" style="width:440px;" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable email notification on motion detection.' +
     '</div>' +
     
-     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	       
+     '<div class="config_text_margin disabled" id="feed_text_10">' +	       
         'Email : ' +	       
         '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
     '</div>' +
     
-     '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
         '*WARNING* may cause a high volume of emails.' +
     '</div>' +
     
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled" id="feed_text_7">' +	
         'Schedule : '+ 
-    
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
-	
      '</div>' +
-    
-    
-     
-     
-     
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+
+    '<div class="config_divider">' +
+	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
      
-     
-     
-     
-     
-     
-    
-     '<div class="config_tick_box disabled margin_top_4px" style="width:460px;" id="feed_text_10">' +	
+     '<div class="config_text_margin disabled" style="width:455px;" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable audible file to be played on motion detection.' +
     '</div>' +
     
-     '<div class="config_tick_box disabled margin_top_4px" id="feed_text_10">' +	       
+     '<div class="config_text_margin disabled" id="feed_text_10">' +	       
         'File : <input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
     '</div>' +
-	
     
-    
-    
-    
-    
-	
-     '<div class="config_button disabled margin_top_4px" style="width:412px;" id="feed_text_6">' +
+     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
         'Files are read from the \'Audible\' dir in kmotion.' +
     '</div>' +
     
-    '<div class="config_tick_box disabled margin_top_4px" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_7">' +	
         'Schedule : '+ 
-    
 	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
-	
      '</div>' +
      
-     
-     
-     
-     
-     
-     
-     
-     
-     
-    
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
-
-    '<div class="config_button margin_top_4px" id="feed_text_11">' +
+     
+    '<div class="config_text_margin" id="feed_text_11">' +
         '<input type="button" id="feed_apply" OnClick="KM.conf_feed_apply();" value="Apply"> ' +
         'all changes to the local browser configuration and sync with the remote server.' +
     '</div>';
