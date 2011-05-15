@@ -6007,7 +6007,8 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
 
     '<div class="config_text_margin disabled margin_top_4px" id="feed_text_5">' +
-        'Click on the image to edit the motion mask.' +
+        'Click on the image to edit the motion mask, use the buttons for<br>' +
+	'image wide changes.' +
     '</div>' +
 
     //'<div class="divider">' +
@@ -6041,7 +6042,7 @@ KM.conf_feed_html = function (camera) {
     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
         'at : ' +
         '<input type="text" id="feed_fps" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        ' fps, &nbsp;&nbsp;(5 fps recommended)' +
+        ' fps, (5 fps recommended)' +
         //'<input type="text" id="feed_quality" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         //' %, &nbsp;&nbsp;Movie quality : ' +
         //'<input type="text" id="feed_kbs" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
@@ -6072,7 +6073,7 @@ KM.conf_feed_html = function (camera) {
     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
         'of : ' +
         '<input type="text" id="feed_snap" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        ' Seconds (300 Seconds recommended)' +
+        ' Seconds, (300 Seconds recommended)' +
     '</div>' +
 
     '<div class="config_text_margin disabled" id="feed_text_7">' +	
