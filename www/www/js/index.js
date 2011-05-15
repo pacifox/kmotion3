@@ -5928,7 +5928,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
 
     '<div style="float:left; width:190px;" class="config_text">' +
-        '<select id="feed_device" onchange="KM.conf_feed_net_highlight();" disabled style="background-color:lightgreen;">' +
+        '<select id="feed_device" onchange="KM.conf_feed_net_highlight();" disabled>' +
             '<option value="0">/dev/video0</option>' +	
             '<option value="1">/dev/video1</option>' +	
             '<option value="2">/dev/video2</option>' +	
