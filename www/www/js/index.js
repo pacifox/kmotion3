@@ -5901,13 +5901,13 @@ KM.conf_feed_html = function (camera) {
         'Enable camera' + 
     '</div>' +	
     
-    '<div class="config_text_margin" style="width:136px;">' +	
-        '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_PAL();">' +
+    '<div class="config_text_margin disabled" id="feed_text_1" style="width:136px;">' +	
+        '<input type="checkbox" id="feed_pal" onclick="KM.conf_feed_PAL();" disabled>' +
         'PAL' + 	
     '</div>' +	
     
-    '<div class="config_text_margin">' +
-        '<input type="checkbox" id="feed_enabled" onclick="KM.conf_feed_NTSC();">' +
+    '<div class="config_text_margin disabled" id="feed_text_2">' +
+        '<input type="checkbox" id="feed_ntsc" onclick="KM.conf_feed_NTSC();" disabled>' +
         'NTSC' + 	
     '</div>' +
     
@@ -5915,7 +5915,7 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div style="float:left; width:75px;" class="config_text_margin disabled" id="feed_text_1">' +
+    '<div style="float:left; width:75px;" class="config_text_margin disabled" id="feed_text_3">' +
         '<span style="margin-top:4px;">Device&nbsp;:</span><br>' +
         '<div style="margin-top:6px;"></div>' +
         'URL&nbsp;:<br>' +
@@ -5948,10 +5948,10 @@ KM.conf_feed_html = function (camera) {
         '<input type="text" id="feed_url" style="width: 190px; height: 15px; margin-left: 1px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         '<input type="text" id="feed_lgn_name" style="width: 190px; height: 15px; margin-left: 1px; margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         '<input type="text" id="feed_width" size="4" style="margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-        ' px' +
+        '<span id="feed_text_4">&nbsp;px</span>' +
     '</div>' +
 
-    '<div style="float:left; width:100px;" class="config_text_margin disabled" id="feed_text_2">' +
+    '<div style="float:left; width:100px;" class="config_text_margin disabled" id="feed_text_5">' +
         'Input&nbsp;:<br>' +
         '<div style="margin-top:6px;"></div>' +
         'Proxy&nbsp;:<br>' +
@@ -5978,15 +5978,15 @@ KM.conf_feed_html = function (camera) {
     '<input type="text" id="feed_proxy" style="width: 190px; height: 15px; margin-left: 1px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     '<input type="password" id="feed_lgn_pw" style="width: 190px; height: 15px; margin-left: 1px; margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     '<input type="text" id="feed_height" size="4" style="margin-top:4px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-    ' px' +
+    '<span id="feed_text_6">&nbsp;px</span>' +
     '</div>' +
 
     '<div class="config_divider">' +
 	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_text_margin disabled" id="feed_text_3">' +
-        ' Camera name : " ' + camera + ' : ' +
+    '<div class="config_text_margin disabled" id="feed_text_7">' +
+        'Camera name : " ' + camera + ' : ' +
         '<input type="text" id="feed_name" size="15" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' "' +
     '</div>' +
@@ -5995,7 +5995,7 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_tick_margin disabled" id="feed_text_4">' +	
+    '<div class="config_tick_margin disabled" id="feed_text_8">' +	
         '<input type="checkbox" id="feed_box" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable motion highlighting. (Draw box around detected motion)' + 
     '</div>' +
@@ -6004,7 +6004,7 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="585" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_5">' +
+    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_9">' +
         'Click on the image to edit the motion mask, use the buttons for<br>' +
 	'image wide changes.' +
     '</div>' +
@@ -6027,17 +6027,17 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_tick_margin disabled" id="feed_text_8">' +	
+    '<div class="config_tick_margin disabled" id="feed_text_10">' +	
         '<input type="checkbox" id="feed_ffmpeg_enabled" onclick="KM.conf_feed_ffmpeg_selected();" disabled>' +
         'Enable movie mode. Record motion events as a (flash swf) movie. Low bandwidth playback.' +
     '</div>' +
     
-    '<div class="config_tick_margin disabled" id="feed_text_7">' +	
+    '<div class="config_tick_margin disabled" id="feed_text_11">' +	
         '<input type="checkbox" id="feed_frame_enabled" onclick="KM.conf_feed_frame_selected();" disabled>' +
         'Enable frame mode. Record motion events as a series of discrete frames. High bandwidth playback.' +
     '</div>' +
 
-    '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
+    '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_12">' +
         'at : ' +
         '<input type="text" id="feed_fps" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' fps, (5 fps recommended)' +
@@ -6047,9 +6047,9 @@ KM.conf_feed_html = function (camera) {
         //' kbs' +
     '</div>' +
     
-    '<div class="config_text_margin disabled" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled" id="feed_text_13">' +	
         'Schedule : '+ 
-	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	'<select id="feed_sched_motion" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
     '</div>' +
@@ -6063,20 +6063,20 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-    '<div class="config_tick_margin disabled" id="feed_text_10">' +	
+    '<div class="config_tick_margin disabled" id="feed_text_14">' +	
         '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable snapshot mode. Record an image in time lapse mode with a pause between images.' +
      '</div>' +
      
-    '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
+    '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_15">' +
         'of : ' +
         '<input type="text" id="feed_snap" size="4" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' Seconds, (300 Seconds recommended)' +
     '</div>' +
 
-    '<div class="config_text_margin disabled" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled" id="feed_text_16">' +	
         'Schedule : '+ 
-	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	'<select id="feed_sched_snap" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
     '</div>' +
@@ -6085,23 +6085,23 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
 
-     '<div class="config_tick_margin disabled" style="width:444px;" id="feed_text_10">' +	
-        '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
+     '<div class="config_tick_margin disabled" style="width:444px;" id="feed_text_17">' +	
+        '<input type="checkbox" id="feed_email_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable email notification on motion detection.' +
     '</div>' +
     
-     '<div class="config_text_margin disabled" id="feed_text_10">' +	       
+     '<div class="config_text_margin disabled" id="feed_text_18">' +	       
         'Email : ' +	       
-        '<input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+        '<input type="text" id="feed_email_addr" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
     '</div>' +
     
-     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
+     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_19">' +
         '*WARNING* may cause a high volume of emails.' +
     '</div>' +
     
-    '<div class="config_text_margin disabled" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled" id="feed_text_20">' +	
         'Schedule : '+ 
-	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	'<select id="feed_sched_email" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
      '</div>' +
@@ -6110,22 +6110,22 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
      
-     '<div class="config_tick_margin disabled" style="width:459px;" id="feed_text_10">' +	
-        '<input type="checkbox" id="feed_snap_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
+     '<div class="config_tick_margin disabled" style="width:459px;" id="feed_text_21">' +	
+        '<input type="checkbox" id="feed_audio_enabled" onclick="KM.conf_feed_highlight_apply();" disabled>' +
         'Enable audible file to be played on motion detection.' +
     '</div>' +
     
-     '<div class="config_text_margin disabled" id="feed_text_10">' +	       
-        'File : <input type="text" id="feed_name" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
+     '<div class="config_text_margin disabled" id="feed_text_22">' +	       
+        'File : <input type="text" id="feed_audio_file" size="40" onfocus="KM.conf_feed_highlight_apply();" disabled>' +
     '</div>' +
     
-     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_6">' +
+     '<div class="config_text_margin disabled" style="width:412px;" id="feed_text_23">' +
         'Files are read from the \'Audible\' dir in kmotion.' +
     '</div>' +
     
-    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_7">' +	
+    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_24">' +	
         'Schedule : '+ 
-	'<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
+	'<select id="feed_sched_audio" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
 	'</select>' +
      '</div>' +
@@ -6134,7 +6134,7 @@ KM.conf_feed_html = function (camera) {
 	'<embed src="images/config_divider.svg" width="955" height="12" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />' + 
     '</div>' +
      
-    '<div class="config_text_margin" id="feed_text_11">' +
+    '<div class="config_text_margin" id="feed_text_25">' +
         '<input type="button" id="feed_apply" OnClick="KM.conf_feed_apply();" value="Apply"> ' +
         'all changes to the local browser configuration and sync with the remote server.' +
     '</div>';
@@ -6367,16 +6367,23 @@ KM.conf_feed_grey = function () {
     
     KM.session_id.current++; // needed to kill updates
     KM.conf_error_daemon(KM.session_id.current);
-    var ids = ['feed_device', 'feed_input', 'feed_url', 'feed_proxy', 
-    'feed_lgn_name', 'feed_lgn_pw', 'feed_width', 'feed_height', 'feed_name', 
-    'feed_box', 'mask_all', 'mask_invert', 'mask_none', 'feed_fps', 
-    'feed_quality', 'feed_kbs', 'feed_snap_enabled', 'feed_snap', 
-    'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
+    //var ids = ['feed_device', 'feed_input', 'feed_url', 'feed_proxy', 
+    //'feed_lgn_name', 'feed_lgn_pw', 'feed_width', 'feed_height', 'feed_name', 
+    //'feed_box', 'mask_all', 'mask_invert', 'mask_none', 'feed_fps', 
+    //'feed_quality', 'feed_kbs', 'feed_snap_enabled', 'feed_snap', 
+    //'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
 
+    var ids = ['mask_all' , 'mask_invert', 'mask_none', 'feed_pal', 'feed_ntsc', 
+    'feed_device', 'feed_url', 'feed_lgn_name', 'feed_width', 'feed_input',
+    'feed_proxy', 'feed_lgn_pw', 'feed_height', 'feed_name', 'feed_box', 
+    'feed_ffmpeg_enabled', 'feed_frame_enabled', 'feed_snap_enabled', 'feed_fps', 'feed_snap', 'feed_input',
+    'feed_fps', 'feed_sched_motion', 'feed_sched_snap', 'feed_sched_email', 'feed_sched_audio',
+    'feed_email_enabled', 'feed_email_addr', 'feed_audio_enabled', 'feed_audio_file']
+    
     for (var i = 0; i < ids.length; i++) {
         document.getElementById(ids[i]).disabled = true;
     }
-    for (var i = 1; i < 11; i++) {
+    for (var i = 1; i < 25; i++) {
         document.getElementById('feed_text_' + i).style.color = KM.GHOST
     }
     for (var i = 0; i < 255; i++) {
@@ -6396,16 +6403,27 @@ KM.conf_feed_ungrey = function () {
     //
     
     KM.conf_live_feed_daemon(KM.session_id.current, KM.config.camera);
-    var ids = ['feed_device', 'feed_input', 'feed_url', 'feed_proxy', 
-    'feed_lgn_name', 'feed_lgn_pw', 'feed_width', 'feed_height', 'feed_name', 
-    'feed_box', 'mask_all', 'mask_invert', 'mask_none', 'feed_fps', 
-    'feed_quality', 'feed_kbs', 'feed_snap_enabled', 'feed_snap', 
-    'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
+    
+    
+    var ids = ['mask_all' , 'mask_invert', 'mask_none', 'feed_pal', 'feed_ntsc', 
+    'feed_device', 'feed_url', 'feed_lgn_name', 'feed_width', 'feed_input',
+    'feed_proxy', 'feed_lgn_pw', 'feed_height', 'feed_name', 'feed_box', 
+    'feed_ffmpeg_enabled', 'feed_frame_enabled', 'feed_snap_enabled', 'feed_fps',  'feed_snap', 'feed_input',
+    'feed_fps', 'feed_sched_motion', 'feed_sched_snap', 'feed_sched_email', 'feed_sched_audio',
+    'feed_email_enabled', 'feed_email_addr', 'feed_audio_enabled', 'feed_audio_file']
+    
+    
+    
+    //var ids = ['feed_device', 'feed_input', 'feed_url', 'feed_proxy', 
+    //'feed_lgn_name', 'feed_lgn_pw', 'feed_width', 'feed_height', 'feed_name', 
+    //'feed_box', 'mask_all', 'mask_invert', 'mask_none', 'feed_fps', 
+    //'feed_quality', 'feed_kbs', 'feed_snap_enabled', 'feed_snap', 
+    //'feed_frame_enabled', 'feed_ffmpeg_enabled', 'feed_updates'];
 
     for (var i = 0; i < ids.length; i++) {
         document.getElementById(ids[i]).disabled = false;
     }
-    for (var i = 1; i < 11; i++) {
+    for (var i = 1; i < 25; i++) {
         document.getElementById('feed_text_' + i).style.color = KM.DARK_GREY
     }
     KM.conf_feed_net_highlight();
@@ -6430,7 +6448,7 @@ KM.conf_feed_highlight_apply = function () {
     
     document.getElementById('feed_apply').style.fontWeight = 'bold';
     document.getElementById('feed_apply').style.color = KM.BLUE;
-    document.getElementById('feed_text_11').style.color = KM.BLUE;
+    document.getElementById('feed_text_25').style.color = KM.BLUE;
 };
 
 
@@ -6522,7 +6540,7 @@ KM.conf_feed_apply = function () {
     // reset any warning highlight on the apply line
     document.getElementById('feed_apply').style.fontWeight = 'normal';
     document.getElementById('feed_apply').style.color = KM.BLACK;
-    document.getElementById('feed_text_11').style.color = KM.DARK_GREY;
+    document.getElementById('feed_text_25').style.color = KM.DARK_GREY;
 
     KM.conf_config_track.feed_modified(KM.config.camera);
     KM.conf_config_track.sync();
