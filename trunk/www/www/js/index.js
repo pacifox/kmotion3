@@ -29,7 +29,6 @@ KM.YELLOW =    '#FFFF00';
 KM.GREEN =     '#00FF00';
 KM.BLUE =      '#0000FF';
 KM.BLACK =     '#000000';
-KM.BAR =       '#9696FF';
 KM.WHITE =     '#FFFFFF';
 KM.GREY	=      '#C1C1C1';
 KM.DARK_GREY = '#818181';
@@ -5402,10 +5401,25 @@ KM.conf_backdrop_html = function() {
     var height_str = 'height:22px;';
     if (KM.browser.browser_FF) height_str = '';
 
-    document.getElementById('main_display').innerHTML = '' +
-    '<div id="' + title_str + '">' +
-        '<span class="italic">kmotion</span>: Config' +
+	var left_offset = (KM.browser.main_display_width - 955) / 2;
+    
+	// awkward hacks to keep consistant interface across browsers
+	var title_str = 'archive_title_FF';
+	if (KM.browser.browser_OP) title_str = 'archive_title_OP';
+	if (KM.browser.browser_IE) title_str = 'archive_title_IE';
+	
+	document.getElementById('main_display').innerHTML = '' +
+	
+	'<div id="' + title_str + '" style="width: 955px;">' + 
+	    '<span class="italic">kmotion</span>: Config ' +
+	    '<span id="config_clock"> - </span>' +
+	'</div>' +
+    
+    
+    '<div class="config_divider">' +
+        '<img src="images/config_divider_color.png" alt="" >' + 
     '</div>' +
+    
     
     '<div id="config_bar" class="config_bar">' +
 	
@@ -7127,6 +7141,8 @@ KM.conf_error_html = function() {
     // return:
     //
 
+    var TEXT_ALERT = '#FF0000';
+    
     document.getElementById('config_html').innerHTML = '<br>' +
         '<div id="error_text" class="config_error_block">' +
         '</div>'
@@ -7164,7 +7180,9 @@ KM.conf_load_html = function() {
     //
     
     var session_id = KM.session_id.current;
-    var MAX_PX = 750;
+    var MAX_PX    = 955;
+    var BAR_OK    = '#00FF00';
+    var BAR_ALERT = '#FF0000';
 
     document.getElementById('config_html').innerHTML = '<br>' +
 
@@ -7173,7 +7191,7 @@ KM.conf_load_html = function() {
     '</div>' +
 
     '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
     '<div id="load_av_title" class="config_text_center">' +
@@ -7185,7 +7203,7 @@ KM.conf_load_html = function() {
     create_bar('15 min', 3) +
 
     '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
     '<div id="cpu_title" class="config_text_center">' +
@@ -7197,7 +7215,7 @@ KM.conf_load_html = function() {
     create_bar('IO Wait', 6) +
 
     '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
     '<div id="memory_title" class="config_text_center">' +
@@ -7209,7 +7227,7 @@ KM.conf_load_html = function() {
     create_bar('Cached', 9) +
 
     '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
     '<div id="swap_title" class="config_text_center">' +
@@ -7221,8 +7239,8 @@ KM.conf_load_html = function() {
     function create_bar(text, bar_number) {
         if (KM.browser.browser_IE) { // ugly hack as a workaround for IE
             return '' +
-            '<div class="bar_bground margin_top_4px">' +
-                '<div id="bar_fground' + bar_number + '" class="bar_fground">' +
+            '<div class="bar_bground" style="margin-top:9px;">' +
+                '<div id="bar_fground' + bar_number + '" class="bar_fground" style="background-color:' + BAR_OK + ';">' +
                 '</div>' +
                 '<span id="bar_text' + bar_number + '" class="bar_text_IE">' +
                 text +
@@ -7232,13 +7250,13 @@ KM.conf_load_html = function() {
             '</div>';
         } else {
             return '' +
-            '<div class="bar_bground  margin_top_4px">' +
+            '<div class="bar_bground" style="margin-top:9px;">' +
                 '<span id="bar_text' + bar_number + '" class="bar_text">' +
                 text +
                 '</span>' +
                 '<span id="bar_value' + bar_number + '" class="bar_value">' +
                 '</span>' +
-                '<div id="bar_fground' + bar_number + '" class="bar_fground">' +
+                '<div id="bar_fground' + bar_number + '" class="bar_fground" style="background-color:' + BAR_OK + ';">' +
                 '</div>' +
             '</div>';
         }
@@ -7282,9 +7300,9 @@ KM.conf_load_html = function() {
         tmp = Math.min(dbase.l2, 1.5);
         document.getElementById('bar_fground2').style.width = (tmp * (MAX_PX / 1.5)) + 'px';
         if (tmp >= 1) {
-            document.getElementById('bar_fground2').style.backgroundColor = KM.RED;
+            document.getElementById('bar_fground2').style.backgroundColor = BAR_ALERT;
         } else {
-            document.getElementById('bar_fground2').style.backgroundColor = KM.BAR;
+            document.getElementById('bar_fground2').style.backgroundColor = BAR_OK;
         }
     
         // load average 15 min
@@ -7292,9 +7310,9 @@ KM.conf_load_html = function() {
         tmp = Math.min(dbase.l3, 1.5);
         document.getElementById('bar_fground3').style.width = (tmp * (MAX_PX / 1.5)) + 'px';
         if (tmp >= 1) {
-            document.getElementById('bar_fground3').style.backgroundColor = KM.RED;
+            document.getElementById('bar_fground3').style.backgroundColor = BAR_ALERT;
         } else {
-            document.getElementById('bar_fground3').style.backgroundColor = KM.BAR;
+            document.getElementById('bar_fground3').style.backgroundColor = BAR_OK;
         }
     
         // CPU user
@@ -7335,9 +7353,9 @@ KM.conf_load_html = function() {
         tmp = (dbase.su / dbase.st);
         document.getElementById('bar_fground10').style.width = (tmp * MAX_PX) + 'px';
         if (tmp >= 0.1) {
-            document.getElementById('bar_fground10').style.backgroundColor = KM.RED;
+            document.getElementById('bar_fground10').style.backgroundColor = BAR_ALERT;
         } else {
-            document.getElementById('bar_fground10').style.backgroundColor = KM.BAR;
+            document.getElementById('bar_fground10').style.backgroundColor = BAR_OK;
         }
     }
 
