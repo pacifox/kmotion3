@@ -399,8 +399,8 @@ Main display section - CSS specific to 'config' - Server load
 ***************************************************************************** */
 
 #main_display .bar_bground {
-	height: 23px;
-	width: 750px;
+	height: 28px;
+	width: 955px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #818181;
@@ -408,15 +408,14 @@ Main display section - CSS specific to 'config' - Server load
 }
 
 #main_display .bar_fground{
-	height: 23px;
+	height: 28px;
 	width: 0px;
-	background-color: #9696ff;
 	position: relative;
 }
 
 #main_display .bar_value {
 	color: #000000;
-	line-height: 23px;
+	line-height: 28px;
 	font-size: 17px;
 	font-weight: bold;
 	float: left;
@@ -427,7 +426,7 @@ Main display section - CSS specific to 'config' - Server load
 #main_display .bar_text { /* progress bar text in a 75px window to align stats */
 	width: 75px;
 	color: #000000;
-	line-height: 23px;
+	line-height: 28px;
 	font-size: 17px;
 	font-weight: bold;
 	padding-left: 5px;
@@ -439,13 +438,13 @@ Main display section - CSS specific to 'config' - Server load
 #main_display .bar_text_IE { /* IE progress bar text in a 75px window to align stats */
 	width: 75px;
 	color: #000000;
-	line-height: 23px;
+	line-height: 28px;
 	font-size: 17px;
 	font-weight: bold;
 	padding-left: 5px;
 	float: left;
 	position: relative;
-	top: -23px;
+	top: -28px;
 	z-index: 1;
 }
 
@@ -457,8 +456,8 @@ Main display section - CSS specific to 'config' - Server Error
 	color: #818181; 
 	font-size: 17px;
 	font-weight: bold;
-	width: 750px;
-	height: 500px;
+	width: 955px;
+	height: 600px;
 	margin-left: 23px;
 	overflow: auto;
 }
