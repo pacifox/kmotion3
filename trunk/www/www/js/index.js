@@ -5393,27 +5393,19 @@ KM.conf_backdrop_html = function() {
     
     KM.session_id.current++;
     var button_width = 142;
+    
     // awkward hacks to keep consistant interface across browsers
     var title_str = 'title_FF';
     if (KM.browser.browser_OP) title_str = 'title_OP';
     if (KM.browser.browser_IE) title_str = 'title_IE';
-
-    var height_str = 'height:22px;';
-    if (KM.browser.browser_FF) height_str = '';
-
-	var left_offset = (KM.browser.main_display_width - 955) / 2;
+    document.getElementById('main_display').innerHTML = '' +
     
-	// awkward hacks to keep consistant interface across browsers
-	var title_str = 'archive_title_FF';
-	if (KM.browser.browser_OP) title_str = 'archive_title_OP';
-	if (KM.browser.browser_IE) title_str = 'archive_title_IE';
+    '<div id="' + title_str + '" style="width: 955px;">' + 
+	'<span class="italic">kmotion</span>: Config ' +
 	
-	document.getElementById('main_display').innerHTML = '' +
 	
-	'<div id="' + title_str + '" style="width: 955px;">' + 
-	    '<span class="italic">kmotion</span>: Config ' +
-	    '<span id="config_clock"> - </span>' +
-	'</div>' +
+	
+    '</div>' +
     
     
     '<div class="config_divider">' +
@@ -5424,20 +5416,21 @@ KM.conf_backdrop_html = function() {
     '<div id="config_bar" class="config_bar">' +
 	
 	'<input type="button" value="Misc" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px; ' + height_str + '"/>' +
+	'style="width:' + button_width + 'px;"/>' +
 	'<input type="button" value="Cameras" id="ptz_button" onclick="KM.conf_feed_html()" '+ 
-	'style="width:' + button_width + 'px; ' + height_str + '"/>' +
+	'style="width:' + button_width + 'px;"/>' +
 	'<input type="button" value="PTZ" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px; ' + height_str + '"/>' +
+	'style="width:' + button_width + 'px;"/>' +
 	'<input type="button" value="Schedules" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px; ' + height_str + '"/>' +
+	'style="width:' + button_width + 'px;"/>' +
 	'<input type="button" value="Themes" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px; ' + height_str + '"/>' +
+	'style="width:' + button_width + 'px;"/>' +
 	'<input type="button" value="Motion Errors" id="error_button" onclick="KM.conf_select_errors();" ' +
-	'style="width:' + button_width + 'px; ' + height_str +'"/>' +
+	'style="width:' + button_width + 'px;"/>' +
 	'<input type="button" value="Server Load" onclick="KM.conf_select_load();" ' +
-	'style="width:' + button_width + 'px; ' + height_str + '"/>' +
+	'style="width:' + button_width + 'px;"/>' +
     '</div>' +
+    
     '<div class="config_backdrop" id="config_html">' +
     '</div>';
     

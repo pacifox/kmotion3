@@ -213,35 +213,49 @@ Main display section
 	color: #C1C1C1;
 }
 
-#main_display #title_FF { /* firefox top title */
-	padding-top: 4px;
-	letter-spacing: 10px;
-	font-size: 50px;
+/*#main_display #title_FF { /* firefox top title */*/
+	/*padding-top: 4px;*/
+	/*letter-spacing: 10px;*/
+	/*font-size: 50px;*/
+	/*font-weight: bold;*/
+	/*text-align: center;*/
+/*}*/
+
+/*#main_display #title_OP { /* opera top title */*/
+	/*padding-top: 4px;*/
+	/*letter-spacing: 10px;*/
+	/*font-size: 50px;*/
+	/*font-weight: bold;*/
+	/*text-align: center;*/
+/*}*/
+
+/*#main_display #title_IE { /* IE top title */*/
+	/*padding-top: 8px;*/
+	/*letter-spacing: 10px;*/
+	/*font-size: 50px;*/
+	/*font-weight: bold;*/
+	/*text-align: center;*/
+/*}*/
+
+#main_display #title_FF { /* firefox archive title */
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 34px;
 	font-weight: bold;
-	text-align: center;
 }
 
-#main_display #title_OP { /* opera top title */
-	padding-top: 4px;
-	letter-spacing: 10px;
-	font-size: 50px;
+#main_display #title_OP { /* opera archive title */
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 28px;
 	font-weight: bold;
-	text-align: center;
 }
 
-#main_display #title_IE { /* IE top title */
-	padding-top: 8px;
-	letter-spacing: 10px;
-	font-size: 50px;
+#main_display #title_IE { /* IE archive title */
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 34px;
 	font-weight: bold;
-	text-align: center;
-}
-
-#main_display .sub_title { /* sub title that goes with a top title */
-	font-size: 15px;
-	line-height: 30px;
-	font-weight: bold;
-	text-align: center;
 }
 
 #main_display .divider {
@@ -255,42 +269,30 @@ Main display section
 	color: #C1C1C1;
 }
 
-/*#main_display .margin_top_3px {*/
-	/*margin-top: 3px;*/
-/*}*/
-
-/*#main_display .margin_top_4px {*/
-	/*margin-top: 4px;*/
-/*}*/
-
-/*#main_display .margin_top_6px {*/
-	/*margin-top: 6px;*/
-/*}*/
-
 /* *****************************************************************************
 Main display section - CSS specific to 'archive'
 ***************************************************************************** */
 
-#main_display #archive_title_FF { /* firefox archive title */
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 34px;
-	font-weight: bold;
-}
+/*#main_display #archive_title_FF { /* firefox archive title */*/
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	/*font-size: 34px;*/
+	/*font-weight: bold;*/
+/*}*/
 
-#main_display #archive_title_OP { /* opera archive title */
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 28px;
-	font-weight: bold;
-}
+/*#main_display #archive_title_OP { /* opera archive title */*/
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	/*font-size: 28px;*/
+	/*font-weight: bold;*/
+/*}*/
 
-#main_display #archive_title_IE { /* IE archive title */
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 34px;
-	font-weight: bold;
-}
+/*#main_display #archive_title_IE { /* IE archive title */*/
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	/*font-size: 34px;*/
+	/*font-weight: bold;*/
+/*}*/
 
 #main_display #archive_flash_warn {
 	text-align: center;
