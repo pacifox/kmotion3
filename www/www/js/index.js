@@ -2767,15 +2767,10 @@ KM.display_archive_ = function () {
 	var left_offset = (KM.browser.main_display_width - backdrop_width) / 2;
 	var dropdown_width = backdrop_width / 4;
 	var button_width =   backdrop_width / 5;
-    
-	// awkward hacks to keep consistant interface across browsers
-	var title_str = 'archive_title_FF';
-	if (KM.browser.browser_OP) title_str = 'archive_title_OP';
-	if (KM.browser.browser_IE) title_str = 'archive_title_IE';
 	
 	document.getElementById('main_display').innerHTML = '' +
 	
-	'<div id="' + title_str + '" style="width:' + backdrop_width + 'px;">' + 
+	'<div id="title" style="width:' + backdrop_width + 'px;">' + 
 	    '<span class="italic">kmotion</span>: Archive ' +
 	    '<span id="config_clock"> - </span>' +
 	'</div>' +
@@ -5394,24 +5389,15 @@ KM.conf_backdrop_html = function() {
     KM.session_id.current++;
     var button_width = 142;
     
-    // awkward hacks to keep consistant interface across browsers
-    var title_str = 'title_FF';
-    if (KM.browser.browser_OP) title_str = 'title_OP';
-    if (KM.browser.browser_IE) title_str = 'title_IE';
     document.getElementById('main_display').innerHTML = '' +
     
-    '<div id="' + title_str + '" style="width: 955px;">' + 
+    '<div class="title" style="width: 992px;">' + 
 	'<span class="italic">kmotion</span>: Config ' +
-	
-	
-	
     '</div>' +
     
-    
-    '<div class="config_divider">' +
+    '<div class="divider">' +
         '<img src="images/config_divider_color.png" alt="" >' + 
     '</div>' +
-    
     
     '<div id="config_bar" class="config_bar">' +
 	
@@ -7407,13 +7393,9 @@ KM.display_about = function () {
     //
     
     KM.session_id.current++;
-    // awkward hacks to keep consistant interface across browsers
-	var title_str = 'title_FF';
-	if (KM.browser.browser_OP) title_str = 'title_OP';
-	if (KM.browser.browser_IE) title_str = 'title_IE';
-	
+    
     document.getElementById('main_display').innerHTML = '' +
-    '<div id="' + title_str + '">' +
+    '<div class="title">' +
 	'<span class="italic">kmotion</span>: About' +
     '</div>' +
 
