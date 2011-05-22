@@ -213,45 +213,7 @@ Main display section
 	color: #C1C1C1;
 }
 
-/*#main_display #title_FF { /* firefox top title */*/
-	/*padding-top: 4px;*/
-	/*letter-spacing: 10px;*/
-	/*font-size: 50px;*/
-	/*font-weight: bold;*/
-	/*text-align: center;*/
-/*}*/
-
-/*#main_display #title_OP { /* opera top title */*/
-	/*padding-top: 4px;*/
-	/*letter-spacing: 10px;*/
-	/*font-size: 50px;*/
-	/*font-weight: bold;*/
-	/*text-align: center;*/
-/*}*/
-
-/*#main_display #title_IE { /* IE top title */*/
-	/*padding-top: 8px;*/
-	/*letter-spacing: 10px;*/
-	/*font-size: 50px;*/
-	/*font-weight: bold;*/
-	/*text-align: center;*/
-/*}*/
-
-#main_display #title_FF { /* firefox archive title */
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 34px;
-	font-weight: bold;
-}
-
-#main_display #title_OP { /* opera archive title */
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 28px;
-	font-weight: bold;
-}
-
-#main_display #title_IE { /* IE archive title */
+#main_display .title { 
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 34px;
@@ -259,7 +221,7 @@ Main display section
 }
 
 #main_display .divider {
-	font-size: 4px;
+	font-size: 1px;
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
@@ -272,27 +234,6 @@ Main display section
 /* *****************************************************************************
 Main display section - CSS specific to 'archive'
 ***************************************************************************** */
-
-/*#main_display #archive_title_FF { /* firefox archive title */*/
-	/*margin-left: auto;*/
-	/*margin-right: auto;*/
-	/*font-size: 34px;*/
-	/*font-weight: bold;*/
-/*}*/
-
-/*#main_display #archive_title_OP { /* opera archive title */*/
-	/*margin-left: auto;*/
-	/*margin-right: auto;*/
-	/*font-size: 28px;*/
-	/*font-weight: bold;*/
-/*}*/
-
-/*#main_display #archive_title_IE { /* IE archive title */*/
-	/*margin-left: auto;*/
-	/*margin-right: auto;*/
-	/*font-size: 34px;*/
-	/*font-weight: bold;*/
-/*}*/
 
 #main_display #archive_flash_warn {
 	text-align: center;
@@ -354,11 +295,6 @@ Main display section - CSS specific to 'config' - General
 	margin-left: auto;
 	margin-right: auto;
 	background-image: url('./images/backdrop.png');
-}
-
-#main_display .config_divider {
-	font-size: 1px;
-	text-align: center;
 }
 
 #main_display .config_tick_margin { 
