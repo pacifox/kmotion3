@@ -106,7 +106,6 @@ Button bar section
 	color: #C1C1C1;
 	font-size: 37px;
 	font-weight: bold;
-	font-style: italic;
 	text-align: center;
 }
 
@@ -285,16 +284,16 @@ Main display section - CSS specific to 'config' - General
 	margin-left: 20px;
 }
 
-#main_display .config_bar {
-	text-align: center;
-}
-
 #main_display .config_backdrop {
 	width: 992px;
 	height: 640px;
 	margin-left: auto;
 	margin-right: auto;
 	background-image: url('./images/backdrop.png');
+}
+
+#main_display .config_bar {
+	text-align: center;
 }
 
 #main_display .config_tick_margin { 
