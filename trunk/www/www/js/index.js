@@ -5387,7 +5387,7 @@ KM.conf_backdrop_html = function() {
     //
     
     KM.session_id.current++;
-    var button_width = 142;
+    var button_width = 141;
     
     document.getElementById('main_display').innerHTML = '' +
     
@@ -5399,25 +5399,29 @@ KM.conf_backdrop_html = function() {
         '<img src="images/config_divider_color.png" alt="" >' + 
     '</div>' +
     
-    '<div id="config_bar" class="config_bar">' +
+    '<div class="config_backdrop" >' +
+	'<div id="config_bar" class="config_bar" style="margin-top: 20px;">' +
 	
-	'<input type="button" value="Misc" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px;"/>' +
-	'<input type="button" value="Cameras" id="ptz_button" onclick="KM.conf_feed_html()" '+ 
-	'style="width:' + button_width + 'px;"/>' +
-	'<input type="button" value="PTZ" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px;"/>' +
-	'<input type="button" value="Schedules" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px;"/>' +
-	'<input type="button" value="Themes" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
-	'style="width:' + button_width + 'px;"/>' +
-	'<input type="button" value="Motion Errors" id="error_button" onclick="KM.conf_select_errors();" ' +
-	'style="width:' + button_width + 'px;"/>' +
-	'<input type="button" value="Server Load" onclick="KM.conf_select_load();" ' +
-	'style="width:' + button_width + 'px;"/>' +
-    '</div>' +
-    
-    '<div class="config_backdrop" id="config_html">' +
+	    '<input type="button" value="Misc" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    'style="width:' + button_width + 'px;"/>' +
+	    '<input type="button" value="Cameras" id="ptz_button" onclick="KM.conf_feed_html()" '+ 
+	    'style="width:' + button_width + 'px;"/>' +
+	    '<input type="button" value="PTZ" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    'style="width:' + button_width + 'px;"/>' +
+	    '<input type="button" value="Schedules" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    'style="width:' + button_width + 'px;"/>' +
+	    '<input type="button" value="Themes" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    'style="width:' + button_width + 'px;"/>' +
+	    '<input type="button" value="Motion Errors" id="error_button" onclick="KM.conf_select_errors();" ' +
+	    'style="width:' + button_width + 'px;"/>' +
+	    '<input type="button" value="Server Load" onclick="KM.conf_select_load();" ' +
+	    'style="width:' + button_width + 'px;"/>' +
+	    
+	'</div>' +
+	
+	'<div id="config_html">' +
+	'</div>' +
+	
     '</div>';
     
     
