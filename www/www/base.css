@@ -286,7 +286,7 @@ Main display section - CSS specific to 'config' - General
 
 #main_display .config_backdrop {
 	width: 992px;
-	height: 640px;
+	height: 680px;
 	margin-left: auto;
 	margin-right: auto;
 	background-image: url('./images/backdrop.png');
