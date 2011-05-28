@@ -5389,10 +5389,13 @@ KM.conf_backdrop_html = function() {
     KM.session_id.current++;
     var button_width = 141;
     
+    document.body.style.backgroundImage = 'url(images/red.png)';
+    
     document.getElementById('main_display').innerHTML = '' +
     
     '<div class="title" style="width: 992px;">' + 
-	'<span class="italic">kmotion</span>: Config ' +
+	'kmotion config : ' +
+	'<span id="update"></span>' +
     '</div>' +
     
     '<div class="divider">' +
@@ -5400,7 +5403,7 @@ KM.conf_backdrop_html = function() {
     '</div>' +
     
     '<div class="config_backdrop" >' +
-	'<div id="config_bar" class="config_bar" style="margin-top: 20px;">' +
+	'<div id="config_bar" class="config_bar" >' +
 	
 	    '<input type="button" value="Misc" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
 	    'style="width:' + button_width + 'px;"/>' +
@@ -5424,9 +5427,22 @@ KM.conf_backdrop_html = function() {
 	
     '</div>';
     
-    
-    
-    
+    if (KM.www_rc.version_latest === 'failed_parse') {
+        document.getElementById('update').innerHTML = 'Connecting to update server ...';
+        document.getElementById('update').style.color = KM.YELLOW;
+	
+    } else if (KM.www_rc.version_latest === 'SVN') {
+        document.getElementById('update').innerHTML = 'SVN update for latest build.';
+        document.getElementById('update').style.color = KM.RED;
+	
+    } else if (KM.www_rc.version === KM.www_rc.version_latest) {
+        document.getElementById('update').innerHTML = 'No updates avaliable.';
+        document.getElementById('update').style.color = KM.GREY;
+	
+    } else {
+        document.getElementById('update').innerHTML = 'Version ' + KM.www_rc.version_latest + ' is now avaliable.';
+        document.getElementById('update').style.color = KM.RED;
+    }
     
     
     
