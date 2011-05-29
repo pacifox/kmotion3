@@ -5389,8 +5389,7 @@ KM.conf_backdrop_html = function() {
     KM.session_id.current++;
     var button_width = 141;
     
-    document.body.style.backgroundImage = 'url(images/red.png)';
-    
+    document.body.style.backgroundColor = KM.WHITE;
     document.getElementById('main_display').innerHTML = '' +
     
     '<div class="title" style="width: 992px;">' + 
@@ -5403,17 +5402,17 @@ KM.conf_backdrop_html = function() {
     '</div>' +
     
     '<div class="config_backdrop" >' +
-	'<div id="config_bar" class="config_bar" >' +
+	'<div id="config_bar" class="config_button_bar" style="padding-top:1px;" >' +
 	
-	    '<input type="button" value="Misc" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    '<input type="button" value="Misc" id="ptz_button" onclick="KM.conf_misc_html()" '+ 
 	    'style="width:' + button_width + 'px;"/>' +
 	    '<input type="button" value="Cameras" id="ptz_button" onclick="KM.conf_feed_html()" '+ 
 	    'style="width:' + button_width + 'px;"/>' +
-	    '<input type="button" value="PTZ" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    '<input type="button" value="PTZ" id="ptz_button" onclick="KM.conf_ptz_html()" '+ 
 	    'style="width:' + button_width + 'px;"/>' +
-	    '<input type="button" value="Schedules" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    '<input type="button" value="Schedules" id="ptz_button" onclick="KM.conf_schedule_html()" '+ 
 	    'style="width:' + button_width + 'px;"/>' +
-	    '<input type="button" value="Themes" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+	    '<input type="button" value="Themes" id="ptz_button" onclick="KM.conf_theme_html()" '+ 
 	    'style="width:' + button_width + 'px;"/>' +
 	    '<input type="button" value="Motion Errors" id="error_button" onclick="KM.conf_select_errors();" ' +
 	    'style="width:' + button_width + 'px;"/>' +
@@ -5477,7 +5476,7 @@ KM.conf_backdrop_html = function() {
                 //'<option>Camera 15</option>' +
                 //'<option>Camera 16</option>' +	
             //'</select>' +
-            //'<input type="button" value="PT(Z)" id="ptz_button" onclick="KM.conf_select_ptz()" '+ 
+            //'<input type="button" value="PT(Z)" id="ptz_button" onclick="KM.conf_ptz_html()" '+ 
             //'style="width:' + button_width + 'px; ' + height_str + '" disabled />' +
             //'<input type="button" value="Motion Errors" id="error_button" onclick="KM.conf_select_errors();" ' +
             //'style="width:' + button_width + 'px; ' + height_str +'" disabled/>' +
@@ -5528,28 +5527,28 @@ KM.conf_disable_error_button = function () {
 };
 
 
-KM.conf_select_config = function() {
+//KM.conf_select_config = function() {
 
-    // A function that is executed when config 'misc' or 'camera' is selected
-    //
-    // expects:
-    //
-    // return:
-    //
+    //// A function that is executed when config 'misc' or 'camera' is selected
+    ////
+    //// expects:
+    ////
+    //// return:
+    ////
     
-    KM.session_id.current++;
-    KM.conf_error_daemon(KM.session_id.current);
-    KM.config.camera = document.getElementById('config_select').selectedIndex;
-    document.getElementById('ptz_button').disabled = true;
-    if (KM.config.camera === 0) {
-	KM.conf_misc_html();
-    } else {
-	KM.conf_feed_html(KM.config.camera);
-    }
-};
+    //KM.session_id.current++;
+    //KM.conf_error_daemon(KM.session_id.current);
+    //KM.config.camera = document.getElementById('config_select').selectedIndex;
+    //document.getElementById('ptz_button').disabled = true;
+    //if (KM.config.camera === 0) {
+	//KM.conf_misc_html();
+    //} else {
+	//KM.conf_feed_html(KM.config.camera);
+    //}
+//};
 
 
-KM.conf_select_ptz = function() {
+KM.conf_ptz = function() {
 
     // A function that is executed when the 'ptz' button is clicked
     //
@@ -5619,38 +5618,30 @@ KM.conf_misc_html = function() {
     
     document.getElementById('config_html').innerHTML = '<br>' +
 
-    '<div class="config_button">' +
-        'Auto software check : ' + 
-        '<span id="misc_version"></span>' +
-    '</div>' +
-    
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
-    '</div>' +
-    
-    '<div class="config_tick_box margin_top_4px">' +	
+    '<div class="config_tick_margin">' +	
         '<input type="checkbox" id="misc_inter" onClick ="KM.conf_misc_highlight_apply();">' +
         'Interleave mode. Gives preference to cameras where motion has been detected.' + 
     '</div><br>' +
 
-    '<div class="config_tick_box">' +	
+    '<div class="config_tick_margin">' +	
         '<input type="checkbox" id="misc_full" onClick ="KM.conf_misc_force_inter();">' +
         'Full screen mode. Changes to full screen mode when motion has been detected.' + 
     '</div><br>' +
 
-    '<div class="config_tick_box">' +	
+    '<div class="config_tick_margin">' +	
         '<input type="checkbox" id="misc_low_bw" onClick ="KM.conf_misc_force_inter();">' +
         'Low bandwidth mode. Update \'no motion\' cameras every 15 mins.' + 
     '</div><br>' +
 
-    '<div class="config_tick_box">' +	
+    '<div class="config_tick_margin">' +	
         '<input type="checkbox" id="misc_low_cpu" onClick ="KM.conf_misc_highlight_apply();">' +
         'Low CPU mode. Reduce browser CPU usage by capping update frequency.' + 
     '</div><br>' +
     
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
+
 
     '<div style="float:left; width:45%;">' +
         '<div class="margin_top_4px">' +
@@ -5757,23 +5748,6 @@ KM.conf_misc_html = function() {
     document.getElementById('misc_about').checked = KM.www_rc.about_button_enabled;
     document.getElementById('misc_logout').checked = KM.www_rc.logout_button_enabled;
     document.getElementById('misc_secure').checked = KM.www_rc.secure;
-
-    if (KM.www_rc.version_latest === 'failed_parse') {
-        document.getElementById('misc_version').innerHTML = 'CONNECTING TO UPDATE SERVER ...';
-        document.getElementById('misc_version').style.color = KM.YELLOW;
-	
-    } else if (KM.www_rc.version_latest === 'SVN') {
-        document.getElementById('misc_version').innerHTML = 'SVN VERSION - SVN UPDATE FOR LATEST BUILD';
-        document.getElementById('misc_version').style.color = KM.RED;
-	
-    } else if (KM.www_rc.version === KM.www_rc.version_latest) {
-        document.getElementById('misc_version').innerHTML = 'NO UPDATES AVALIABLE.';
-        //document.getElementById('misc_version').style.color = KM.GREY;
-	
-    } else {
-        document.getElementById('misc_version').innerHTML = 'VERSION ' + KM.www_rc.version_latest + ' IS NOW AVALIABLE FOR DOWNLOAD.';
-        document.getElementById('misc_version').style.color = KM.RED;
-    }
 };
 
 
@@ -5936,7 +5910,7 @@ KM.conf_feed_html = function (camera) {
     html_str += '<br>' +
     
     '<div style="float:left; width:370px;">' +
-        '<div class="margin_left_20px">' + 
+        '<div class="config_margin_left_20px">' + 
             '<img id="image" ' +
             'style="width: ' + image_width + 'px; height: ' + image_height + 
             'px;" src="images/gcam.png" alt=""> ' +
@@ -6081,8 +6055,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
 
     '<div class="config_text_margin disabled margin_top_4px" id="feed_text_9">' +
-        'Click on the image to edit the motion mask, use the buttons for<br>' +
-	'image wide changes.' +
+        'Click on the image or buttons to edit the motion mask.' +
     '</div>' +
 
     '<div class="config_divider">' +
@@ -6676,7 +6649,7 @@ KM.conf_ptz_html = function() {
     var html_str = '<br>' +
 
     '<div style="float:left; width:360px;">' +
-        '<div class="margin_left_20px">' + 
+        '<div class="config_margin_left_20px">' + 
             '<img id="image" ' +
             'style="width: ' + image_width + 'px; height: ' + image_height + 
             'px;" src="images/gcam.png" alt=""> ' +
@@ -7122,6 +7095,26 @@ KM.conf_ptz_apply = function () {
 
 
 /* **************************************************************************** 
+Config display - Schedules config screen
+
+Displays and processes the schedules config screen
+**************************************************************************** */
+
+KM.conf_schedule_html = function() {
+    document.getElementById('config_html').innerHTML = 'STUB CODE' 
+}
+
+/* **************************************************************************** 
+Config display - Themes config screen
+
+Displays and processes the themes config screen
+**************************************************************************** */
+
+KM.conf_theme_html = function() {
+    document.getElementById('config_html').innerHTML = 'STUB CODE' 
+}
+
+/* **************************************************************************** 
 Config display - motion error screen
 
 Displays the motion error code
@@ -7140,8 +7133,6 @@ KM.conf_error_html = function() {
     // return:
     //
 
-    var TEXT_ALERT = '#FF0000';
-    
     document.getElementById('config_html').innerHTML = '<br>' +
         '<div id="error_text" class="config_error_block">' +
         '</div>'
@@ -7564,7 +7555,7 @@ KM.init2 = function (data) {
 	// returns :
 	//
 	
-        KM.background_button_clicked(KM.www_rc.color_select);
+        //////////////////////////////////////////////////////////KM.background_button_clicked(KM.www_rc.color_select);
         KM.enable_display_buttons(KM.www_rc.display_select);
         KM.enable_camera_buttons();
 	
