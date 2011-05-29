@@ -336,6 +336,17 @@ Main display section - CSS specific to 'config' - General
 }
 
 /* *****************************************************************************
+Main display section - CSS specific to 'config' - Misc
+***************************************************************************** */
+
+#main_display .config_group_margin { 
+	color: #818181; 
+	font-size: 17px;
+	font-weight: bold;
+	margin-left: 16px;
+}
+
+/* *****************************************************************************
 Main display section - CSS specific to 'config' - Server load
 ***************************************************************************** */
 
