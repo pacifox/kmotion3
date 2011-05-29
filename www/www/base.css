@@ -280,19 +280,23 @@ Main display section - CSS specific to 'archive'
 Main display section - CSS specific to 'config' - General
 ***************************************************************************** */
 
-#main_display .margin_left_20px {
-	margin-left: 20px;
-}
-
 #main_display .config_backdrop {
 	width: 992px;
 	height: 680px;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url('./images/backdrop.png');
+	background-image: url('./images/config_backdrop.png');
 }
 
-#main_display .config_bar {
+#main_display .config_margin_left_20px {
+	margin-left: 20px;
+}
+
+#main_display .config_button_bar {
+	text-align: center;
+}
+
+#main_display .config_divider{
 	text-align: center;
 }
 
