@@ -5642,88 +5642,97 @@ KM.conf_misc_html = function() {
         '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
-
     '<div style="float:left; width:45%;">' +
-        '<div class="margin_top_4px">' +
-	    '<div class="config_tick_box">' +	
+        '<div>' +
+	    '<div class="config_group_margin">' +	
 		'<input type="checkbox" id="misc_live" checked disabled>' +
 		'Live button enabled.' + 
-	    '</div><br>' +
+	    '</div>' +
     
-	    '<div class="config_tick_box">' +	
+	    '<div class="config_group_margin">' +	
 		'<input type="checkbox" id="misc_logs" onClick ="KM.conf_misc_highlight_apply();">' +
 		'Logs button enabled.' + 
-	    '</div><br>' +
+	    '</div>' +
 	
-	    '<div class="config_tick_box">' +	
+	    '<div class="config_group_margin">' +	
 		'<input type="checkbox" id="misc_func" onClick ="KM.conf_misc_highlight_apply();">' +
 		'Func button enabled.' + 
-	    '</div><br>'+
+	    '</div>'+
+	    
+	    '<div class="config_group_margin">' +	
+		'<input type="checkbox" id="misc_aboutxx" onClick ="KM.conf_misc_highlight_apply();">' +
+		'Panic button enabled.' + 
+	    '</div>' +
 	
-	    '<div class="config_tick_box">' +	
+	    '<div class="config_group_margin">' +	
 		'<input type="checkbox" id="misc_msg" onClick ="KM.conf_misc_highlight_apply();">' +
 		'Msg button enabled.' + 
 	    '</div>' +
 	'</div>' +
     '</div>' +
 
-    '<div class="margin_top_4px">' +
-        '<div class="config_tick_box">' +	
+    '<div>' +
+        '<div class="config_group_margin">' +	
             '<input type="checkbox" id="misc_archive" onClick ="KM.conf_misc_highlight_apply();">' +
             'Archive button enabled.' + 
-        '</div><br>'+
+        '</div>'+
 
-	'<div class="config_tick_box">' +	
+	'<div class="config_group_margin">' +	
 	    '<input type="checkbox" id="misc_config" onClick ="KM.conf_misc_highlight_apply();">' +
 	    'Config button enabled.' + 
-	'</div><br>' +
+	'</div>' +
 	
-	'<div class="config_tick_box">' +	
+	'<div class="config_group_margin">' +	
 	    '<input type="checkbox" id="misc_about" onClick ="KM.conf_misc_highlight_apply();">' +
-	    'About button enabled.&nbsp;' + 
-	'</div><br>' +
+	    'About button enabled.' + 
+	'</div>' +
 	
-	'<div class="config_tick_box">' +	
+	'<div class="config_group_margin">' +	
+	    '<input type="checkbox" id="misc_aboutxx" onClick ="KM.conf_misc_highlight_apply();">' +
+	    'Audible button enabled.' + 
+	'</div>' +
+	
+	'<div class="config_group_margin">' +	
 	    '<input type="checkbox" id="misc_logout" onClick ="KM.conf_misc_highlight_apply();">' +
 	    'Logout button enabled.' + 
 	'</div>' +
     '</div>' +
     
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_tick_box margin_top_4px">' +	
+    '<div class="config_tick_margin">' +	
         '<input type="checkbox" id="misc_skip_frames" onClick ="KM.conf_misc_highlight_apply();">' +
         'Enable archive playback acceleration by skipping frames. (may miss events)' + 
     '</div><br>' +
 
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_tick_box margin_top_4px">' +	
+    '<div class="config_tick_margin">' +	
         '<input type="checkbox" id="misc_save" onClick ="KM.conf_misc_save_display();">' +
-        'Save the current \'Display Select\' configuration and current style as defaults.' + 
+        'Save the current \'Display Select\' configuration as default.' + 
     '</div><br>' +
 
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
-
-    '<div class="config_tick_box margin_top_4px">' +	
+    
+    '<div class="config_tick_margin">' +	
         '<input type="checkbox" id="misc_secure" onClick ="KM.conf_misc_highlight_apply();">' +
         'Enable security login screen. ' + 
         'New password : ' +
-        '<input type="password" id="misc_pw" size="20" >&nbsp;' +
+        '<input type="password" id="misc_pw" size="40" >&nbsp;' +
         '<input type="button" onclick="KM.conf_misc_save_pw();" value="Submit"> ' +	
     '</div>' +
 
-    '<div class="divider">' +
-        '<img src="images/config_divider_xl.png" alt="" >' + 
+    '<div class="config_divider">' +
+        '<img src="images/config_divider_large.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_button margin_top_4px" id="conf_text">' +
+    '<div class="config_text_margin" id="conf_text" style="margin-top:233px;">' +
         '<input type="button" id="conf_apply" OnClick="KM.conf_misc_apply();" value="Apply"> ' +
         'all changes to the local browser configuration and sync with the remote server.' +
     '</div>';
@@ -6012,7 +6021,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
 
     // 'float:left' here to enable pixel perfect alignment; aka a bodge !
-    '<div style="float:left; width:100px;" class="config_text_basic margin_top_4px">' +
+    '<div style="float:left; width:100px;" class="config_text_basic">' +
 
     '<select id="feed_input" onchange="KM.conf_feed_highlight_apply();" disabled>' +
         '<option value="0">0</option>' +	
@@ -6054,7 +6063,7 @@ KM.conf_feed_html = function (camera) {
         '<img src="images/config_divider_small.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_9">' +
+    '<div class="config_text_margin disabled" id="feed_text_9">' +
         'Click on the image or buttons to edit the motion mask.' +
     '</div>' +
 
@@ -6151,7 +6160,7 @@ KM.conf_feed_html = function (camera) {
         'Files are read from the \'Audible\' dir in kmotion.' +
     '</div>' +
     
-    '<div class="config_text_margin disabled margin_top_4px" id="feed_text_24">' +	
+    '<div class="config_text_margin disabled" id="feed_text_24">' +	
         'Schedule : '+ 
 	'<select id="feed_sched_audio" onchange="KM.conf_feed_highlight_apply();" disabled>' +
 	    '<option value="0">None</option>' +
@@ -6673,7 +6682,7 @@ KM.conf_ptz_html = function() {
         '<img src="images/config_divider.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_button disabled margin_top_4px" id="ptz_text_1">' +
+    '<div class="config_button disabled" id="ptz_text_1">' +
         'Driver : ' +
         '<select id="ptz_track" onchange="KM.conf_ptz_highlight_apply();" disabled>' +
             '<option value="1">1: stepper (motion tracking project)' +
@@ -6697,17 +6706,17 @@ KM.conf_ptz_html = function() {
         '<img src="images/config_divider.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_tick_box disabled margin_top_4px" id="ptz_text_2">' +	
+    '<div class="config_tick_box disabled" id="ptz_text_2">' +	
         '<input type="checkbox" id="ptz_calib_first" onclick="KM.conf_ptz_highlight_apply();" disabled>' +
         'Auto recalibrate. (Causes addition pan / tilting)' + 
     '</div>' +
 
-    '<div style="float:left; width:120px;" class="config_button disabled margin_top_4px" id="ptz_text_3">' +
+    '<div style="float:left; width:120px;" class="config_button disabled" id="ptz_text_3">' +
         'Steps Click X :<br>' +
         'Button Delay :<br>' +
     '</div>' +
 
-    '<div class="margin_top_4px">' +
+    '<div >' +
         '<input type="text" id="ptz_step_x" size="3" onfocus="KM.conf_ptz_highlight_apply();" disabled>&nbsp;' + 
         '<span class="config_text_basic disabled" id="ptz_text_4">' +
             '&nbsp;&nbsp;&nbsp;Steps Click Y :&nbsp;&nbsp;' + 
@@ -6720,7 +6729,7 @@ KM.conf_ptz_html = function() {
         '<img src="images/config_divider.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_button disabled margin_top_4px" id="ptz_text_5">' +
+    '<div class="config_button disabled" id="ptz_text_5">' +
         'Always ' +
         '<input type="button" id="ptz_calib" \
         OnClick="KM.conf_ptz_calibrate();" value="Calibrate PT(Z) to X0:Y0" disabled> ' +
@@ -6733,12 +6742,12 @@ KM.conf_ptz_html = function() {
         '<img src="images/config_divider_xl.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_tick_box disabled margin_top_4px" id="ptz_text_6">' +	
+    '<div class="config_tick_box disabled" id="ptz_text_6">' +	
         '<input type="checkbox" id="ptz_park_enabled" onclick="KM.conf_ptz_highlight_apply();" disabled>' +
         'Enable auto park. Moves the camera to a set position if no activity for a preset time.' + 
     '</div>' +
 
-    '<div class="config_button disabled margin_top_4px" id="ptz_text_7">' +
+    '<div class="config_button disabled" id="ptz_text_7">' +
         '<input type="button" id="ptz_park_1" OnClick="KM.conf_ptz_set_park();" value="Set Position" disabled>' +
         '<input type="button" id="ptz_park_2" OnClick="KM.conf_ptz_test_park();" value="Test" disabled>' +
         ' Auto park seconds : ' +
@@ -6749,7 +6758,7 @@ KM.conf_ptz_html = function() {
         '<img src="images/config_divider_xl.png" alt="" >' + 
     '</div>' +
 
-    '<div class="margin_top_4px">' + 
+    '<div >' + 
         '<div class="config_button disabled" id="ptz_text_8">' +
             '<input type="button" id="ptz_preset_1" OnClick="KM.conf_ptz_set_preset(1);" value="Set Position" disabled>' +
             '<input type="button" id="ptz_preset_2" OnClick="KM.conf_ptz_test_preset(1);" value="Test" disabled>' +
@@ -6779,7 +6788,7 @@ KM.conf_ptz_html = function() {
         '<img src="images/config_divider_xl.png" alt="" >' + 
     '</div>' +
 
-    '<div class="config_button margin_top_4px" id="ptz_text_12">' +
+    '<div class="config_button" id="ptz_text_12">' +
         '<input type="button" id="ptz_apply" OnClick="KM.conf_ptz_apply();" value="Apply"> ' +
         'all changes to the local browser configuration and sync with the remote server.' +	
     '</div>';
