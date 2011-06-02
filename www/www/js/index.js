@@ -162,6 +162,8 @@ KM.www_rc = {
     config_button_enabled:  true,
     func_button_enabled:    true,
     msg_button_enabled:     true,
+    panic_button_enabled:   true, 
+    audible_button_enabled: true,
     about_button_enabled:   true,
     logout_button_enabled:  true,
 
@@ -1010,7 +1012,8 @@ KM.enable_function_buttons = function (button) {
     
     var buttons = ['pad', 'pad', 'archive_button_enabled', 
     'logs_button_enabled', 'config_button_enabled', 'func_button_enabled', 
-    'about_button_enabled', 'msg_button_enabled', 'logout_button_enabled'];
+    'msg_button_enabled', 'panic_button_enabled', 'audible_button_enabled', 
+    'about_button_enabled',  'logout_button_enabled'];
 
     for (var i = 1; i < buttons.length; i++) {
         if (KM.www_rc[buttons[i]] || i === 1) {
@@ -1179,21 +1182,36 @@ KM.function_button_clicked = function (button) {
 	    KM.disable_ptz_buttons();
 	    break;
     
-	case 6: // 'about button'
+	case 6: // 'msg button'	
+	    KM.disable_display_buttons();
+	    KM.disable_camera_buttons();
+	    KM.disable_ptz_buttons();
+	    KM.display_msg();
+	    break;
+    
+	case 7: // 'panic button'
 	    KM.disable_display_buttons();
 	    KM.disable_camera_buttons();
 	    KM.disable_ptz_buttons();
 	    KM.display_about();
 	    break;
     
-	case 7: // 'msg button'	
+	    
+	case 8: // 'Audible button'
 	    KM.disable_display_buttons();
 	    KM.disable_camera_buttons();
 	    KM.disable_ptz_buttons();
-		KM.display_msg();
+	    KM.display_about();
 	    break;
     
-	case 8: // 'logout button'
+	case 9: // 'about button'
+	    KM.disable_display_buttons();
+	    KM.disable_camera_buttons();
+	    KM.disable_ptz_buttons();
+	    KM.display_about();
+	    break;
+    
+	case 10: // 'logout button'
 	    KM.disable_display_buttons();
 	    KM.disable_camera_buttons();
 	    KM.disable_ptz_buttons();
@@ -1219,7 +1237,8 @@ KM.function_button_valid = function (button) {
     
     var buttons = ['pad', 'pad', 'archive_button_enabled',
         'logs_button_enabled', 'pad', 'func_button_enabled', 
-        'about_button_enabled', 'msg_button_enabled', 'logout_button_enabled'];
+        'msg_button_enabled', 'panic_button_enabled', 'audible_button_enabled', 
+	'about_button_enabled',  'logout_button_enabled'];
     return (button < 2 || button === 4 || KM.www_rc[buttons[button]]);
 };
 
@@ -4891,17 +4910,14 @@ KM.display_logs = function () {
     KM.session_id.current++;
     var session_id = KM.session_id.current;
     
-    // awkward hacks to keep consistant interface across browsers
-    var title_str = 'title_FF';
-    if (KM.browser.browser_OP) title_str = 'title_OP';
-    if (KM.browser.browser_IE) title_str = 'title_IE';
-    
     document.getElementById('main_display').innerHTML = '' +
-    '<div id="' + title_str + '">' +
-        '<span class="italic">kmotion</span>: Logs' +
+    
+    '<div class="title" style="width: 992px;">' + 
+	'kmotion Logs' +
     '</div>' +
+    
     '<div class="divider">' +
-        '<img src="images/divider_xl.png" alt="" />' + 
+        '<img src="images/config_divider_color.png" alt="" >' + 
     '</div>' +
     
     '<div class="logs_backdrop" id="logs_html">' +
