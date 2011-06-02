@@ -424,14 +424,14 @@ Main display section - CSS specific to 'logs', 'about' and 'msg'
 	margin-right: auto;
 	font-size: 17px;
 	font-weight: bold;
-	width: 750px;
+	width: 992px;
 }
 
 #main_display .logs_backdrop {
 	color: #818181; 
 	font-size: 17px;
 	font-weight: bold;
-	width: 750px;
+	width: 992px;
 	margin-top: 18px;
 	margin-left: auto;
 	margin-right: auto;
