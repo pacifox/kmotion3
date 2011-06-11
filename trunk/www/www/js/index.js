@@ -110,12 +110,8 @@ KM.www_rc = {
     false, false, false, false, false, false, false, false, false],
     feed_movie_enabled: ['pad', false, false, false, false, false, false, false, 
     false, false, false, false, false, false, false, false, false],
-    feed_updates: ['pad', false, false, false, false, false, false, false, 
-    false, false, false, false, false, false, false, false, false],
     feed_snap_interval:  ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     feed_fps:     ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    feed_quality: ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    feed_kbs:     ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 
     // PTZ misc config
     ptz_enabled: ['pad', false, false, false, false, false, false, false, false, 
@@ -482,12 +478,6 @@ KM.load_settings = function (callback) {
 		case 'ffp': // feed fps
 		    KM.www_rc.feed_fps[index] = parseInt(value, 10);
 		    break;
-		case 'fqu': // feed quality
-		    KM.www_rc.feed_quality[index] = parseInt(value, 10);
-		    break;
-		case 'fkb': // feed kbs
-		    KM.www_rc.feed_kbs[index] = parseInt(value, 10);
-		    break;
 		case 'fpe': // feed snap enabled
 		    KM.www_rc.feed_snap_enabled[index] = (parseInt(value, 10) === 1);
 		    break;
@@ -499,9 +489,6 @@ KM.load_settings = function (callback) {
 		    break;
 		case 'fme': // feed ffmpeg enabled	
 		    KM.www_rc.feed_movie_enabled[index] = (parseInt(value, 10) === 1);
-		    break;
-		case 'fup': // feed updates
-		    KM.www_rc.feed_updates[index] = (parseInt(value, 10) === 1);
 		    break;
 	    
 		case 'psx': // ptz step x
@@ -5951,7 +5938,6 @@ KM.conf_feed_html = function (camera) {
     
      '<div style="width:140px;" class="config_text_margin">' +
         '<select id="feed_camera" onchange="KM.conf_feed_net_highlight();" disabled>' +
-            '<option value="0">Camera 0</option>' +	
             '<option value="1">Camera 1</option>' +	
             '<option value="2">Camera 2</option>' +	
             '<option value="3">Camera 3</option>' +	
@@ -6229,13 +6215,10 @@ KM.conf_feed_html = function (camera) {
     document.getElementById('feed_name').value = KM.www_rc.feed_name[KM.config.camera];
     document.getElementById('feed_box').checked = KM.www_rc.feed_show_box[KM.config.camera];
     document.getElementById('feed_fps').value = KM.www_rc.feed_fps[KM.config.camera];
-    document.getElementById('feed_quality').value = KM.www_rc.feed_quality[KM.config.camera];
-    document.getElementById('feed_kbs').value = KM.www_rc.feed_kbs[KM.config.camera];
     document.getElementById('feed_snap_enabled').checked = KM.www_rc.feed_snap_enabled[KM.config.camera];	
     document.getElementById('feed_snap').value = KM.www_rc.feed_snap_interval[KM.config.camera];
     document.getElementById('feed_frame_enabled').checked = KM.www_rc.feed_smovie_enabled[KM.config.camera];
     document.getElementById('feed_ffmpeg_enabled').checked = KM.www_rc.feed_movie_enabled[KM.config.camera];
-    document.getElementById('feed_updates').checked = KM.www_rc.feed_updates[KM.config.camera];
     
     // reposition the masks
     var origin_y = document.getElementById('image').offsetTop;
@@ -6550,20 +6533,6 @@ KM.conf_feed_apply = function () {
     KM.www_rc.feed_fps[KM.config.camera] = fps;
     // feed value back to gui in case parseInt changes it
     document.getElementById('feed_fps').value = fps;
-
-    var quality = parseInt(document.getElementById('feed_quality').value, 10);
-    if (isNaN(quality)) quality = 10;
-    quality = Math.max(10, quality);
-    quality = Math.min(100, quality);
-    KM.www_rc.feed_quality[KM.config.camera] = quality;
-    // feed value back to gui in case parseInt changes it
-    document.getElementById('feed_quality').value = quality;
-
-    var kbs = parseInt(document.getElementById('feed_kbs').value, 10);
-    if (isNaN(kbs)) kbs = 0;
-    KM.www_rc.feed_kbs[KM.config.camera] = kbs;
-    // feed value back to gui in case parseInt changes it
-    document.getElementById('feed_kbs').value = kbs;
 
     var snap = parseInt(document.getElementById('feed_snap').value, 10);
     if (isNaN(snap)) snap = 0;

@@ -64,8 +64,6 @@ def main():
     fna ... feed name
     fbo ... feed show box
     ffp ... feed fps
-    fqu ... feed quality
-    fkb ... feed kbs
     fpe ... feed snap enabled
     fsn ... feed snap interval
     ffe ... feed smovie enabled
@@ -208,10 +206,6 @@ def main():
                 parser.set('motion_feed%02i' % index, 'feed_show_box', num_bool(value))
             elif key == 'ffp': # feed fps
                 parser.set('motion_feed%02i' % index, 'feed_fps', value)
-            elif key == 'fqu': # feed quality
-                parser.set('motion_feed%02i' % index, 'feed_quality', value)
-            elif key == 'fkb': # feed kbs
-                parser.set('motion_feed%02i' % index, 'feed_kbs', value)
             elif key == 'fpe': # feed snap enabled
                 parser.set('motion_feed%02i' % index, 'feed_snap_enabled', num_bool(value))
             elif key == 'fsn': # feed snap interval
@@ -220,8 +214,6 @@ def main():
                 parser.set('motion_feed%02i' % index, 'feed_smovie_enabled', num_bool(value))
             elif key == 'fme': # feed movie enabled
                 parser.set('motion_feed%02i' % index, 'feed_movie_enabled', num_bool(value))
-            elif key == 'fup': # feed updates
-                parser.set('motion_feed%02i' % index, 'feed_updates', num_bool(value))
                 
             elif key == 'psx': # ptz step x
                 parser.set('motion_feed%02i' % index, 'ptz_step_x', value)                
