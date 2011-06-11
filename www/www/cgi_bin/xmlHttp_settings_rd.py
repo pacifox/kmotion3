@@ -59,8 +59,6 @@ def index(req):
     fna ... feed name
     fbo ... feed show box
     ffp ... feed fps
-    fqu ... feed quality
-    fkb ... feed kbs
     fpe ... feed snap enabled
     fsn ... feed snap interval
     ffe ... feed smovie enabled
@@ -144,14 +142,11 @@ def index(req):
         coded_str += '$fna%i:%s' % (i, expand_chars(parser.get('motion_feed%02i' % i, 'feed_name')))
         coded_str += '$fbo%i:%s' % (i, bool_num(parser.get('motion_feed%02i' % i, 'feed_show_box')))
         coded_str += '$ffp%i:%s' % (i, parser.get('motion_feed%02i' % i, 'feed_fps'))
-        coded_str += '$fqu%i:%s' % (i, parser.get('motion_feed%02i' % i, 'feed_quality'))
-        coded_str += '$fkb%i:%s' % (i, parser.get('motion_feed%02i' % i, 'feed_kbs'))
         
         coded_str += '$fpe%i:%s' % (i, bool_num(parser.get('motion_feed%02i' % i, 'feed_snap_enabled')))
         coded_str += '$fsn%i:%s' % (i, parser.get('motion_feed%02i' % i, 'feed_snap_interval'))
         coded_str += '$ffe%i:%s' % (i, bool_num(parser.get('motion_feed%02i' % i, 'feed_smovie_enabled')))
         coded_str += '$fme%i:%s' % (i, bool_num(parser.get('motion_feed%02i' % i, 'feed_movie_enabled')))
-        coded_str += '$fup%i:%s' % (i, bool_num(parser.get('motion_feed%02i' % i, 'feed_updates')))
         
         coded_str += '$psx%i:%s' % (i, parser.get('motion_feed%02i' % i, 'ptz_step_x'))
         coded_str += '$psy%i:%s' % (i, parser.get('motion_feed%02i' % i, 'ptz_step_y'))
