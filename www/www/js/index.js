@@ -4913,11 +4913,11 @@ KM.display_logs = function () {
     document.getElementById('main_display').innerHTML = '' +
     
     '<div class="title" style="width: 992px;">' + 
-	'kmotion Logs' +
+	'kmotion: Logs' +
     '</div>' +
     
     '<div class="divider">' +
-        '<img src="images/config_divider_color.png" alt="" >' + 
+        '<img src="images/logs_divider_color.png" alt="" >' + 
     '</div>' +
     
     '<div class="logs_backdrop" id="logs_html">' +
@@ -5409,7 +5409,7 @@ KM.conf_backdrop_html = function() {
     document.getElementById('main_display').innerHTML = '' +
     
     '<div class="title" style="width: 992px;">' + 
-	'kmotion config : ' +
+	'kmotion Config : ' +
 	'<span id="update"></span>' +
     '</div>' +
     
@@ -7431,12 +7431,14 @@ KM.display_about = function () {
     KM.session_id.current++;
     
     document.getElementById('main_display').innerHTML = '' +
-    '<div class="title">' +
-	'<span class="italic">kmotion</span>: About' +
+    
+    
+    '<div class="title" style="width: 992px;">' + 
+	'kmotion: About' +
     '</div>' +
-
+    
     '<div class="divider">' +
-	'<img src="images/divider_xl.png" alt="" />' + 
+        '<img src="images/about_divider_color.png" alt="" >' + 
     '</div>' +
     
     '<div class="para_msg">' +
@@ -7509,22 +7511,17 @@ KM.display_msg = function() {
     KM.session_id.current++;
 
     if (KM.www_rc.msg.length < 5) {
-	// awkward hacks to keep consistant interface across browsers
-	var title_str = 'title_FF';
-	if (KM.browser.browser_OP) title_str = 'title_OP';
-	if (KM.browser.browser_IE) title_str = 'title_IE';
 	
         document.getElementById('main_display').innerHTML = '' +
-        '<div id="' + title_str + '">';
-    
-        document.getElementById('main_display').innerHTML = '' +
-        '<div id="' + title_str + '">' +
-            '<span class="italic">kmotion</span>: Msg' +
-        '</div>' +
-    
-        '<div class="divider">' +
-            '<img src="images/divider_xl.png" alt="" />' + 
-        '</div>' +
+	
+	'<div class="title" style="width: 992px;">' + 
+	    'kmotion: Message' +
+	'</div>' +
+	
+	'<div class="divider">' +
+	    '<img src="images/message_divider_color.png" alt="" >' + 
+	'</div>' +
+	
         '<div class="para_msg"><p style="text-align: center">No Messages ...</p></div>';
 
     } else {
