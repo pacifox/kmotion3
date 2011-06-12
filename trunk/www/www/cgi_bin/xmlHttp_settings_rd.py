@@ -130,6 +130,7 @@ def index(req):
         
         coded_str += '$fma%i:%s' % (i, parser.get('motion_feed%02i' % i, 'feed_mask'))
         coded_str += '$fen%i:%s' % (i, bool_num(parser.get('motion_feed%02i' % i, 'feed_enabled')))
+        coded_str += '$fpl%i:%s' % (i, bool_num(parser.get('motion_feed%02i' % i, 'feed_pal')))
         coded_str += '$fde%i:%s' % (i, parser.get('motion_feed%02i' % i, 'feed_device'))
         coded_str += '$fin%i:%s' % (i, parser.get('motion_feed%02i' % i, 'feed_input'))
         coded_str += '$ful%i:%s' % (i, expand_chars(parser.get('motion_feed%02i' % i, 'feed_url')))

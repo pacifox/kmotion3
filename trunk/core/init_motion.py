@@ -143,19 +143,26 @@ def gen_threads_conf(kmotion_dir, feed_list, ramdisk_dir, images_dbase_dir, pars
 gap 2
 pre_capture 1
 post_capture 16
-quality 100'''
+quality 100
+ffmpeg_bps 400000'''
         
-        # feed mask, needs to be here in case user wants their own mask 
+        # pal or ntsc,
+        if parser.get('motion_feed%02i' % feed, 'feed_pal') == 'true':
+            print >> f_obj1, 'norm 0' 
+        else:
+            print >> f_obj1, 'norm 1' 
+            
+        # feed mask, 
         if parser.get('motion_feed%02i' % feed, 'feed_mask') != '0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#':
             print >> f_obj1, 'mask_file %s/core/masks/mask%0.2d.pgm' % (kmotion_dir, feed)  
             
-        # framerate
+        # framerate,
         if (parser.get('motion_feed%02i' % feed, 'feed_smovie_enabled') == 'true' or 
             parser.get('motion_feed%02i' % feed, 'feed_movie_enabled') == 'true'):
             print >> f_obj1, 'framerate %s' % parser.get('motion_feed%02i' % feed, 'feed_fps')
         else:
-            print >> f_obj1, 'framerate 5' # default feed updates
-            
+            print >> f_obj1, 'framerate 3' # default for feed updates
+        
         print >> f_obj1,  '''
 # ------------------------------------------------------------------------------
 # 'user' section from 'virtual_motion_conf/thread%02i.conf'
@@ -212,7 +219,6 @@ webcam_localhost on
 
         # movie mode
         if parser.get('motion_feed%02i' % feed, 'feed_movie_enabled') == 'true': 
-            print >> f_obj1, 'ffmpeg_bps %s000' % parser.get('motion_feed%02i' % feed, 'feed_kbs')
             print >> f_obj1, 'ffmpeg_cap_new on'
         else:
             print >> f_obj1, 'ffmpeg_cap_new off'

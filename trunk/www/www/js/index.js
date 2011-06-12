@@ -43,6 +43,7 @@ KM.DISPLAY_LOOP = 4;
 KM.ARCH_LOOP    = 5;
 KM.LOGS         = 6;
 KM.CONFIG_LOOP  = 7;
+KM.MISC_JUMP    = 8;
 
 KM.server = {
     latest_jpegs:  [],
@@ -80,7 +81,7 @@ KM.live = {
 KM.config = {
     session_id:	    0, // the session id
     pwd_change: false, // the password has changed
-    camera:         0, // the current camera
+    camera:         1, // the current camera
     mask:          '', // the current expanded mask string
     ptz_current_x:  0, // calculated abs position
     ptz_current_y:  0,
@@ -91,6 +92,8 @@ KM.config = {
 KM.www_rc = {
     // mimics the configuration in 'www_rc'
     feed_enabled:  ['pad', false, false, false, false, false, false, false, 
+    false, false, false, false, false, false, false, false, false], 
+    feed_pal:  ['pad', false, false, false, false, false, false, false, 
     false, false, false, false, false, false, false, false, false], 
     feed_show_box: ['pad', false, false, false, false, false, false, false, 
     false, false, false, false, false, false, false, false, false],  
@@ -208,7 +211,7 @@ KM.timeout_ids = function () {
     // ids are split into 'groups' for up to eight different sections of code.
     
     var timeout_ids = [];
-    for (var i = 0; i < 8; i++) { 
+    for (var i = 0; i < 9; i++) { 
         timeout_ids[i] = [];
     }
 
@@ -444,6 +447,9 @@ KM.load_settings = function (callback) {
 	
 		case 'fen': // feed enabled	
 		    KM.www_rc.feed_enabled[index] = (parseInt(value, 10) === 1);
+		    break;
+		case 'fpl': // feed pal	
+		    KM.www_rc.feed_pal[index] = (parseInt(value, 10) === 1);
 		    break;
 		case 'fde': // feed device
 		    KM.www_rc.feed_device[index] = value;
@@ -5119,6 +5125,8 @@ KM.conf_config_track = function() {
 		if (feed_modified[i] === true) {
 		    // feed enabled
 		    coded_str += '$fen' + i + ':' + bool_num(KM.www_rc.feed_enabled[KM.config.camera]);
+		    // feed pal
+		    coded_str += '$fpl' + i + ':' + bool_num(KM.www_rc.feed_pal[KM.config.camera]);
 		    // feed device
 		    coded_str += '$fde' + i + ':' + KM.www_rc.feed_device[KM.config.camera];
 		    // feed input
@@ -5141,10 +5149,6 @@ KM.conf_config_track = function() {
 		    coded_str += '$fbo' + i + ':' + bool_num(KM.www_rc.feed_show_box[KM.config.camera]);
 		    // feed fps 
 		    coded_str += '$ffp' + i + ':' + KM.www_rc.feed_fps[KM.config.camera];
-		    // feed quality
-		    coded_str += '$fqu' + i + ':' + KM.www_rc.feed_quality[KM.config.camera];
-		    // feed kbs
-		    coded_str += '$fkb' + i + ':' + KM.www_rc.feed_kbs[KM.config.camera];
 		    // feed snap enabled
 		    coded_str += '$fpe' + i + ':' + bool_num(KM.www_rc.feed_snap_enabled[KM.config.camera]); 
 		    // feed snap interval
@@ -5153,8 +5157,6 @@ KM.conf_config_track = function() {
 		    coded_str += '$ffe' + i + ':' + bool_num(KM.www_rc.feed_smovie_enabled[KM.config.camera]); 
 		    // feed ffmpeg enabled
 		    coded_str += '$fme' + i + ':' + bool_num(KM.www_rc.feed_movie_enabled[KM.config.camera]); 
-		    // feed ffmpeg updates 
-		    coded_str += '$fup' + i + ':' + bool_num(KM.www_rc.feed_updates[KM.config.camera]); 
 		}
 	    }
 	
@@ -5892,7 +5894,7 @@ Displays and processes the feed config screens
 **************************************************************************** */
 
 
-KM.conf_feed_html = function (camera) {
+KM.conf_feed_html = function () {
 
     // A function that generates the feed config HTML. It create the feed 
     // config screen on the config backdrop 'slab'. The mask selecting 
@@ -5904,6 +5906,7 @@ KM.conf_feed_html = function (camera) {
     // return:
     //
     
+    KM.kill_timeout_ids(KM.MISC_JUMP);
     var image_width = 345;
     var image_height = 255;
     
@@ -5937,7 +5940,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
     
      '<div style="width:140px;" class="config_text_margin">' +
-        '<select id="feed_camera" onchange="KM.conf_feed_net_highlight();" disabled>' +
+        '<select id="feed_camera" onchange="KM.conf_feed_change();">' +
             '<option value="1">Camera 1</option>' +	
             '<option value="2">Camera 2</option>' +	
             '<option value="3">Camera 3</option>' +	
@@ -5963,12 +5966,12 @@ KM.conf_feed_html = function (camera) {
     '</div>' +	
     
     '<div class="config_text_margin disabled" id="feed_text_1" style="width:120px;">' +	
-        '<input type="checkbox" id="feed_pal" onclick="KM.conf_feed_PAL();" disabled>' +
+        '<input type="checkbox" id="feed_pal_enabled" onclick="KM.conf_feed_pal_selected();" disabled>' +
         'PAL' + 	
     '</div>' +	
     
     '<div class="config_text_margin disabled" id="feed_text_2">' +
-        '<input type="checkbox" id="feed_ntsc" onclick="KM.conf_feed_NTSC();" disabled>' +
+        '<input type="checkbox" id="feed_ntsc_enabled" onclick="KM.conf_feed_ntsc_selected();" disabled>' +
         'NTSC' + 	
     '</div>' +
     
@@ -6003,7 +6006,7 @@ KM.conf_feed_html = function (camera) {
             '<option value="12">/dev/video12</option>' +	
             '<option value="13">/dev/video13</option>' +	
             '<option value="14">/dev/video14</option>' +	
-            '<option value="15">/dev/video15&nbsp;</option>' +	
+            '<option value="15">/dev/video15</option>' +	
             '<option value="URL http://">Network Cam</option>' +	
         '</select>' +
         '<input type="text" id="feed_url" style="width: 190px; height: 15px; margin-left: 1px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
@@ -6047,7 +6050,7 @@ KM.conf_feed_html = function (camera) {
     '</div>' +
 
     '<div class="config_text_margin disabled" id="feed_text_7">' +
-        'Camera name : " ' + camera + ' : ' +
+        'Camera name : " ' + KM.config.camera + ' : ' +
         '<input type="text" id="feed_name" size="15" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
         ' "' +
     '</div>' +
@@ -6203,7 +6206,10 @@ KM.conf_feed_html = function (camera) {
         }
     }
         
+    document.getElementById('feed_camera').selectedIndex = KM.config.camera - 1;
     document.getElementById('feed_enabled').checked = KM.www_rc.feed_enabled[KM.config.camera];
+    document.getElementById('feed_pal_enabled').checked = KM.www_rc.feed_pal[KM.config.camera];
+    document.getElementById('feed_ntsc_enabled').checked = !KM.www_rc.feed_pal[KM.config.camera];
     document.getElementById('feed_device').selectedIndex = KM.www_rc.feed_device[KM.config.camera];
     document.getElementById('feed_input').selectedIndex = KM.www_rc.feed_input[KM.config.camera];
     document.getElementById('feed_url').value = KM.www_rc.feed_url[KM.config.camera];
@@ -6252,28 +6258,7 @@ KM.conf_feed_html = function (camera) {
                 document.getElementById('mask_img_' + (i + 1)).src = 'images/mask.png'
             }
         }
-        document.getElementById('ptz_button').disabled = false;
     }
-};
-
-
-KM.conf_feed_enabled = function () {
-
-    // A function that enables/disables the current feed gui
-    //
-    // expects:
-    //
-    // return:
-    //
-    
-    KM.conf_feed_highlight_apply();
-    if (document.getElementById('feed_enabled').checked) {
-        KM.conf_feed_ungrey();
-    } else {
-        KM.conf_feed_grey();
-    }
-    // have to generate new mask on feed enabled
-    KM.conf_config_track.mask_modified(KM.config.camera);
 };
 
 
@@ -6334,6 +6319,71 @@ KM.conf_feed_mask_button = function (button_num) {
 	}
     }
     KM.conf_config_track.mask_modified(KM.config.camera);
+    KM.conf_feed_highlight_apply();
+};
+
+
+KM.conf_feed_change = function () {
+
+    // A function changes the current camera, its breaks good programing
+    // practice by incrementing the session id and reloading the HTML from
+    // within the HTML .... yuk !!
+    //
+    // expects:
+    //
+    // return:
+    //
+   
+    KM.session_id.current++; // needed to kill the live feed daemon
+    KM.config.camera = document.getElementById('feed_camera').selectedIndex + 1;
+    KM.add_timeout_id(KM.MISC_JUMP, setTimeout(function () {KM.conf_feed_html(); }, 1));
+};
+
+
+KM.conf_feed_enabled = function () {
+
+    // A function that enables/disables the current feed gui
+    //
+    // expects:
+    //
+    // return:
+    //
+    
+    KM.conf_feed_highlight_apply();
+    if (document.getElementById('feed_enabled').checked) {
+        KM.conf_feed_ungrey();
+    } else {
+        KM.conf_feed_grey();
+    }
+    // have to generate new mask on feed enabled
+    KM.conf_config_track.mask_modified(KM.config.camera);
+};
+
+
+KM.conf_feed_pal_selected = function () {
+
+    // A function that excludes 'pal' and 'ntsc' from being both selected
+    //
+    // expects:
+    //
+    // return:
+    //
+    
+    document.getElementById('feed_ntsc_enabled').checked = false;
+    KM.conf_feed_highlight_apply();
+};
+
+
+KM.conf_feed_ntsc_selected = function () {
+
+    // A function that excludes 'pal' and 'ntsc' from being both selected
+    //
+    // expects:
+    //
+    // return:
+    //
+    
+    document.getElementById('feed_pal_enabled').checked = false;
     KM.conf_feed_highlight_apply();
 };
 
@@ -6486,6 +6536,7 @@ KM.conf_feed_apply = function () {
     //
     
     KM.www_rc.feed_enabled[KM.config.camera] = document.getElementById('feed_enabled').checked;
+    KM.www_rc.feed_pal[KM.config.camera] = document.getElementById('feed_pal_enabled').checked;
     KM.www_rc.feed_device[KM.config.camera] = document.getElementById('feed_device').selectedIndex;
     KM.www_rc.feed_input[KM.config.camera] = document.getElementById('feed_input').selectedIndex;
     KM.www_rc.feed_url[KM.config.camera] = document.getElementById('feed_url').value;
@@ -6497,7 +6548,6 @@ KM.conf_feed_apply = function () {
     KM.www_rc.feed_snap_enabled[KM.config.camera] = document.getElementById('feed_snap_enabled').checked;	
     KM.www_rc.feed_smovie_enabled[KM.config.camera] = document.getElementById('feed_frame_enabled').checked;
     KM.www_rc.feed_movie_enabled[KM.config.camera] = document.getElementById('feed_ffmpeg_enabled').checked;
-    KM.www_rc.feed_updates[KM.config.camera] = document.getElementById('feed_updates').checked;
 
     var tmp = '';
     KM.www_rc.feed_mask[KM.config.camera] = '';

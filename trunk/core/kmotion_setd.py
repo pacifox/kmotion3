@@ -53,6 +53,7 @@ def main():
     fma ... feed mask
     
     fen ... feed enabled
+    fpl ... feed pal 
     fde ... feed device
     fin ... feed input
     ful ... feed url
@@ -182,6 +183,8 @@ def main():
         
             elif key == 'fen': # feed enabled
                 parser.set('motion_feed%02i' % index, 'feed_enabled', num_bool(value))
+            elif key == 'fpl': # feed pal 
+                parser.set('motion_feed%02i' % index, 'feed_pal', num_bool(value))
             elif key == 'fde': # feed device
                 parser.set('motion_feed%02i' % index, 'feed_device', value)
             elif key == 'fin': # feed input

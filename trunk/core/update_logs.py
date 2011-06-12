@@ -176,7 +176,7 @@ def add_event(new_event):
         f_obj = open('%s/www/logs' % kmotion_dir, 'r+')
         dblob = f_obj.read()
         events = dblob.split('$')
-        if len(events) > 29: # truncate logs
+        if len(events) > 500: # truncate logs
             events.pop()
         events = '$'.join(events)
         f_obj.seek(0)
