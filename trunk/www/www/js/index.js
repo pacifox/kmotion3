@@ -116,6 +116,12 @@ KM.www_rc = {
     feed_snap_interval:  ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     feed_fps:     ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 
+    // schedule config
+    sched_name:   ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    sched:        ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 
+    sched_except_name: ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 
+    sched_except     : ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 
+    
     // PTZ misc config
     ptz_enabled: ['pad', false, false, false, false, false, false, false, false, 
     false, false, false, false, false, false, false, false],  
@@ -4614,7 +4620,7 @@ KM.display_archive_ = function () {
 	//
 	// expects: 
 	//
-	// return:
+	// returns:
     
 	fq_image_name = '/images/ncam.png';
 	var html = '<img src=' + fq_image_name + ' id="image" style="width:100%;height:99%" alt="" />';
@@ -4631,7 +4637,7 @@ KM.display_archive_ = function () {
 	// 'fq_image_name' ... the fully qualified image name
 	// 'callback'      ... the function to be called on completion.
 	//
-	// return:
+	// returns:
 	// 'bool'          ... cache successful
     
 	cache_ptr++; // caching fq_image_names as a browser workaround
@@ -4897,7 +4903,7 @@ KM.display_logs = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++;
@@ -4999,7 +5005,7 @@ KM.conf_config_track = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
 
     var misc_modified =       false;
@@ -5249,7 +5255,7 @@ KM.conf_error_daemon = function (session_id) {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
 
     KM.add_timeout_id(KM.ERROR_DAEMON, setTimeout(function () {reload(); }, 1));
@@ -5314,7 +5320,7 @@ KM.display_config = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
 
     if (KM.www_rc.secure) {
@@ -5331,7 +5337,7 @@ KM.conf_loggin_html = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++;
@@ -5370,7 +5376,7 @@ KM.conf_login_validate_pw = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     if (KM.config_misc_hash_pw(document.login.password.value) === KM.www_rc.config_hash) {
@@ -5388,7 +5394,7 @@ KM.conf_backdrop_html = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++;
@@ -5507,7 +5513,7 @@ KM.conf_highlight_error_button = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('error_button').style.fontWeight = 'bold';
@@ -5522,7 +5528,7 @@ KM.conf_disable_error_button = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('error_button').style.fontWeight = 'normal';
@@ -5538,7 +5544,7 @@ KM.conf_disable_error_button = function () {
     ////
     //// expects:
     ////
-    //// return:
+    //// returns:
     ////
     
     //KM.session_id.current++;
@@ -5559,7 +5565,7 @@ KM.conf_ptz = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++;
@@ -5574,7 +5580,7 @@ KM.conf_select_errors = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++;
@@ -5589,7 +5595,7 @@ KM.conf_select_load = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++;
@@ -5618,7 +5624,7 @@ KM.conf_misc_html = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('config_html').innerHTML = '<br>' +
@@ -5772,7 +5778,7 @@ KM.conf_misc_force_inter = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     if (!document.getElementById('misc_low_bw').checked && 
@@ -5792,7 +5798,7 @@ KM.conf_misc_save_display = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.conf_config_track.display_modified();
@@ -5806,7 +5812,7 @@ KM.conf_misc_save_pw = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.config.pwd_changed = true;
@@ -5821,7 +5827,7 @@ KM.conf_misc_highlight_apply = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('conf_apply').style.fontWeight = 'bold';
@@ -5836,7 +5842,7 @@ KM.conf_misc_apply = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.www_rc.interleave = document.getElementById('misc_inter').checked;
@@ -5874,7 +5880,7 @@ KM.config_misc_hash_pw = function(text) {
     // expects:
     // 'text'  ... the password to be hashed
     //
-    // return:
+    // returns:
     // 'hash' ... the hash
     //
     
@@ -5903,7 +5909,7 @@ KM.conf_feed_html = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.kill_timeout_ids(KM.MISC_JUMP);
@@ -6042,7 +6048,7 @@ KM.conf_feed_html = function () {
     '<input type="text" id="feed_proxy" style="width: 190px; height: 15px; margin-left: 1px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     '<input type="password" id="feed_lgn_pw" style="width: 190px; height: 15px; margin-left: 1px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     '<input type="text" id="feed_height" size="4" style="margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-    '<span class="config_text_px" id="feed_text_6">&nbsp;px</span>' +
+    '<span style="color:#818181;font-size: 17px;font-weight: bold;margin-left: 0px;" id="feed_text_6">&nbsp;px</span>' +
     '</div>' +
 
     '<div class="config_divider">' +
@@ -6269,7 +6275,7 @@ KM.conf_toggle_feed_mask = function (mask_num) {
     // expects:
     // 'mask_num' ... the mask number to be toggled
     //
-    // return:
+    // returns:
     //
     
     if (KM.config.mask.charAt(mask_num - 1) === '0' && document.getElementById('feed_enabled').checked) {
@@ -6292,7 +6298,7 @@ KM.conf_feed_mask_button = function (button_num) {
     // 'button_num' ... the mask button clicked
     //			1: mask all, 2: mask invert, 3: mask none
     //
-    // return:
+    // returns:
     //
     
     for (var mask_num = 1; mask_num < 226; mask_num++) {
@@ -6331,7 +6337,7 @@ KM.conf_feed_change = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
    
     KM.session_id.current++; // needed to kill the live feed daemon
@@ -6346,7 +6352,7 @@ KM.conf_feed_enabled = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.conf_feed_highlight_apply();
@@ -6366,7 +6372,7 @@ KM.conf_feed_pal_selected = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('feed_ntsc_enabled').checked = false;
@@ -6380,7 +6386,7 @@ KM.conf_feed_ntsc_selected = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('feed_pal_enabled').checked = false;
@@ -6394,7 +6400,7 @@ KM.conf_feed_net_highlight = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     if (document.getElementById('feed_device').selectedIndex == 16) {
@@ -6420,7 +6426,7 @@ KM.conf_feed_frame_selected = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('feed_ffmpeg_enabled').checked = false;
@@ -6434,7 +6440,7 @@ KM.conf_feed_ffmpeg_selected = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('feed_frame_enabled').checked = false;
@@ -6448,7 +6454,7 @@ KM.conf_feed_grey = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++; // needed to kill updates
@@ -6481,7 +6487,7 @@ KM.conf_feed_ungrey = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.conf_live_feed_daemon(KM.session_id.current, KM.config.camera);
@@ -6517,7 +6523,7 @@ KM.conf_feed_highlight_apply = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('feed_apply').style.fontWeight = 'bold';
@@ -6532,7 +6538,7 @@ KM.conf_feed_apply = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.www_rc.feed_enabled[KM.config.camera] = document.getElementById('feed_enabled').checked;
@@ -6615,7 +6621,7 @@ KM.conf_live_feed_daemon = function (session_id, feed) {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
 
     var session_id_config = session_id; 
@@ -6683,7 +6689,7 @@ KM.conf_ptz_html = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.config.session_id = KM.session_id.current;
@@ -6854,7 +6860,7 @@ KM.conf_ptz_servo = function (button) {
     // expects:
     // 'button' ... the clicked button
     //
-    // return:
+    // returns:
     //
     
     KM.exe_script('/cgi_bin/xmlHttp_ptz.py', 'crf' + KM.pad_out2(KM.config.camera) + 'b' + KM.pad_out2(button) + '$')
@@ -6874,7 +6880,7 @@ KM.conf_ptz_calibrate = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.conf_ptz_grey_LUDR();
@@ -6891,7 +6897,7 @@ KM.conf_ptz_set_park = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.www_rc.ptz_park_x[KM.config.camera] = KM.config.ptz_current_x;
@@ -6906,7 +6912,7 @@ KM.conf_ptz_test_park = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.conf_ptz_grey_LUDR();
@@ -6925,7 +6931,7 @@ KM.conf_ptz_set_preset = function (preset) {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.www_rc['ptz_preset' + preset + '_x'][KM.config.camera] = KM.config.ptz_current_x;
@@ -6941,7 +6947,7 @@ KM.conf_ptz_test_preset = function (preset) {
     // expects:
     // 'preset' ... the preset number to test
     //
-    // return:
+    // returns:
     //
     
     KM.conf_ptz_grey_LUDR();
@@ -6960,7 +6966,7 @@ KM.conf_ptz_enabled = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.conf_config_track.ptz_en_tt_modified(KM.config.camera);
@@ -6979,7 +6985,7 @@ KM.conf_ptz_highlight_apply = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     document.getElementById('ptz_apply').style.fontWeight = 'bold';
@@ -6994,7 +7000,7 @@ KM.conf_ptz_grey = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.session_id.current++; // needed to kill updates
@@ -7022,7 +7028,7 @@ KM.conf_ptz_grey_LUDR = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     var ids = ['ptz_left', 'ptz_up', 'ptz_down', 'ptz_right'];
@@ -7038,7 +7044,7 @@ KM.conf_ptz_ungrey = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.conf_live_feed_daemon(KM.session_id.current, KM.config.camera);
@@ -7070,7 +7076,7 @@ KM.conf_ptz_ungrey_LUDR = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     if (KM.www_rc.ptz_enabled[KM.config.camera] && KM.config.session_id === KM.session_id.current) {
@@ -7088,7 +7094,7 @@ KM.conf_ptz_apply = function () {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     KM.www_rc.ptz_enabled[KM.config.camera] = document.getElementById('ptz_enabled').checked;
@@ -7144,9 +7150,100 @@ Config display - Schedules config screen
 Displays and processes the schedules config screen
 **************************************************************************** */
 
-KM.conf_schedule_html = function() {
-    document.getElementById('config_html').innerHTML = 'STUB CODE' 
-}
+KM.conf_schedule_html = function () {
+
+    // A function that generates the achedule HTML. It create the schedule
+    // config screen on the config backdrop 'slab'. 
+    //
+    // expects:
+    //
+
+    // returns:
+    //
+    
+    
+	html_str = '' +
+	KM.conf_schedule_tline('') 
+    document.getElementById('config_html').innerHTML = html_str;
+};
+
+
+    
+KM.conf_schedule_tline = function (key) {
+    
+    // A function that generates a schedule time line html
+    //
+    // expects:
+    // 'key' ... the key string for this time line
+    //
+    // returns: 
+    // 'html' ... time line html
+    
+    // calculated rather than hard coded
+    var width = 942;
+    var pos = 0, old_pos = 0;
+    var mins = 0, hours = 0, title = '';
+    var blocks = (24 * 60) / 15;
+    var scale = width / blocks;
+    var block_width;
+    
+    var tline = '' +
+    '<div id="timeline" class="config_schedule_timeline" style="width:' + width + 'px;">' 
+    
+    for (var i = 1; i < blocks + 1; i++) {
+	pos = Math.round(i * scale);
+	block_width = pos - old_pos;
+	old_pos = pos;
+		
+	//// generate 'title' HH:MM
+	mins = (i - 1) * 15;
+	hours = parseInt(mins / 60);
+	mins = mins - (hours * 60);
+	title = KM.pad_out2(hours) + ":" + KM.pad_out2(mins) + " - " + KM.pad_out2(hours) + ":" + KM.pad_out2(mins + 14);
+
+	tline += '<img id="tslot_' + i + '" src="./images/tline_g0.png" style="width:' + 
+	block_width + 'px;height:50px;" onClick="KM.arch_schedule_tline_clicked(' + ((i - 1) * 5 * 60) + ')" title="' +
+	title  + '" alt="timeline">';     
+    }
+    
+    tline += '</div>'
+    return tline;
+};
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* **************************************************************************** 
 Config display - Themes config screen
@@ -7174,7 +7271,7 @@ KM.conf_error_html = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
 
     document.getElementById('config_html').innerHTML = '<br>' +
@@ -7210,7 +7307,7 @@ KM.conf_load_html = function() {
     //
     // expects:
     //
-    // return:
+    // returns:
     //
     
     var session_id = KM.session_id.current;

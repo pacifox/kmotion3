@@ -324,14 +324,6 @@ Main display section - CSS specific to 'config' - General
 	float: left;
 }
 
-/* special case 'px' after height text box */
-#main_display .config_text_px { 
-	color: #818181; 
-	font-size: 17px;
-	font-weight: bold;
-	margin-left: 0px;
-}
-
 #main_display .config_text_center {
 	color: #818181; 
 	font-size: 17px;
@@ -353,6 +345,20 @@ Main display section - CSS specific to 'config' - Misc
 	font-weight: bold;
 	margin-left: 16px;
 }
+
+/* *****************************************************************************
+Main display section - CSS specific to 'config' - Schedules
+***************************************************************************** */
+
+#main_display .config_schedule_timeline {
+	margin-top: 11px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
 
 /* *****************************************************************************
 Main display section - CSS specific to 'config' - Server load
