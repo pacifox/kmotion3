@@ -39,8 +39,8 @@ feed_lgn_name =
 feed_lgn_pw =
 feed_mask = 7fff#7fff#7fff#7fff#7777#7f7f#7c7f#7a7f#727f#627b#7bff#7fff#7fff#7fff#7fff#
 feed_movie_enabled = true
-feed_name = testbed
-feed_pal = true
+feed_name = testbed 44
+feed_pal = false
 feed_proxy =
 feed_show_box = true
 feed_smovie_enabled = false
@@ -637,6 +637,32 @@ ptz_step_x = 15
 ptz_step_y = 15
 ptz_track_type = 1
 
+[schedule]
+sched_except_name1 = exception 1
+sched_except_name2 = exception 2
+sched_except_name3 = exception 3
+sched_except_name4 = exception 4
+sched_except_tline1 = ffffff#ffffff#ffffff#ffffff#
+sched_except_tline2 = ffffff#ffffff#ffffff#ffffff#
+sched_except_tline3 = ffffff#ffffff#ffffff#ffffff#
+sched_except_tline4 = ffffff#ffffff#ffffff#ffffff#
+sched_name1 = schedule 1
+sched_name2 = schedule 2
+sched_name3 = schedule 3
+sched_name4 = schedule 4
+sched_name5 = schedule 5
+sched_name6 = schedule 6
+sched_name7 = schedule 7
+sched_name8 = schedule 8
+sched_tline1 = ffffff#ffffff#ffffff#ffffff#
+sched_tline2 = ffffff#ffffff#ffffff#ffffff#
+sched_tline3 = ffffff#ffffff#ffffff#ffffff#
+sched_tline4 = ffffff#ffffff#ffffff#ffffff#
+sched_tline5 = ffffff#ffffff#ffffff#ffffff#
+sched_tline6 = ffffff#ffffff#ffffff#ffffff#
+sched_tline7 = ffffff#ffffff#ffffff#ffffff#
+sched_tline8 = ffffff#ffffff#ffffff#ffffff#
+
 [system]
 func_f01_enabled = false
 func_f02_enabled = false
@@ -658,5 +684,5 @@ images_dbase_dir = /home/dave/kmotion3/images_dbase
 msg =
 ramdisk_dir = /dev/shm/kmotion_ramdisk
 version = 3.00 Alpha
-version_latest = SVN
+version_latest = 3.00 Alpha
 
