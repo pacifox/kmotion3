@@ -323,7 +323,15 @@ Main display section - CSS specific to 'config' - General
 	margin-left: 0px;
 	float: left;
 }
-	
+
+/* special case 'px' after height text box */
+#main_display .config_text_px { 
+	color: #818181; 
+	font-size: 17px;
+	font-weight: bold;
+	margin-left: 0px;
+}
+
 #main_display .config_text_center {
 	color: #818181; 
 	font-size: 17px;
@@ -432,8 +440,9 @@ Main display section - CSS specific to 'logs', 'about' and 'msg'
 	font-size: 17px;
 	font-weight: bold;
 	width: 992px;
+	height:641px;
 	margin-top: 18px;
 	margin-left: auto;
 	margin-right: auto;
-	overflow: hidden;
+	overflow: auto;
 }
