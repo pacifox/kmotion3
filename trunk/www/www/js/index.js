@@ -5436,7 +5436,7 @@ KM.conf_backdrop_html = function() {
         document.getElementById('update').style.color = KM.YELLOW;
 	
     } else if (KM.www_rc.version_latest === 'SVN') {
-        document.getElementById('update').innerHTML = 'SVN update for latest build.';
+        document.getElementById('update').innerHTML = 'Execute \'svn update\' for latest build.';
         document.getElementById('update').style.color = KM.RED;
 	
     } else if (KM.www_rc.version === KM.www_rc.version_latest) {
@@ -6454,13 +6454,13 @@ KM.conf_feed_grey = function () {
     KM.session_id.current++; // needed to kill updates
     KM.conf_error_daemon(KM.session_id.current);
   
-    var ids = ['mask_all' , 'mask_invert', 'mask_none', 'feed_pal', 'feed_ntsc', 
-    'feed_device', 'feed_url', 'feed_lgn_name', 'feed_width', 'feed_input',
-    'feed_proxy', 'feed_lgn_pw', 'feed_height', 'feed_name', 'feed_box', 
-    'feed_ffmpeg_enabled', 'feed_frame_enabled', 'feed_fps', 'feed_sched_motion', 
-    'feed_snap_enabled', 'feed_snap', 'feed_sched_snap', 'feed_email_enabled', 
-    'feed_email_addr', 'feed_email_pause', 'feed_sched_email', 'feed_audio_enabled',
-    'feed_audio_file', 'feed_sched_audio']
+    var ids = ['mask_all' , 'mask_invert', 'mask_none', 'feed_pal_enabled', 
+    'feed_ntsc_enabled', 'feed_device', 'feed_url', 'feed_lgn_name', 'feed_width', 
+    'feed_input', 'feed_proxy', 'feed_lgn_pw', 'feed_height', 'feed_name', 
+    'feed_box', 'feed_ffmpeg_enabled', 'feed_frame_enabled', 'feed_fps', 
+    'feed_sched_motion', 'feed_snap_enabled', 'feed_snap', 'feed_sched_snap', 
+    'feed_email_enabled', 'feed_email_addr', 'feed_email_pause', 'feed_sched_email', 
+    'feed_audio_enabled', 'feed_audio_file', 'feed_sched_audio']
     
     for (var i = 0; i < ids.length; i++) {
         document.getElementById(ids[i]).disabled = true;
@@ -6486,13 +6486,13 @@ KM.conf_feed_ungrey = function () {
     
     KM.conf_live_feed_daemon(KM.session_id.current, KM.config.camera);
     
-    var ids = ['mask_all' , 'mask_invert', 'mask_none', 'feed_pal', 'feed_ntsc', 
-    'feed_device', 'feed_url', 'feed_lgn_name', 'feed_width', 'feed_input',
-    'feed_proxy', 'feed_lgn_pw', 'feed_height', 'feed_name', 'feed_box', 
-    'feed_ffmpeg_enabled', 'feed_frame_enabled', 'feed_fps', 'feed_sched_motion', 
-    'feed_snap_enabled', 'feed_snap', 'feed_sched_snap', 'feed_email_enabled', 
-    'feed_email_addr', 'feed_email_pause', 'feed_sched_email', 'feed_audio_enabled',
-    'feed_audio_file', 'feed_sched_audio']
+    var ids = ['mask_all' , 'mask_invert', 'mask_none', 'feed_pal_enabled', 
+    'feed_ntsc_enabled', 'feed_device', 'feed_url', 'feed_lgn_name', 'feed_width', 
+    'feed_input', 'feed_proxy', 'feed_lgn_pw', 'feed_height', 'feed_name', 
+    'feed_box', 'feed_ffmpeg_enabled', 'feed_frame_enabled', 'feed_fps', 
+    'feed_sched_motion', 'feed_snap_enabled', 'feed_snap', 'feed_sched_snap', 
+    'feed_email_enabled', 'feed_email_addr', 'feed_email_pause', 'feed_sched_email', 
+    'feed_audio_enabled', 'feed_audio_file', 'feed_sched_audio']
     
     for (var i = 0; i < ids.length; i++) {
         document.getElementById(ids[i]).disabled = false;
