@@ -4914,7 +4914,7 @@ KM.display_logs = function () {
     '</div>' +
     
     '<div class="logs_backdrop" id="logs_html">' +
-    '<p style="text-align: center">... downloading data ...</p>' +
+    '<p style="text-align: center">Downloading Logs ...</p>' +
     '</div>';
     
     function show_logs(dblob) {
@@ -6042,7 +6042,7 @@ KM.conf_feed_html = function () {
     '<input type="text" id="feed_proxy" style="width: 190px; height: 15px; margin-left: 1px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     '<input type="password" id="feed_lgn_pw" style="width: 190px; height: 15px; margin-left: 1px; margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
     '<input type="text" id="feed_height" size="4" style="margin-top:1px;" onfocus="KM.conf_feed_highlight_apply();" disabled>' + 
-    '<span id="feed_text_6">&nbsp;px</span>' +
+    '<span class="config_text_px" id="feed_text_6">&nbsp;px</span>' +
     '</div>' +
 
     '<div class="config_divider">' +
