@@ -341,7 +341,7 @@ feed_height = 240
 feed_input = 8
 feed_lgn_name =
 feed_lgn_pw =
-feed_mask = 4001#0#0#0#0#0#0#0#0#0#0#0#0#0#4001#
+feed_mask = 7fff#7fff#7fff#7fff#7777#7f7f#7c7f#7a7f#727f#627b#7bff#7fff#7fff#7fff#7fff#
 feed_movie_enabled = false
 feed_name =
 feed_pal = true
@@ -373,7 +373,7 @@ ptz_track_type = 1
 
 [motion_feed10]
 feed_device = 9
-feed_enabled = false
+feed_enabled = true
 feed_fps = 5
 feed_height = 240
 feed_input = 8
