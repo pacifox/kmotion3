@@ -182,21 +182,21 @@ def index(req):
         
     for i in range(1, 5):
         
-        coded_str += '$ed1%i:%s' % (i, parser.get('schedule%i' % i, 'tline1_dates'))
-        coded_str += '$ed2%i:%s' % (i, parser.get('schedule%i' % i, 'tline2_dates'))
-        coded_str += '$ed3%i:%s' % (i, parser.get('schedule%i' % i, 'tline3_dates'))
-        coded_str += '$ed4%i:%s' % (i, parser.get('schedule%i' % i, 'tline4_dates'))
-        coded_str += '$ed5%i:%s' % (i, parser.get('schedule%i' % i, 'tline5_dates'))
-        coded_str += '$ed6%i:%s' % (i, parser.get('schedule%i' % i, 'tline6_dates'))
-        coded_str += '$ed7%i:%s' % (i, parser.get('schedule%i' % i, 'tline7_dates'))
+        coded_str += '$ed1%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline1_dates'))
+        coded_str += '$ed2%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline2_dates'))
+        coded_str += '$ed3%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline3_dates'))
+        coded_str += '$ed4%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline4_dates'))
+        coded_str += '$ed5%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline5_dates'))
+        coded_str += '$ed6%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline6_dates'))
+        coded_str += '$ed7%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline7_dates'))
         
-        coded_str += '$et1%i:%s' % (i, parser.get('schedule%i' % i, 'tline1'))
-        coded_str += '$et2%i:%s' % (i, parser.get('schedule%i' % i, 'tline2'))
-        coded_str += '$et3%i:%s' % (i, parser.get('schedule%i' % i, 'tline3'))
-        coded_str += '$et4%i:%s' % (i, parser.get('schedule%i' % i, 'tline4'))
-        coded_str += '$et5%i:%s' % (i, parser.get('schedule%i' % i, 'tline5'))
-        coded_str += '$et6%i:%s' % (i, parser.get('schedule%i' % i, 'tline6'))
-        coded_str += '$et7%i:%s' % (i, parser.get('schedule%i' % i, 'tline7'))
+        coded_str += '$et1%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline1'))
+        coded_str += '$et2%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline2'))
+        coded_str += '$et3%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline3'))
+        coded_str += '$et4%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline4'))
+        coded_str += '$et5%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline5'))
+        coded_str += '$et6%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline6'))
+        coded_str += '$et7%i:%s' % (i, parser.get('schedule_except%i' % i, 'tline7'))
     
     for i in range(1, 13):
         coded_str += '$dif%i:%s' % (i, parser.get('misc', 'misc4_display_feeds_%02i' % i))
