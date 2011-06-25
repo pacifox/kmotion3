@@ -90,6 +90,31 @@ def main():
     p4x ... PTZ preset 4 x
     p4y ... PTZ preset 4 y
     
+    sex ... schedule exception
+    st1 ... schedule time line 1
+    st2 ... schedule time line 2
+    st3 ... schedule time line 3
+    st4 ... schedule time line 4
+    st5 ... schedule time line 5
+    st6 ... schedule time line 6
+    st7 ... schedule time line 7
+    
+    ed1 ... exception time line 1 dates   
+    ed2 ... exception time line 2 dates      
+    ed3 ... exception time line 3 dates    
+    ed4 ... exception time line 4 dates
+    ed5 ... exception time line 5 dates
+    ed6 ... exception time line 6 dates
+    ed7 ... exception time line 7 dates
+
+    et1 ... exception time line 1    
+    et2 ... exception time line 2       
+    et3 ... exception time line 3    
+    et4 ... exception time line 4
+    et5 ... exception time line 5
+    et6 ... exception time line 6
+    et7 ... exception time line 7
+
     dif ... display feeds
     col ... color select
     dis ... display select
@@ -110,9 +135,12 @@ def main():
     RELOAD_PTZ =  ['psx', 'psy', 'ptc', 'pts', 'ppe', 'ppd', 'ppx', 'ppy',
                    'p1x', 'p1y', 'p2x', 'p2y', 'p3x', 'p3y', 'p4x', 'p4y']
     
-    RELOAD_ALL =  ['fma', 'fen', 'fde', 'fin', 'ful', 'fpr', 'fln', 'flp', 
-                   'fwd', 'fhe', 'fbo', 'ffp', 'fpe', 'fsn', 'ffe', 'fme', 
-                   'fup', 'fmk', 'ptt', 'pte']
+    RELOAD_ALL =  ['fma', 'fen', 'fpl', 'fde', 'fin', 'ful', 'fpr', 'fln', 
+                   'flp', 'fwd', 'fhe', 'fbo', 'ffp', 'fpe', 'fsn', 'ffe', 
+                   'fme', 'fup', 'ptt', 'pte', 'sex', 'st1', 'st2', 'st3',
+                   'st4', 'st5', 'st6', 'st7', 'ed1', 'ed2', 'ed3', 'wd4',
+                   'ed5', 'ed6', 'ed7', 'et1', 'et2', 'et3', 'et4', 'et5',
+                   'et6', 'et7']
     
     update_feeds_cache(kmotion_dir)
 
@@ -256,6 +284,53 @@ def main():
             elif key == 'p4y': # ptz preset 4 y
                 parser.set('motion_feed%02i' % index, 'ptz_preset4_y', value)
         
+            elif key == 'sex': # schedule exception
+                parser.set('schedule%i' % index, 'schedule_except', value)
+            elif key == 'st1': # schedule time line 1
+                parser.set('schedule%i' % index, 'tline1', value)
+            elif key == 'st2': # schedule time line 2
+                parser.set('schedule%i' % index, 'tline2', value)
+            elif key == 'st3': # schedule time line 3
+                parser.set('schedule%i' % index, 'tline3', value)
+            elif key == 'st4': # schedule time line 4
+                parser.set('schedule%i' % index, 'tline4', value)
+            elif key == 'st5': # schedule time line 5
+                parser.set('schedule%i' % index, 'tline5', value)
+            elif key == 'st6': # schedule time line 6
+                parser.set('schedule%i' % index, 'tline6', value)
+            elif key == 'st7': # schedule time line 7
+                parser.set('schedule%i' % index, 'tline7', value)
+                
+            elif key == 'ed1': # exception time line 1 dates
+                parser.set('schedule_except%i' % index, 'tline1_dates', value)
+            elif key == 'ed2': # exception time line 2 dates
+                parser.set('schedule_except%i' % index, 'tline2_dates', value)
+            elif key == 'ed3': # exception time line 3 dates
+                parser.set('schedule_except%i' % index, 'tline3_dates', value)
+            elif key == 'ed4': # exception time line 4 dates
+                parser.set('schedule_except%i' % index, 'tline4_dates', value)
+            elif key == 'ed5': # exception time line 5 dates
+                parser.set('schedule_except%i' % index, 'tline5_dates', value)
+            elif key == 'ed6': # exception time line 6 dates
+                parser.set('schedule_except%i' % index, 'tline6_dates', value)
+            elif key == 'ed7': # exception time line 7 dates
+                parser.set('schedule_except%i' % index, 'tline7_dates', value)
+                
+            elif key == 'et1': # exception time line 1
+                parser.set('schedule_except%i' % index, 'tline1', value)
+            elif key == 'et2': # exception time line 2
+                parser.set('schedule_except%i' % index, 'tline2', value)
+            elif key == 'et3': # exception time line 3
+                parser.set('schedule_except%i' % index, 'tline3', value)
+            elif key == 'et4': # exception time line 4
+                parser.set('schedule_except%i' % index, 'tline4', value)
+            elif key == 'et5': # exception time line 5
+                parser.set('schedule_except%i' % index, 'tline5', value)
+            elif key == 'et6': # exception time line 6
+                parser.set('schedule_except%i' % index, 'tline6', value)
+            elif key == 'et7': # exception time line 7
+                parser.set('schedule_except%i' % index, 'tline7', value)
+                
             elif key == 'dif': # display feeds
                 parser.set('misc', 'misc4_display_feeds_%02i' % index, value)
             elif key == 'col': # color select
