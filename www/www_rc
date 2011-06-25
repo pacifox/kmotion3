@@ -648,7 +648,7 @@ tline6 = ffffff#ffffff#ffffff#ffffff#
 tline7 = ffffff#ffffff#ffffff#ffffff#
 
 [schedule2]
-schedule_except = 0
+schedule_except = 5
 tline1 = ffffff#ffffff#ffffff#ffffff#
 tline2 = ffffff#ffffff#ffffff#ffffff#
 tline3 = ffffff#ffffff#ffffff#ffffff#

@@ -132,6 +132,7 @@ KM.www_rc = {
     except_tline4_dates: ['pad', '', '', '', '', '', '', '', ''],
     except_tline5_dates: ['pad', '', '', '', '', '', '', '', ''],
     except_tline6_dates: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline7_dates: ['pad', '', '', '', '', '', '', '', ''],
     
     except_tline1: ['pad', '', '', '', '', '', '', '', ''],
     except_tline2: ['pad', '', '', '', '', '', '', '', ''],
