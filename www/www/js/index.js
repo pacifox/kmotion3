@@ -116,11 +116,30 @@ KM.www_rc = {
     feed_snap_interval:  ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     feed_fps:     ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 
-    // schedule config
-    sched_name:   ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    sched:        ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 
-    sched_except_name: ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 
-    sched_except     : ['pad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 
+    // schedule and schedule exception config
+    sched_except: ['pad', 0, 0, 0, 0, 0, 0, 0],
+    sched_tline1: ['pad', '', '', '', '', '', '', '', ''],
+    sched_tline2: ['pad', '', '', '', '', '', '', '', ''],
+    sched_tline3: ['pad', '', '', '', '', '', '', '', ''],
+    sched_tline4: ['pad', '', '', '', '', '', '', '', ''],
+    sched_tline5: ['pad', '', '', '', '', '', '', '', ''],
+    sched_tline6: ['pad', '', '', '', '', '', '', '', ''],
+    sched_tline7: ['pad', '', '', '', '', '', '', '', ''],
+    
+    except_tline1_dates: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline2_dates: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline3_dates: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline4_dates: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline5_dates: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline6_dates: ['pad', '', '', '', '', '', '', '', ''],
+    
+    except_tline1: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline2: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline3: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline4: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline5: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline6: ['pad', '', '', '', '', '', '', '', ''],
+    except_tline7: ['pad', '', '', '', '', '', '', '', ''],
     
     // PTZ misc config
     ptz_enabled: ['pad', false, false, false, false, false, false, false, false, 
@@ -395,7 +414,7 @@ KM.load_settings = function (callback) {
 		index = parseInt(par_split[0].substring(3), 10);
 	    } else {
 		key = par_split[0];	// the 3 digit id ie 'fen' or 'fha'
-		index = '';			// optional list pointer for the id
+		index = '';		// optional list pointer for the id
 	    }
 	    var value = par_split[1];
 	
@@ -557,13 +576,83 @@ KM.load_settings = function (callback) {
 		case 'p4y': // ptz preset 4 y
 		    KM.www_rc.ptz_preset4_y[index] = parseInt(value, 10);
 		    break;
-	    
+    
+		case 'sex': // schedule exception
+		    KM.www_rc.sched_except[index] = parseInt(value, 10);
+		    break;
+		case 'st1': // schedule time line 1
+		    KM.www_rc.sched_tline1[index] = value;
+		    break;
+		case 'st2': // schedule time line 2
+		    KM.www_rc.sched_tline2[index] = value;
+		    break;
+		case 'st3': // schedule time line 3
+		    KM.www_rc.sched_tline3[index] = value;
+		    break;
+		case 'st4': // schedule time line 4
+		    KM.www_rc.sched_tline4[index] = value;
+		    break;
+		case 'st5': // schedule time line 5
+		    KM.www_rc.sched_tline5[index] = value;
+		    break;
+		case 'st6': // schedule time line 6
+		    KM.www_rc.sched_tline6[index] = value;
+		    break;
+		case 'st7': // schedule time line 7
+		    KM.www_rc.sched_tline7[index] = value;
+		    break;
+		    
+		case 'ed1': // exception time line 1 dates
+		    KM.www_rc.except_tline1_dates[index] = value;
+		    break;
+		case 'ed2': // exception time line 2 dates
+		    KM.www_rc.except_tline2_dates[index] = value;
+		    break;
+		case 'ed3': // exception time line 3 dates
+		    KM.www_rc.except_tline3_dates[index] = value;
+		    break;
+		case 'ed4': // exception time line 4 dates
+		    KM.www_rc.except_tline4_dates[index] = value;
+		    break;
+		case 'ed5': // exception time line 5 dates
+		    KM.www_rc.except_tline5_dates[index] = value;
+		    break;
+		case 'ed6': // exception time line 6 dates
+		    KM.www_rc.except_tline6_dates[index] = value;
+		    break;
+		case 'ed7': // exception time line 7 dates
+		    KM.www_rc.except_tline7_dates[index] = value;
+		    break;
+		    
+		case 'et1': // exception time line 1 
+		    KM.www_rc.except_tline1[index] = value;
+		    break;
+		case 'et2': // exception time line 2 
+		    KM.www_rc.except_tline2[index] = value;
+		    break;
+		case 'et3': // exception time line 3 
+		    KM.www_rc.except_tline3[index] = value;
+		    break;
+		case 'et4': // exception time line 4 
+		    KM.www_rc.except_tline4[index] = value;
+		    break;
+		case 'et5': // exception time line 5 
+		    KM.www_rc.except_tline5[index] = value;
+		    break;
+		case 'et6': // exception time line 6 
+		    KM.www_rc.except_tline6[index] = value;
+		    break;
+		case 'et7': // exception time line 7 
+		    KM.www_rc.except_tline7[index] = value;
+		    break;
+		    
 		case 'dif': // display feeds
 		    var feeds = value.split(",");
 		    for (var j = 0; j < feeds.length; j++) {
 			KM.www_rc.display_cameras[index][j + 1] = parseInt(feeds[j], 10);
 		    }
 		    break;
+		    
 		case 'col': // background color
 		    KM.www_rc.color_select = parseInt(value, 10);
 		    break;	
@@ -5019,6 +5108,9 @@ KM.conf_config_track = function() {
         false, false, false, false, false, false, false, false, false, false, false];
     var ptz_en_tt_modified =  ['pad', false, false, false, false, false, 
         false, false, false, false, false, false, false, false, false, false, false];
+    var sched_modified =      ['pad', false, false, false, false, false, 
+        false, false, false];
+    var except_modified =     ['pad', false, false, false, false];
     var warning_msg = false;
 
     var coded_str = '';
@@ -5045,19 +5137,19 @@ KM.conf_config_track = function() {
 	    display_modified = true;
 	},
     
-	// the feed has been modified
+	// the feeds has been modified
 	feed_modified: function(i) {
 	    feed_modified[i] = true;
 	    warning_msg = true; 
 	},
     
-	// the feed mask has been modified
+	// the feeds masks have been modified
 	mask_modified: function(i) {
 	    mask_modified[i] = true;
 	    warning_msg = true; 
 	},		
     
-	// the ptz enable or track type have been modified
+	// the ptz enable or track types have been modified
 	ptz_en_tt_modified: function(i) {
 	    ptz_en_tt_modified[i] = true; 
 	    warning_msg = true; 
@@ -5066,6 +5158,16 @@ KM.conf_config_track = function() {
 	// the ptz misc options have been modified
 	ptz_misc_modified: function(i) {
 	    ptz_misc_modified[i] = true;
+	},
+	
+	// the schedules have been modified
+	sched_modified: function(i) {
+	    sched_modified[i] = true;
+	},
+	
+	// the schedule exceptions have been modified
+	except_modified: function(i) {
+	    except_modified[i] = true;
 	},
     
 	reset: function() {
@@ -5079,6 +5181,9 @@ KM.conf_config_track = function() {
 	    false, false, false, false, false, false, false, false, false, false, false];
 	    ptz_en_tt_modified =  ['pad', false, false, false, false, false, 
 	    false, false, false, false, false, false, false, false, false, false, false];
+	    sched_modified =      ['pad', false, false, false, false, false, 
+            false, false, false];
+	    except_modified =     ['pad', false, false, false, false];
 	    display_modified =    false; // the 'display select' and color theme
 	    warning_msg = false;
 	    coded_str = '';
@@ -5223,7 +5328,71 @@ KM.conf_config_track = function() {
 		    coded_str += '$p4y' + i + ':' + KM.www_rc.ptz_preset4_y[i];
 		}
 	    }
-	
+	    
+	    for (var i = 1; i < 8; i++) {
+		if (ptz_misc_modified[i] === true) {
+		    // ptz step x
+		    coded_str += '$psx' + i + ':' + KM.www_rc.ptz_step_x[i];
+		    // ptz step y
+		    coded_str += '$psy' + i + ':' + KM.www_rc.ptz_step_y[i];
+		}
+	    }
+	    
+	    for (var i = 1; i < 8; i++) {
+		if (sched_modified[i] === true) {
+		    // schedule exception
+		    coded_str += '$sex' + i + ':' + KM.www_rc.sched_except[i];
+		    // schedule time line 1
+		    coded_str += '$st1' + i + ':' + KM.www_rc.sched_tline1[index];
+		    // schedule time line 2
+		    coded_str += '$st2' + i + ':' + KM.www_rc.sched_tline2[index];
+		    // schedule time line 3
+		    coded_str += '$st3' + i + ':' + KM.www_rc.sched_tline3[index];
+		    // schedule time line 4
+		    coded_str += '$st4' + i + ':' + KM.www_rc.sched_tline4[index];
+		    // schedule time line 5
+		    coded_str += '$st5' + i + ':' + KM.www_rc.sched_tline5[index];
+		    // schedule time line 6
+		    coded_str += '$st6' + i + ':' + KM.www_rc.sched_tline6[index];
+		    // schedule time line 7
+		    coded_str += '$st7' + i + ':' + KM.www_rc.sched_tline7[index];
+		}
+	    }
+		  
+	    for (var i = 1; i < 4; i++) {
+		if (except_modified[i] === true) {
+		    // exception time line 1 dates
+		    coded_str += '$ed1' + i + ':' + KM.www_rc.except_tline1_dates[index];
+		    // exception time line 2 dates
+		    coded_str += '$ed2' + i + ':' + KM.www_rc.except_tline2_dates[index];
+		    // exception time line 3 dates
+		    coded_str += '$ed3' + i + ':' + KM.www_rc.except_tline3_dates[index];
+		    // exception time line 4 dates
+		    coded_str += '$ed4' + i + ':' + KM.www_rc.except_tline4_dates[index];
+		    // exception time line 5 dates
+		    coded_str += '$ed5' + i + ':' + KM.www_rc.except_tline5_dates[index];
+		    // exception time line 6 dates
+		    coded_str += '$ed6' + i + ':' + KM.www_rc.except_tline6_dates[index];
+		    // exception time line 7 dates
+		    coded_str += '$ed7' + i + ':' + KM.www_rc.except_tline7_dates[index];
+		
+		    // exception time line 1 
+		    coded_str += '$et1' + i + ':' + KM.www_rc.except_tline1[index];
+		    // exception time line 2 
+		    coded_str += '$et2' + i + ':' + KM.www_rc.except_tline2[index];
+		    // exception time line 3 
+		    coded_str += '$et3' + i + ':' + KM.www_rc.except_tline3[index];
+		    // exception time line 4 
+		    coded_str += '$et4' + i + ':' + KM.www_rc.except_tline4[index];
+		    // exception time line 5 
+		    coded_str += '$et5' + i + ':' + KM.www_rc.except_tline5[index];
+		    // exception time line 6 
+		    coded_str += '$et6' + i + ':' + KM.www_rc.except_tline6[index];
+		    // exception time line 7 
+		    coded_str += '$et7' + i + ':' + KM.www_rc.except_tline7[index];
+		}
+	    }
+	      
 	    var coded_len = coded_str.length;
 	    var zero_pad = '00000000'.substring(0, 8 - (coded_len + '').length);
 	    coded_str += '$chk:' + zero_pad + coded_len;

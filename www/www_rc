@@ -637,31 +637,149 @@ ptz_step_x = 15
 ptz_step_y = 15
 ptz_track_type = 1
 
-[schedule]
-sched_except_name1 = exception 1
-sched_except_name2 = exception 2
-sched_except_name3 = exception 3
-sched_except_name4 = exception 4
-sched_except_tline1 = ffffff#ffffff#ffffff#ffffff#
-sched_except_tline2 = ffffff#ffffff#ffffff#ffffff#
-sched_except_tline3 = ffffff#ffffff#ffffff#ffffff#
-sched_except_tline4 = ffffff#ffffff#ffffff#ffffff#
-sched_name1 = schedule 1
-sched_name2 = schedule 2
-sched_name3 = schedule 3
-sched_name4 = schedule 4
-sched_name5 = schedule 5
-sched_name6 = schedule 6
-sched_name7 = schedule 7
-sched_name8 = schedule 8
-sched_tline1 = ffffff#ffffff#ffffff#ffffff#
-sched_tline2 = ffffff#ffffff#ffffff#ffffff#
-sched_tline3 = ffffff#ffffff#ffffff#ffffff#
-sched_tline4 = ffffff#ffffff#ffffff#ffffff#
-sched_tline5 = ffffff#ffffff#ffffff#ffffff#
-sched_tline6 = ffffff#ffffff#ffffff#ffffff#
-sched_tline7 = ffffff#ffffff#ffffff#ffffff#
-sched_tline8 = ffffff#ffffff#ffffff#ffffff#
+[schedule1]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule2]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule3]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule4]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule5]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule6]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule7]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule8]
+schedule_except = 0
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+
+[schedule_except1]
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1_dates = 00000000#00000000#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline2_dates = 00000000#00000000#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline3_dates = 00000000#00000000#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline4_dates = 00000000#00000000#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline5_dates = 00000000#00000000#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6_dates = 00000000#00000000#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7_dates = 00000000#00000000#
+
+[schedule_except2]
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1_dates = 00000000#00000000#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline2_dates = 00000000#00000000#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline3_dates = 00000000#00000000#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline4_dates = 00000000#00000000#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline5_dates = 00000000#00000000#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6_dates = 00000000#00000000#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7_dates = 00000000#00000000#
+
+[schedule_except3]
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1_dates = 00000000#00000000#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline2_dates = 00000000#00000000#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline3_dates = 00000000#00000000#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline4_dates = 00000000#00000000#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline5_dates = 00000000#00000000#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6_dates = 00000000#00000000#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7_dates = 00000000#00000000#
+
+[schedule_except4]
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1_dates = 00000000#00000000#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline2_dates = 00000000#00000000#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline3_dates = 00000000#00000000#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline4_dates = 00000000#00000000#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline5_dates = 00000000#00000000#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6_dates = 00000000#00000000#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7_dates = 00000000#00000000#
 
 [system]
 func_f01_enabled = false

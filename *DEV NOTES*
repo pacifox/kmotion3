@@ -13,7 +13,10 @@ KM.enable_func_buttons ... what does it do ????????
 
 
 
+oh crap, remove all the default framerate and quality ... dont forget its in kmotion_setd as well as index.js in setting and syncing :)
 
+upgrade code to install then remove then install FIFO's
+upgrade the code to make a clearer message when kmotion shuts down due to no hdd room
 
 
 fixed log bug: failure to consistently log incorrect shutdown
