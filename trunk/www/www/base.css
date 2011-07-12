@@ -350,11 +350,38 @@ Main display section - CSS specific to 'config' - Misc
 Main display section - CSS specific to 'config' - Schedules
 ***************************************************************************** */
 
-#main_display .config_schedule_timeline {
+#main_display .sched_selector {
+	margin-left: auto;
+	margin-right: auto;
+	display: inline;
+}
+
+
+#main_display .sched_selector_text {
+	background-color: #ff0000;
+	text-align: center;
+	width: 100%;
+	color: #00ff00;
+}
+
+
+
+
+
+
+
+#main_display .sched_timeline {
 	margin-top: 11px;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+
+
+
+
+
 
 
 

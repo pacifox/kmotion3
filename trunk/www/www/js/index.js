@@ -7332,7 +7332,33 @@ KM.conf_schedule_html = function () {
     //
     
     
-	html_str = '' +
+	html_str = '<br>' +
+	
+	'<div class="sched_selector" style="width:952px;">' +
+	    
+	    '<span>' +
+		'<select id="feed_camera" onchange="KM.conf_feed_change();">' +
+		    '<option value="1">Schedule 1</option>' +	
+		    '<option value="2">Schedule 2</option>' +	
+		    '<option value="3">Schedule 3</option>' +	
+		    '<option value="4">Schedule 4</option>' +	
+		    '<option value="5">Schedule 5</option>' +	
+		    '<option value="6">Schedule 6</option>' +	
+		    '<option value="7">Schedule 7</option>' +	
+		    '<option value="8">Schedule 8</option>' +	
+		'</select>' +
+	    
+		'<input type="button" id="sched_week"' +
+		'OnClick="KM.conf_sched_week();" value="Weekly Schedule">' +
+		
+		'<input type="button" id="sched_except"' +
+		'OnClick="KM.sched_week_except();" value="Exceptions to Weekly Schedule">' +
+	    '</span>' +
+	    
+	    '<span class="sched_selector_text">&nbsp;Schedule Status: Active</span>' +  
+	    
+       '</div><br>' +
+	
 	KM.conf_schedule_tline('') 
     document.getElementById('config_html').innerHTML = html_str;
 };
@@ -7350,7 +7376,7 @@ KM.conf_schedule_tline = function (key) {
     // 'html' ... time line html
     
     // calculated rather than hard coded
-    var width = 942;
+    var width = 952;
     var pos = 0, old_pos = 0;
     var mins = 0, hours = 0, title = '';
     var blocks = (24 * 60) / 15;
@@ -7358,14 +7384,14 @@ KM.conf_schedule_tline = function (key) {
     var block_width;
     
     var tline = '' +
-    '<div id="timeline" class="config_schedule_timeline" style="width:' + width + 'px;">' 
+    '<div id="timeline" class="sched_timeline" style="width:' + width + 'px;">' 
     
     for (var i = 1; i < blocks + 1; i++) {
 	pos = Math.round(i * scale);
 	block_width = pos - old_pos;
 	old_pos = pos;
 		
-	//// generate 'title' HH:MM
+	//// generate 'title' HH:MM-HH:MM
 	mins = (i - 1) * 15;
 	hours = parseInt(mins / 60);
 	mins = mins - (hours * 60);

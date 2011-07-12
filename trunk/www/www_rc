@@ -802,5 +802,5 @@ images_dbase_dir = /home/dave/kmotion3/images_dbase
 msg =
 ramdisk_dir = /dev/shm/kmotion_ramdisk
 version = 3.00 Alpha
-version_latest = 3.00 Alpha
+version_latest = SVN
 
