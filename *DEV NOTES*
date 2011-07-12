@@ -10,7 +10,7 @@ update index.html preloads...
 
 
 KM.enable_func_buttons ... what does it do ????????
-
+make 'make pkg' create a zipped .js file
 
 
 oh crap, remove all the default framerate and quality ... dont forget its in kmotion_setd as well as index.js in setting and syncing :)
@@ -23,3 +23,6 @@ fixed log bug: failure to consistently log incorrect shutdown
 15 x 15 mask grid
 fixed bug: allow virtual_conf mask file
 mask all, invert, none buttons
+
+I have found by setting "max_mpeg_time = 300" in virtual_motion_conf/threadXX.conf
+that it works all the time now.
