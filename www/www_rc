@@ -639,7 +639,7 @@ ptz_track_type = 1
 
 [schedule1]
 schedule_except = 0
-tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1 = ffffff#faffff#ffffff#ffffff#
 tline2 = ffffff#ffffff#ffffff#ffffff#
 tline3 = ffffff#ffffff#ffffff#ffffff#
 tline4 = ffffff#ffffff#ffffff#ffffff#
