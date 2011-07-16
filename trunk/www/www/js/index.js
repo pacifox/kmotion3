@@ -75,7 +75,7 @@ KM.menu_bar_buttons = {
 
 KM.live = {
     last_camera_select: 0, // the last camera selected
-    ptz_feed: 0            // ptz active feed
+    ptz_feed:           0  // ptz active feed
 };
 
 KM.config = {
@@ -7432,6 +7432,18 @@ KM.conf_sched_tline = function (key) {
     var scale = width / blocks;
     var block_width;
     
+    // convert 4 x 6 digit hex to 96 bit bin, truncating as necessary
+    var tline = KM.www_rc.sched_tline1[1];
+    var tmp;
+    var segments = '';
+    
+    tmp1 = tline.split('#');
+    for (var i = 0; i < 4; i++) {
+	tmp2 = parseInt('0x' + tmp1[i], 16).toString(2)
+	segments += tmp2.slice(0, 24);
+    }
+    
+    // construct the html
     var tline = '' +
     '<div id="timeline" class="sched_timeline" style="width:' + width + 'px;">' 
     
@@ -7445,20 +7457,18 @@ KM.conf_sched_tline = function (key) {
 	hours = parseInt(mins / 60);
 	mins = mins - (hours * 60);
 	title = KM.pad_out2(hours) + ":" + KM.pad_out2(mins) + " - " + KM.pad_out2(hours) + ":" + KM.pad_out2(mins + 14);
-
-	// dummy code to simulate data - to be streamlined
-	if (Math.random() > 0.5) {
 	
-	    tline += '<img id="tline_' + key + '_' + i + '" src="./images/sched_grey.png" style="width:' + 
-	    block_width + 'px;height:' + height + 'px;" onClick="KM.sched_tline_clicked(' + key + ', ' + i + ')\" title="' +
-	    title  + '" alt=" schedule timeline">';  
-	    
+	tline += '<img id="tline_' + key + '_' + i + '" ' ;
+   
+	if (segments.charAt(i - 1) == '1') {
+	    tline += 'src="./images/sched_grey.png" ';
 	} else {
-	
-	    tline += '<img id="tline_' + key + '_' + i + '" src="./images/sched_green.png" style="width:' + 
-	    block_width + 'px;height:' + height + 'px;" onClick="KM.sched_tline_clicked(' + key + ', ' + i + ')" title="' +
-	    title  + '" alt=" schedule timeline">';  
+	    tline += 'src="./images/sched_green.png" ';
 	}
+	
+	tline += 'style="width:' + block_width + 'px;height:' + height + 
+	'px;" onClick="KM.sched_tline_clicked(' + key + ', ' + i + ')" title="' +
+	title  + '" alt=" schedule timeline">'; 
     }
     
     tline += '</div>'
