@@ -7399,7 +7399,7 @@ KM.conf_sched_weekday = function (day) {
 		 
 	    '</div>' +
 	    
-	    KM.conf_schedule_tline('') +
+	    KM.conf_sched_tline('') +
 	    
 	    '<div style="height: 10px;"></div>' 
 	    
@@ -7408,9 +7408,9 @@ KM.conf_sched_weekday = function (day) {
 }
 
     
-KM.conf_schedule_tline = function (key) {
+KM.conf_sched_tline = function (key) {
     
-    // A function that generates a schedule time line html
+    // A function that generates schedule time line html
     //
     // expects:
     // 'key' ... the key string for this time line
@@ -7440,9 +7440,22 @@ KM.conf_schedule_tline = function (key) {
 	mins = mins - (hours * 60);
 	title = KM.pad_out2(hours) + ":" + KM.pad_out2(mins) + " - " + KM.pad_out2(hours) + ":" + KM.pad_out2(mins + 14);
 
-	tline += '<img id="tslot_' + i + '" src="./images/sched_green.png" style="width:' + 
-	block_width + 'px;height:25px" onClick="KM.arch_schedule_tline_clicked(' + ((i - 1) * 5 * 60) + ')" title="' +
-	title  + '" alt="timeline">';     
+	if (Math.random() > 0.5) {
+	
+	    tline += '<img id="tslot_' + i + '" src="./images/sched_grey.png" style="width:' + 
+	    block_width + 'px;height:25px" onClick="KM.sched_tline_clicked(' + key + ',' + i + ')" title="' +
+	    title  + '" alt=" schedule timeline">';  
+	    
+	} else {
+	
+	
+	    tline += '<img id="tslot_' + i + '" src="./images/sched_green.png" style="width:' + 
+	    block_width + 'px;height:25px" onClick="KM.sched_tline_clicked(' + key + ',' + i + ')" title="' +
+	    title  + '" alt=" schedule timeline">';  
+	
+	
+	
+	}
     }
     
     tline += '</div>'
