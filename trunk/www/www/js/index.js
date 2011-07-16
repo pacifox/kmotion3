@@ -65,7 +65,7 @@ KM.session_id = {
     current: 0 // the current 'live' session id, used to kill old sessions
 };
 
-KM.menu_bar_buttons	= {	
+KM.menu_bar_buttons = {	
     function_selected:   0,     // the function selected
     display_sec_enabled: false, // enabled sections ...
     camera_sec_enabled:  false,
@@ -79,13 +79,14 @@ KM.live = {
 };
 
 KM.config = {
-    session_id:	    0, // the session id
+    session_id:	     0, // the session id
     pwd_change: false, // the password has changed
-    camera:         1, // the current camera
-    mask:          '', // the current expanded mask string
-    ptz_current_x:  0, // calculated abs position
-    ptz_current_y:  0,
-    error_str:     '', // the error string
+    camera:          1, // the current camera
+    mask:           '', // the current expanded mask string
+    ptz_current_x:   0, // calculated abs position
+    ptz_current_y:   0,
+    sched_pastebin: '',
+    error_str:      '', // the error string
     error_search_str: /failed|error/i
 };
 
@@ -7322,104 +7323,109 @@ Displays and processes the schedules config screen
 
 KM.conf_schedule_html = function () {
 
-    // A function that generates the achedule HTML. It create the schedule
-    // config screen on the config backdrop 'slab'. 
+    // A function that generates the weekly schedule HTML. It create the 
+    // schedule config screen on the config backdrop 'slab'. 
     //
     // expects:
     //
-
     // returns:
     //
     
+    html_str = '<br>' +
     
-	html_str = '<br>' +
+    '<div class="sched_selector" style="width:952px;">' +
 	
-	'<div class="sched_selector" style="width:952px;">' +
+	    '<select id="feed_camera" onchange="KM.conf_feed_change();">' +
+		'<option value="1">Schedule 1</option>' +	
+		'<option value="2">Schedule 2</option>' +	
+		'<option value="3">Schedule 3</option>' +	
+		'<option value="4">Schedule 4</option>' +	
+		'<option value="5">Schedule 5</option>' +	
+		'<option value="6">Schedule 6</option>' +	
+		'<option value="7">Schedule 7</option>' +	
+		'<option value="8">Schedule 8</option>' +	
+	    '</select>' +
+	
+	    '<input type="button" id="sched_week"' +
+	    'OnClick="KM.conf_sched_week();" value="Weekly Schedule">' +
 	    
-		'<select id="feed_camera" onchange="KM.conf_feed_change();">' +
-		    '<option value="1">Schedule 1</option>' +	
-		    '<option value="2">Schedule 2</option>' +	
-		    '<option value="3">Schedule 3</option>' +	
-		    '<option value="4">Schedule 4</option>' +	
-		    '<option value="5">Schedule 5</option>' +	
-		    '<option value="6">Schedule 6</option>' +	
-		    '<option value="7">Schedule 7</option>' +	
-		    '<option value="8">Schedule 8</option>' +	
-		'</select>' +
-	    
-		'<input type="button" id="sched_week"' +
-		'OnClick="KM.conf_sched_week();" value="Weekly Schedule">' +
-		
-		'<input type="button" id="sched_except"' +
-		'OnClick="KM.sched_week_except();" value="Exceptions to Weekly Schedule">' +
-	    
-	    '<span class="sched_status">&nbsp;Schedule Status : Inactive</span>' +  
-	    
-       '</div><br>' +
-       KM.conf_sched_weekday('Monday') +
-       KM.conf_sched_weekday('Tuesday') +
-       KM.conf_sched_weekday('Wednesday') +
-       KM.conf_sched_weekday('Thursday') +
-       KM.conf_sched_weekday('Friday') +
-       KM.conf_sched_weekday('Saturday') +
-       KM.conf_sched_weekday('Sunday') +
+	    '<input type="button" id="sched_except"' +
+	    'OnClick="KM.conf_sched_week_except();" value="Exceptions to Weekly Schedule">' +
+	
+	'<span class="sched_status">&nbsp;Schedule Status : Inactive</span>' +  
+	
+   '</div><br>' +
+   
+    KM.conf_sched_weekday(1, 'Monday') +
+    KM.conf_sched_weekday(2, 'Tuesday') +
+    KM.conf_sched_weekday(3, 'Wednesday') +
+    KM.conf_sched_weekday(4, 'Thursday') +
+    KM.conf_sched_weekday(5, 'Friday') +
+    KM.conf_sched_weekday(6, 'Saturday') +
+    KM.conf_sched_weekday(7, 'Sunday') +
 
     '<div class="config_text_margin" id="conf_text">' +
-        '<input type="button" id="conf_apply" OnClick="KM.conf_misc_apply();" value="Apply Schedule Changes"> ' +
+	'<input type="button" id="conf_apply" OnClick="KM.conf_sched_apply();" value="Apply Schedule Changes"> ' +
     '</div>';
-	
-	
+    
     document.getElementById('config_html').innerHTML = html_str;
 };
 
 
-KM.conf_sched_weekday = function (day) {
+KM.conf_sched_weekday = function (key, day) {
 
-    return '<div class="sched_selector" style="width:952px; margin-bottom: 4px;">' +
+    // A function that generates the schedule buttons and time line html for
+    // a particular day
+    // 
+    // expects:
+    // 'key' ... the id number for this time line
+    // 'day' ... the 'day' string
+    //
+    // returns: 
+    // 'html' ... time line html
     
-		'<input type="button" style="width: 200px;" id="sched_week"' +
-		'OnClick="KM.conf_sched_week();" value="' + day + '">' +
+    return '<div class="sched_selector" style="width:952px; margin-bottom: 4px;">' +
+		'<input type="button" style="width: 200px;" value="' + day + '">' +
 	     
 		'<span style="float:right;">' +
-		    '<input type="button" id="sched_week"' +
-		    'OnClick="KM.conf_sched_week();" value="Select All">' +
+		    '<input type="button"' +
+		    'OnClick="KM.conf_sched_select_all(' + key + ');" value="Select All">' +
 		    
-		    '<input type="button" id="sched_week"' +
-		    'OnClick="KM.conf_sched_week();" value="Select Invert">' +
+		    '<input type="button"' +
+		    'OnClick="KM.conf_sched_select_invert(' + key + ');" value="Select Invert">' +
 		    
-		    '<input type="button" id="sched_week"' +
-		    'OnClick="KM.conf_sched_week();" value="Select None">' +
-	    
-		    '<input type="button" id="sched_week"' +
-		    'OnClick="KM.conf_sched_week();" value="Copy">' +
+		    '<input type="button"' +
+		    'OnClick="KM.conf_sched_select_none(' + key + ');" value="Select None">' +
 		    
-		    '<input type="button" id="sched_week"' +
-		    'OnClick="KM.conf_sched_week();" value="Paste">' +
+		    '<input type="button"' +
+		    'OnClick="KM.conf_sched_copy(' + key + ');" value="Copy">' +
+		    
+		    '<input type="button"' +
+		    'OnClick="KM.conf_sched_paste(' + key + ');" value="Paste">' +
+		    
 		'</span>' +
 		 
 	    '</div>' +
 	    
-	    KM.conf_sched_tline('') +
+	    KM.conf_sched_tline(key) +
 	    
 	    '<div style="height: 10px;"></div>' 
-	    
-	    
-
-}
+};
 
     
 KM.conf_sched_tline = function (key) {
-    
-    // A function that generates schedule time line html
+
+    // A function that generates the schedule time line html
     //
     // expects:
-    // 'key' ... the key string for this time line
+    // 'key' ... the id number for this time line
     //
     // returns: 
     // 'html' ... time line html
     
     // calculated rather than hard coded
     var width = 952;
+    var height = 25;
     var pos = 0, old_pos = 0;
     var mins = 0, hours = 0, title = '';
     var blocks = (24 * 60) / 15;
@@ -7434,27 +7440,24 @@ KM.conf_sched_tline = function (key) {
 	block_width = pos - old_pos;
 	old_pos = pos;
 		
-	//// generate 'title' HH:MM-HH:MM
+	// generate 'title' HH:MM-HH:MM
 	mins = (i - 1) * 15;
 	hours = parseInt(mins / 60);
 	mins = mins - (hours * 60);
 	title = KM.pad_out2(hours) + ":" + KM.pad_out2(mins) + " - " + KM.pad_out2(hours) + ":" + KM.pad_out2(mins + 14);
 
+	// dummy code to simulate data - to be streamlined
 	if (Math.random() > 0.5) {
 	
-	    tline += '<img id="tslot_' + i + '" src="./images/sched_grey.png" style="width:' + 
-	    block_width + 'px;height:25px" onClick="KM.sched_tline_clicked(' + key + ',' + i + ')" title="' +
+	    tline += '<img id="tline_' + key + '_' + i + '" src="./images/sched_grey.png" style="width:' + 
+	    block_width + 'px;height:' + height + 'px;" onClick="KM.sched_tline_clicked(' + key + ', ' + i + ')\" title="' +
 	    title  + '" alt=" schedule timeline">';  
 	    
 	} else {
 	
-	
-	    tline += '<img id="tslot_' + i + '" src="./images/sched_green.png" style="width:' + 
-	    block_width + 'px;height:25px" onClick="KM.sched_tline_clicked(' + key + ',' + i + ')" title="' +
+	    tline += '<img id="tline_' + key + '_' + i + '" src="./images/sched_green.png" style="width:' + 
+	    block_width + 'px;height:' + height + 'px;" onClick="KM.sched_tline_clicked(' + key + ', ' + i + ')" title="' +
 	    title  + '" alt=" schedule timeline">';  
-	
-	
-	
 	}
     }
     
@@ -7463,19 +7466,130 @@ KM.conf_sched_tline = function (key) {
 };
     
     
+KM.sched_tline_clicked = function(key, i) {
+
+    // A function that inverts the clicked time line segment 
+    //
+    // expects:
+    // 'key' ... the id number for the time line
+    //
+    // returns: 
+    // 
+    
+    var ref = 'tline_' + key + '_' + i;
+    // a bodge, but an efficient one ... ouch !!!
+    if (document.getElementById(ref).src.indexOf('green.png') != -1) {
+	document.getElementById(ref).src = './images/sched_grey.png';
+    } else {
+	document.getElementById(ref).src = './images/sched_green.png';
+    }
+};
 
 
+KM.conf_sched_select_all = function(key) {
+
+    // A function that sets all the time line segments to green
+    //
+    // expects:
+    // 'key' ... the id number for the time line
+    //
+    // returns: 
+    // 
+    
+    var blocks = (24 * 60) / 15;
+    for (var i = 1; i < blocks + 1; i++) {
+	
+	document.getElementById('tline_' + key + '_' + i).src = './images/sched_green.png';
+    }
+};
 
 
+KM.conf_sched_select_invert = function(key) {
+
+    // A function that inverts all the time line segments 
+    //
+    // expects:
+    // 'key' ... the id number for the time line
+    //
+    // returns: 
+    // 
+    
+    var blocks = (24 * 60) / 15;
+    var ref;
+    
+    for (var i = 1; i < blocks + 1; i++) {	
+	ref = 'tline_' + key + '_' + i;
+	// a bodge, but an efficient one ... ouch !!!
+	if (document.getElementById(ref).src.indexOf('green.png') != -1) {
+	    document.getElementById(ref).src = './images/sched_grey.png';
+	} else {
+	    document.getElementById(ref).src = './images/sched_green.png';
+	}
+    }
+};
 
 
+KM.conf_sched_select_none = function(key) {
+
+    // A function that sets all the time line segments to grey
+    //
+    // expects:
+    // 'key' ... the id number for the time line
+    //
+    // returns: 
+    // 
+    
+    var blocks = (24 * 60) / 15;
+    for (var i = 1; i < blocks + 1; i++) {
+	
+	document.getElementById('tline_' + key + '_' + i).src = './images/sched_grey.png';
+    }
+};
 
 
+KM.conf_sched_copy = function(key) {
+
+    // A function that copies the state of the time line segments
+    //
+    // expects:
+    // 'key' ... the id number for the time line
+    //
+    // returns: 
+    // 
+    
+    var blocks = (24 * 60) / 15;
+    KM.config.sched_pastebin = '';
+    
+    for (var i = 1; i < blocks + 1; i++) {
+	if (document.getElementById('tline_' + key + '_' + i).src.indexOf('green.png') != -1) {
+	    KM.config.sched_pastebin += '1';
+	} else {
+	    KM.config.sched_pastebin += '0';
+	}
+    }
+};
 
 
+KM.conf_sched_paste = function(key) {
 
-
-
+    // A function that pastes the state of the time line segments
+    //
+    // expects:
+    // 'key' ... the id number for the time line
+    //
+    // returns: 
+    // 
+    
+    var blocks = (24 * 60) / 15;
+    
+    for (var i = 1; i < blocks + 1; i++) {
+	if (KM.config.sched_pastebin.charAt(i - 1) === '1') {
+	    document.getElementById('tline_' + key + '_' + i).src = './images/sched_green.png';
+	} else {
+	    document.getElementById('tline_' + key + '_' + i).src = './images/sched_grey.png';
+	}
+    }
+};
 
 
 
