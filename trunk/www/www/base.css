@@ -353,17 +353,15 @@ Main display section - CSS specific to 'config' - Schedules
 #main_display .sched_selector {
 	margin-left: auto;
 	margin-right: auto;
-	display: inline;
+	color: #818181; 
+	font-size: 19px;
+	font-weight: bold;
 }
 
 
-#main_display .sched_selector_text {
-	background-color: #ff0000;
-	text-align: center;
-	width: 100%;
-	color: #00ff00;
+#main_display .sched_status {
+	vertical-align: bottom;
 }
-
 
 
 
@@ -371,7 +369,6 @@ Main display section - CSS specific to 'config' - Schedules
 
 
 #main_display .sched_timeline {
-	margin-top: 11px;
 	margin-left: auto;
 	margin-right: auto;
 }
