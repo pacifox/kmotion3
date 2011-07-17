@@ -358,31 +358,14 @@ Main display section - CSS specific to 'config' - Schedules
 	font-weight: bold;
 }
 
-
 #main_display .sched_status {
 	vertical-align: bottom;
 }
-
-
-
-
-
 
 #main_display .sched_timeline {
 	margin-left: auto;
 	margin-right: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* *****************************************************************************
 Main display section - CSS specific to 'config' - Server load
