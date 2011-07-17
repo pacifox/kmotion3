@@ -644,7 +644,7 @@ tline2 = ffffff#ffffff#ffffff#ffffff#
 tline3 = ffffff#ffffff#ffffff#ffffff#
 tline4 = ffffff#ffffff#ffffff#ffffff#
 tline5 = ffffff#ffffff#ffffff#ffffff#
-tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#ffffaf#ffffff#ffffff#
 tline7 = ffffff#ffffff#ffffff#ffffff#
 
 [schedule2]
@@ -659,7 +659,7 @@ tline7 = ffffff#ffffff#ffffff#ffffff#
 
 [schedule3]
 schedule_except = 0
-tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1 = ffffff#fffffa#ffffff#ffffff#
 tline2 = ffffff#ffffff#ffffff#ffffff#
 tline3 = ffffff#ffffff#ffffff#ffffff#
 tline4 = ffffff#ffffff#ffffff#ffffff#
@@ -766,6 +766,54 @@ tline7 = ffffff#ffffff#ffffff#ffffff#
 tline7_dates = 00000000#00000000#
 
 [schedule_except4]
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1_dates = 00000000#00000000#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline2_dates = 00000000#00000000#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline3_dates = 00000000#00000000#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline4_dates = 00000000#00000000#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline5_dates = 00000000#00000000#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6_dates = 00000000#00000000#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7_dates = 00000000#00000000#
+
+[schedule_except5]
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1_dates = 00000000#00000000#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline2_dates = 00000000#00000000#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline3_dates = 00000000#00000000#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline4_dates = 00000000#00000000#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline5_dates = 00000000#00000000#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6_dates = 00000000#00000000#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7_dates = 00000000#00000000#
+
+[schedule_except6]
+tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1_dates = 00000000#00000000#
+tline2 = ffffff#ffffff#ffffff#ffffff#
+tline2_dates = 00000000#00000000#
+tline3 = ffffff#ffffff#ffffff#ffffff#
+tline3_dates = 00000000#00000000#
+tline4 = ffffff#ffffff#ffffff#ffffff#
+tline4_dates = 00000000#00000000#
+tline5 = ffffff#ffffff#ffffff#ffffff#
+tline5_dates = 00000000#00000000#
+tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6_dates = 00000000#00000000#
+tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7_dates = 00000000#00000000#
+
+[schedule_except7]
 tline1 = ffffff#ffffff#ffffff#ffffff#
 tline1_dates = 00000000#00000000#
 tline2 = ffffff#ffffff#ffffff#ffffff#

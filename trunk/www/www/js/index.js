@@ -110,12 +110,12 @@ KM.www_rc = {
     feed_height:   ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     feed_snap_enabled:   ['pad', false, false, false, false, false, false, false, 
     false, false, false, false, false, false, false, false, false],
-    feed_smovie_enabled:  ['pad', false, false, false, false, false, false, false, 
+    feed_smovie_enabled: ['pad', false, false, false, false, false, false, false, 
     false, false, false, false, false, false, false, false, false],
-    feed_movie_enabled: ['pad', false, false, false, false, false, false, false, 
+    feed_movie_enabled:  ['pad', false, false, false, false, false, false, false, 
     false, false, false, false, false, false, false, false, false],
     feed_snap_interval:  ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    feed_fps:     ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    feed_fps:      ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 
     // schedule and schedule exception config
     sched_except: ['pad', 0, 0, 0, 0, 0, 0, 0],
@@ -2929,11 +2929,11 @@ KM.display_archive_ = function () {
 	var tline_html = '';
 	var pos = 0, old_pos = 0;
 	var mins = 0, hours = 0, title = '';
-	var blocks = (24 * 60) / 5;
-	var scale = backdrop_width / blocks;
+	var segments = (24 * 60) / 5;
+	var scale = backdrop_width / segments;
 	var width = 0;
 	
-	for (var i = 1; i < blocks + 1; i++) {
+	for (var i = 1; i < segments + 1; i++) {
 	    pos = Math.round(i * scale);
 	    pos = Math.min(backdrop_width, pos);
 	    width = pos - old_pos;
@@ -7321,15 +7321,22 @@ Config display - Schedules config screen
 Displays and processes the schedules config screen
 **************************************************************************** */
 
-KM.conf_schedule_html = function () {
+KM.conf_schedule_html = function (sched) {
 
     // A function that generates the weekly schedule HTML. It create the 
     // schedule config screen on the config backdrop 'slab'. 
     //
     // expects:
+    // 'sched' ... the schedule number
     //
     // returns:
     //
+    
+    
+sched = 1;    
+    
+    
+    
     
     html_str = '<br>' +
     
@@ -7356,30 +7363,31 @@ KM.conf_schedule_html = function () {
 	
    '</div><br>' +
    
-    KM.conf_sched_weekday(1, 'Monday') +
-    KM.conf_sched_weekday(2, 'Tuesday') +
-    KM.conf_sched_weekday(3, 'Wednesday') +
-    KM.conf_sched_weekday(4, 'Thursday') +
-    KM.conf_sched_weekday(5, 'Friday') +
-    KM.conf_sched_weekday(6, 'Saturday') +
-    KM.conf_sched_weekday(7, 'Sunday') +
+    KM.conf_sched_weekday(sched, 1, 'Monday') +
+    KM.conf_sched_weekday(sched, 2, 'Tuesday') +
+    KM.conf_sched_weekday(sched, 3, 'Wednesday') +
+    KM.conf_sched_weekday(sched, 4, 'Thursday') +
+    KM.conf_sched_weekday(sched, 5, 'Friday') +
+    KM.conf_sched_weekday(sched, 6, 'Saturday') +
+    KM.conf_sched_weekday(sched, 7, 'Sunday') +
 
-    '<div class="config_text_margin" id="conf_text">' +
-	'<input type="button" id="conf_apply" OnClick="KM.conf_sched_apply();" value="Apply Schedule Changes"> ' +
+    '<div class="config_text_margin">' +
+	'<input type="button" id="sched_apply" OnClick="KM.conf_sched_apply(' + sched + ');" value="Apply Schedule Changes"> ' +
     '</div>';
     
     document.getElementById('config_html').innerHTML = html_str;
 };
 
 
-KM.conf_sched_weekday = function (key, day) {
+KM.conf_sched_weekday = function (sched, index, day) {
 
     // A function that generates the schedule buttons and time line html for
     // a particular day
     // 
     // expects:
-    // 'key' ... the id number for this time line
-    // 'day' ... the 'day' string
+    // 'sched' ... the schedule number
+    // 'index' ... the time line index number
+    // 'day'   ... the 'day' string
     //
     // returns: 
     // 'html' ... time line html
@@ -7389,67 +7397,68 @@ KM.conf_sched_weekday = function (key, day) {
 	     
 		'<span style="float:right;">' +
 		    '<input type="button"' +
-		    'OnClick="KM.conf_sched_select_all(' + key + ');" value="Select All">' +
+		    'OnClick="KM.conf_sched_select_all(' + index + ');" value="Select All">' +
 		    
 		    '<input type="button"' +
-		    'OnClick="KM.conf_sched_select_invert(' + key + ');" value="Select Invert">' +
+		    'OnClick="KM.conf_sched_select_invert(' + index + ');" value="Select Invert">' +
 		    
 		    '<input type="button"' +
-		    'OnClick="KM.conf_sched_select_none(' + key + ');" value="Select None">' +
+		    'OnClick="KM.conf_sched_select_none(' + index + ');" value="Select None">' +
 		    
 		    '<input type="button"' +
-		    'OnClick="KM.conf_sched_copy(' + key + ');" value="Copy">' +
+		    'OnClick="KM.conf_sched_copy(' + index + ');" value="Copy">' +
 		    
 		    '<input type="button"' +
-		    'OnClick="KM.conf_sched_paste(' + key + ');" value="Paste">' +
+		    'OnClick="KM.conf_sched_paste(' + index + ');" value="Paste">' +
 		    
 		'</span>' +
 		 
 	    '</div>' +
 	    
-	    KM.conf_sched_tline(key) +
+	    KM.conf_sched_tline(sched, index) +
 	    
 	    '<div style="height: 10px;"></div>' 
 };
 
     
-KM.conf_sched_tline = function (key) {
+KM.conf_sched_tline = function (sched, index) {
 
     // A function that generates the schedule time line html
     //
     // expects:
-    // 'key' ... the id number for this time line
+    // 'sched' ... the schedule number
+    // 'index' ... the time line index number
     //
     // returns: 
-    // 'html' ... time line html
+    // 'html'  ... time line html
     
     // calculated rather than hard coded
     var width = 952;
     var height = 25;
     var pos = 0, old_pos = 0;
     var mins = 0, hours = 0, title = '';
-    var blocks = (24 * 60) / 15;
-    var scale = width / blocks;
-    var block_width;
+    var segments = (24 * 60) / 15;
+    var scale = width / segments;
+    var segment_width;
     
     // convert 4 x 6 digit hex to 96 bit bin, truncating as necessary
-    var tline = KM.www_rc.sched_tline1[1];
+    var tline = KM.www_rc['sched_tline' + index][sched];
     var tmp;
-    var segments = '';
+    var segments_data = '';
     
     tmp1 = tline.split('#');
     for (var i = 0; i < 4; i++) {
 	tmp2 = parseInt('0x' + tmp1[i], 16).toString(2)
-	segments += tmp2.slice(0, 24);
-    }
+	segments_data += tmp2.slice(0, 24);
+    };
     
     // construct the html
     var tline = '' +
     '<div id="timeline" class="sched_timeline" style="width:' + width + 'px;">' 
     
-    for (var i = 1; i < blocks + 1; i++) {
+    for (var i = 1; i < segments + 1; i++) {
 	pos = Math.round(i * scale);
-	block_width = pos - old_pos;
+	segment_width = pos - old_pos;
 	old_pos = pos;
 		
 	// generate 'title' HH:MM-HH:MM
@@ -7458,77 +7467,80 @@ KM.conf_sched_tline = function (key) {
 	mins = mins - (hours * 60);
 	title = KM.pad_out2(hours) + ":" + KM.pad_out2(mins) + " - " + KM.pad_out2(hours) + ":" + KM.pad_out2(mins + 14);
 	
-	tline += '<img id="tline_' + key + '_' + i + '" ' ;
+	tline += '<img id="tline_' + index + '_' + i + '" ' ;
    
-	if (segments.charAt(i - 1) == '1') {
-	    tline += 'src="./images/sched_grey.png" ';
-	} else {
+	if (segments_data.charAt(i - 1) == '1') {
 	    tline += 'src="./images/sched_green.png" ';
+	} else {
+	    tline += 'src="./images/sched_grey.png" ';
 	}
 	
-	tline += 'style="width:' + block_width + 'px;height:' + height + 
-	'px;" onClick="KM.sched_tline_clicked(' + key + ', ' + i + ')" title="' +
+	tline += 'style="width:' + segment_width + 'px;height:' + height + 
+	'px;" onClick="KM.sched_tline_clicked(' + index + ', ' + i + ')" title="' +
 	title  + '" alt=" schedule timeline">'; 
     }
     
-    tline += '</div>'
+    tline += '</div>';
     return tline;
 };
     
     
-KM.sched_tline_clicked = function(key, i) {
+KM.sched_tline_clicked = function(index, segment) {
 
     // A function that inverts the clicked time line segment 
     //
     // expects:
-    // 'key' ... the id number for the time line
+    // 'index'   ... the time line index number
+    // 'segment' ... the clicked segment
     //
     // returns: 
     // 
     
-    var ref = 'tline_' + key + '_' + i;
+    var ref = 'tline_' + index + '_' + segment;
     // a bodge, but an efficient one ... ouch !!!
     if (document.getElementById(ref).src.indexOf('green.png') != -1) {
 	document.getElementById(ref).src = './images/sched_grey.png';
     } else {
 	document.getElementById(ref).src = './images/sched_green.png';
     }
+    KM.conf_sched_highlight_apply();
 };
 
 
-KM.conf_sched_select_all = function(key) {
+KM.conf_sched_select_all = function(index) {
 
     // A function that sets all the time line segments to green
     //
     // expects:
-    // 'key' ... the id number for the time line
+    // 'index' ... the time line index number
     //
     // returns: 
     // 
     
-    var blocks = (24 * 60) / 15;
-    for (var i = 1; i < blocks + 1; i++) {
+    var segments = (24 * 60) / 15;
+    for (var i = 1; i < segments + 1; i++) {
 	
-	document.getElementById('tline_' + key + '_' + i).src = './images/sched_green.png';
+	document.getElementById('tline_' + index + '_' + i).src = './images/sched_green.png';
     }
+    KM.conf_sched_highlight_apply();
 };
 
 
-KM.conf_sched_select_invert = function(key) {
+KM.conf_sched_select_invert = function(index) {
 
     // A function that inverts all the time line segments 
     //
     // expects:
-    // 'key' ... the id number for the time line
+    // 'index' ... the time line index number
     //
     // returns: 
     // 
     
-    var blocks = (24 * 60) / 15;
+    var segments = (24 * 60) / 15;
     var ref;
     
-    for (var i = 1; i < blocks + 1; i++) {	
-	ref = 'tline_' + key + '_' + i;
+    for (var i = 1; i < segments + 1; i++) {	
+	ref = 'tline_' + index + '_' + i;
 	// a bodge, but an efficient one ... ouch !!!
 	if (document.getElementById(ref).src.indexOf('green.png') != -1) {
 	    document.getElementById(ref).src = './images/sched_grey.png';
@@ -7536,75 +7548,201 @@ KM.conf_sched_select_invert = function(key) {
 	    document.getElementById(ref).src = './images/sched_green.png';
 	}
     }
+    KM.conf_sched_highlight_apply();
 };
 
 
-KM.conf_sched_select_none = function(key) {
+KM.conf_sched_select_none = function(index) {
 
     // A function that sets all the time line segments to grey
     //
     // expects:
-    // 'key' ... the id number for the time line
+    // 'index' ... the time line index number
     //
     // returns: 
     // 
     
-    var blocks = (24 * 60) / 15;
-    for (var i = 1; i < blocks + 1; i++) {
+    var segments = (24 * 60) / 15;
+    for (var i = 1; i < segments + 1; i++) {
 	
-	document.getElementById('tline_' + key + '_' + i).src = './images/sched_grey.png';
+	document.getElementById('tline_' + index + '_' + i).src = './images/sched_grey.png';
     }
+    KM.conf_sched_highlight_apply();
 };
 
 
-KM.conf_sched_copy = function(key) {
+KM.conf_sched_copy = function(index) {
 
     // A function that copies the state of the time line segments
     //
     // expects:
-    // 'key' ... the id number for the time line
+    // 'index' ... the time line index number
     //
     // returns: 
     // 
     
-    var blocks = (24 * 60) / 15;
+    var segments = (24 * 60) / 15;
     KM.config.sched_pastebin = '';
     
-    for (var i = 1; i < blocks + 1; i++) {
-	if (document.getElementById('tline_' + key + '_' + i).src.indexOf('green.png') != -1) {
+    for (var i = 1; i < segments + 1; i++) {
+	if (document.getElementById('tline_' + index + '_' + i).src.indexOf('green.png') != -1) {
 	    KM.config.sched_pastebin += '1';
 	} else {
 	    KM.config.sched_pastebin += '0';
 	}
     }
+    KM.conf_sched_highlight_apply();
 };
 
 
-KM.conf_sched_paste = function(key) {
+KM.conf_sched_paste = function(index) {
 
     // A function that pastes the state of the time line segments
     //
     // expects:
-    // 'key' ... the id number for the time line
+    // 'index' ... the time line index number
     //
     // returns: 
     // 
     
-    var blocks = (24 * 60) / 15;
+    var segments = (24 * 60) / 15;
     
-    for (var i = 1; i < blocks + 1; i++) {
+    for (var i = 1; i < segments + 1; i++) {
 	if (KM.config.sched_pastebin.charAt(i - 1) === '1') {
-	    document.getElementById('tline_' + key + '_' + i).src = './images/sched_green.png';
+	    document.getElementById('tline_' + index + '_' + i).src = './images/sched_green.png';
 	} else {
-	    document.getElementById('tline_' + key + '_' + i).src = './images/sched_grey.png';
+	    document.getElementById('tline_' + index + '_' + i).src = './images/sched_grey.png';
 	}
     }
+    KM.conf_sched_highlight_apply();
 };
 
 
+KM.conf_sched_highlight_apply = function () {
+
+    // A function that highlight the 'need to apply' warning
+    //
+    // expects:
+    //
+    // returns:
+    //
+    
+    document.getElementById('sched_apply').style.fontWeight = 'bold';
+    document.getElementById('sched_apply').style.color = KM.BLUE;
+};
 
 
+KM.conf_sched_apply = function (sched) {
 
+    // A function that checks and applys the changes
+    //
+    // expects:
+    //
+    // returns:
+    //
+    
+    var segments = (24 * 60) / 15;
+    var tline = '';    
+    
+    for (var index = 1; index < 8; index++) {
+    
+	// read the raw segment data
+	for (var segment = 1; segment < segments + 1; segment++) {
+	    // a bodge, but an efficient one ... ouch !!!
+	    if (document.getElementById('tline_' + index + '_' + segment).src.indexOf('green.png') != -1) {
+		tline += '1';
+	    } else {
+		tline += '0';
+	    }
+	}
+	
+	// spliting and encodeing to hex
+	for (var i = 1; 1 < 5; i++) {
+	    alert(parseInt(tline.slice((i - 1) * 24, i * 24), 10).toString(16))
+	}
+	
+	
+    }
+	
+    alert(tline)
+};
+   
+    
+    
+    
+    
+    
+    
+    //KM.www_rc.feed_enabled[KM.config.camera] = document.getElementById('feed_enabled').checked;
+    //KM.www_rc.feed_pal[KM.config.camera] = document.getElementById('feed_pal_enabled').checked;
+    //KM.www_rc.feed_device[KM.config.camera] = document.getElementById('feed_device').selectedIndex;
+    //KM.www_rc.feed_input[KM.config.camera] = document.getElementById('feed_input').selectedIndex;
+    //KM.www_rc.feed_url[KM.config.camera] = document.getElementById('feed_url').value;
+    //KM.www_rc.feed_proxy[KM.config.camera] = document.getElementById('feed_proxy').value;
+    //KM.www_rc.feed_lgn_name[KM.config.camera] = document.getElementById('feed_lgn_name').value;
+    //KM.www_rc.feed_lgn_pw[KM.config.camera] = document.getElementById('feed_lgn_pw').value;
+    //KM.www_rc.feed_name[KM.config.camera] = document.getElementById('feed_name').value;
+    //KM.www_rc.feed_show_box[KM.config.camera] = document.getElementById('feed_box').checked;
+    //KM.www_rc.feed_snap_enabled[KM.config.camera] = document.getElementById('feed_snap_enabled').checked;	
+    //KM.www_rc.feed_smovie_enabled[KM.config.camera] = document.getElementById('feed_frame_enabled').checked;
+    //KM.www_rc.feed_movie_enabled[KM.config.camera] = document.getElementById('feed_ffmpeg_enabled').checked;
+
+    //var tmp = '';
+    //KM.www_rc.feed_mask[KM.config.camera] = '';
+    //for (var i = 0; i < 15; i++) {
+        //tmp = KM.config.mask.substr(i * 15, 15);
+        //KM.www_rc.feed_mask[KM.config.camera] += parseInt(tmp, 2).toString(16) + '#';	
+    //}
+
+    //var width = parseInt(document.getElementById('feed_width').value, 10);
+    //if (isNaN(width)) width = 0;
+    //width = parseInt(width / 16) * 16;
+    //if (KM.www_rc.feed_width[KM.config.camera] !== width) {
+        //// if the image size changes, change the mask
+        //KM.conf_config_track.mask_modified(KM.config.camera);
+        //KM.www_rc.feed_width[KM.config.camera] = width;
+    //}
+    //// feed value back to gui in case parseInt changes it
+    //document.getElementById('feed_width').value = width;
+
+    //var height = parseInt(document.getElementById('feed_height').value, 10);
+    //if (isNaN(height)) height = 0;
+    //height = parseInt(height / 16) * 16;
+    //if (KM.www_rc.feed_height[KM.config.camera] !== height) {
+        //// if the image size changes, change the mask
+        //KM.conf_config_track.mask_modified(KM.config.camera);
+        //KM.www_rc.feed_height[KM.config.camera] = height;
+    //}
+    //// feed value back to gui in case parseInt changes it
+    //document.getElementById('feed_height').value = height;
+
+    //var fps = parseInt(document.getElementById('feed_fps').value, 10);
+    //if (isNaN(fps)) fps = 0;
+    //KM.www_rc.feed_fps[KM.config.camera] = fps;
+    //// feed value back to gui in case parseInt changes it
+    //document.getElementById('feed_fps').value = fps;
+
+    //var snap = parseInt(document.getElementById('feed_snap').value, 10);
+    //if (isNaN(snap)) snap = 0;
+    //KM.www_rc.feed_snap_interval[KM.config.camera] = snap;
+    //// feed value back to gui in case parseInt changes it
+    //document.getElementById('feed_snap').value = snap;
+
+    //// enable / disable the ptz button
+    //if (KM.www_rc.feed_enabled[KM.config.camera]) {
+        //document.getElementById('ptz_button').disabled = false;
+    //} else {
+        //document.getElementById('ptz_button').disabled = true;
+    //}
+
+    //// reset any warning highlight on the apply line
+    //document.getElementById('feed_apply').style.fontWeight = 'normal';
+    //document.getElementById('feed_apply').style.color = KM.BLACK;
+    //document.getElementById('feed_text_25').style.color = KM.DARK_GREY;
+
+    //KM.conf_config_track.feed_modified(KM.config.camera);
+    //KM.conf_config_track.sync();
+//};
 
 
 
