@@ -7642,11 +7642,12 @@ KM.conf_sched_apply = function (sched) {
     //
     
     var segments = (24 * 60) / 15;
-    var tline = '';    
+    var tline;    
     
     for (var index = 1; index < 8; index++) {
     
 	// read the raw segment data
+	tline = '';
 	for (var segment = 1; segment < segments + 1; segment++) {
 	    // a bodge, but an efficient one ... ouch !!!
 	    if (document.getElementById('tline_' + index + '_' + segment).src.indexOf('green.png') != -1) {
