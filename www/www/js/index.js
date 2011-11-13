@@ -118,7 +118,6 @@ KM.www_rc = {
     feed_fps:      ['pad', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 
     // schedule and schedule exception config
-    sched_except: ['pad', 0, 0, 0, 0, 0, 0, 0],
     sched_tline1: ['pad', '', '', '', '', '', '', '', ''],
     sched_tline2: ['pad', '', '', '', '', '', '', '', ''],
     sched_tline3: ['pad', '', '', '', '', '', '', '', ''],
@@ -7315,6 +7314,28 @@ KM.conf_ptz_apply = function () {
 };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* **************************************************************************** 
 Config display - Schedules config screen
 
@@ -7658,20 +7679,58 @@ KM.conf_sched_apply = function (sched) {
 	}
 	
 	// spliting and encodeing to hex
-	for (var i = 1; 1 < 5; i++) {
-	    alert(parseInt(tline.slice((i - 1) * 24, i * 24), 10).toString(16))
+	for (var i = 1; i < 5; i++) {
+	
+	     += parseInt(tline.slice((i - 1) * 24, i * 24), 2).toString(16);
+	    
+	    
 	}
 	
 	
     }
 	
-    alert(tline)
+    //////alert(tline)
 };
    
+     //// schedule and schedule exception config
+    //sched_tline1: ['pad', '', '', '', '', '', '', '', ''],
+    //sched_tline2: ['pad', '', '', '', '', '', '', '', ''],
+    //sched_tline3: ['pad', '', '', '', '', '', '', '', ''],
+    //sched_tline4: ['pad', '', '', '', '', '', '', '', ''],
+    //sched_tline5: ['pad', '', '', '', '', '', '', '', ''],
+    //sched_tline6: ['pad', '', '', '', '', '', '', '', ''],
+    //sched_tline7: ['pad', '', '', '', '', '', '', '', ''],
     
     
     
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     //KM.www_rc.feed_enabled[KM.config.camera] = document.getElementById('feed_enabled').checked;
