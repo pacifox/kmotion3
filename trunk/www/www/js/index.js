@@ -578,9 +578,9 @@ KM.load_settings = function (callback) {
 		    KM.www_rc.ptz_preset4_y[index] = parseInt(value, 10);
 		    break;
     
-		case 'sex': // schedule exception
-		    KM.www_rc.sched_except[index] = parseInt(value, 10);
-		    break;
+		////////////////////////////////////////////////////////case 'sex': // schedule exception
+		    ////////////////////////////////////////////////////////KM.www_rc.sched_except[index] = parseInt(value, 10);
+		    ////////////////////////////////////////////////////////break;
 		case 'st1': // schedule time line 1
 		    KM.www_rc.sched_tline1[index] = value;
 		    break;
@@ -7663,7 +7663,7 @@ KM.conf_sched_apply = function (sched) {
     //
     
     var segments = (24 * 60) / 15;
-    var tline;    
+    var tline, encoded;    
     
     for (var index = 1; index < 8; index++) {
     
@@ -7679,13 +7679,11 @@ KM.conf_sched_apply = function (sched) {
 	}
 	
 	// spliting and encodeing to hex
+	encoded = '';
 	for (var i = 1; i < 5; i++) {
-	
-	     += parseInt(tline.slice((i - 1) * 24, i * 24), 2).toString(16);
-	    
-	    
+	     encoded += parseInt(tline.slice((i - 1) * 24, i * 24), 2).toString(16) + '#';
 	}
-	
+	alert(encoded)
 	
     }
 	
