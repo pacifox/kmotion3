@@ -171,7 +171,6 @@ def index(req):
     
     for i in range(1, 9):
         
-        coded_str += '$sex%i:%s' % (i, parser.get('schedule%i' % i, 'schedule_except'))
         coded_str += '$st1%i:%s' % (i, parser.get('schedule%i' % i, 'tline1'))
         coded_str += '$st2%i:%s' % (i, parser.get('schedule%i' % i, 'tline2'))
         coded_str += '$st3%i:%s' % (i, parser.get('schedule%i' % i, 'tline3'))

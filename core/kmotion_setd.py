@@ -90,7 +90,6 @@ def main():
     p4x ... PTZ preset 4 x
     p4y ... PTZ preset 4 y
     
-    sex ... schedule exception
     st1 ... schedule time line 1
     st2 ... schedule time line 2
     st3 ... schedule time line 3
@@ -137,7 +136,7 @@ def main():
     
     RELOAD_ALL =  ['fma', 'fen', 'fpl', 'fde', 'fin', 'ful', 'fpr', 'fln', 
                    'flp', 'fwd', 'fhe', 'fbo', 'ffp', 'fpe', 'fsn', 'ffe', 
-                   'fme', 'fup', 'ptt', 'pte', 'sex', 'st1', 'st2', 'st3',
+                   'fme', 'fup', 'ptt', 'pte', 'st1', 'st2', 'st3',
                    'st4', 'st5', 'st6', 'st7', 'ed1', 'ed2', 'ed3', 'wd4',
                    'ed5', 'ed6', 'ed7', 'et1', 'et2', 'et3', 'et4', 'et5',
                    'et6', 'et7']
@@ -284,8 +283,6 @@ def main():
             elif key == 'p4y': # ptz preset 4 y
                 parser.set('motion_feed%02i' % index, 'ptz_preset4_y', value)
         
-            elif key == 'sex': # schedule exception
-                parser.set('schedule%i' % index, 'schedule_except', value)
             elif key == 'st1': # schedule time line 1
                 parser.set('schedule%i' % index, 'tline1', value)
             elif key == 'st2': # schedule time line 2
