@@ -577,10 +577,7 @@ KM.load_settings = function (callback) {
 		case 'p4y': // ptz preset 4 y
 		    KM.www_rc.ptz_preset4_y[index] = parseInt(value, 10);
 		    break;
-    
-		////////////////////////////////////////////////////////case 'sex': // schedule exception
-		    ////////////////////////////////////////////////////////KM.www_rc.sched_except[index] = parseInt(value, 10);
-		    ////////////////////////////////////////////////////////break;
+		    
 		case 'st1': // schedule time line 1
 		    KM.www_rc.sched_tline1[index] = value;
 		    break;
@@ -5341,56 +5338,54 @@ KM.conf_config_track = function() {
 	    
 	    for (var i = 1; i < 8; i++) {
 		if (sched_modified[i] === true) {
-		    // schedule exception
-		    coded_str += '$sex' + i + ':' + KM.www_rc.sched_except[i];
 		    // schedule time line 1
-		    coded_str += '$st1' + i + ':' + KM.www_rc.sched_tline1[index];
+		    coded_str += '$st1' + i + ':' + KM.www_rc.sched_tline1[i];
 		    // schedule time line 2
-		    coded_str += '$st2' + i + ':' + KM.www_rc.sched_tline2[index];
+		    coded_str += '$st2' + i + ':' + KM.www_rc.sched_tline2[i];
 		    // schedule time line 3
-		    coded_str += '$st3' + i + ':' + KM.www_rc.sched_tline3[index];
+		    coded_str += '$st3' + i + ':' + KM.www_rc.sched_tline3[i];
 		    // schedule time line 4
-		    coded_str += '$st4' + i + ':' + KM.www_rc.sched_tline4[index];
+		    coded_str += '$st4' + i + ':' + KM.www_rc.sched_tline4[i];
 		    // schedule time line 5
-		    coded_str += '$st5' + i + ':' + KM.www_rc.sched_tline5[index];
+		    coded_str += '$st5' + i + ':' + KM.www_rc.sched_tline5[i];
 		    // schedule time line 6
-		    coded_str += '$st6' + i + ':' + KM.www_rc.sched_tline6[index];
+		    coded_str += '$st6' + i + ':' + KM.www_rc.sched_tline6[i];
 		    // schedule time line 7
-		    coded_str += '$st7' + i + ':' + KM.www_rc.sched_tline7[index];
+		    coded_str += '$st7' + i + ':' + KM.www_rc.sched_tline7[i];
 		}
 	    }
 		  
 	    for (var i = 1; i < 4; i++) {
 		if (except_modified[i] === true) {
 		    // exception time line 1 dates
-		    coded_str += '$ed1' + i + ':' + KM.www_rc.except_tline1_dates[index];
+		    coded_str += '$ed1' + i + ':' + KM.www_rc.except_tline1_dates[i];
 		    // exception time line 2 dates
-		    coded_str += '$ed2' + i + ':' + KM.www_rc.except_tline2_dates[index];
+		    coded_str += '$ed2' + i + ':' + KM.www_rc.except_tline2_dates[i];
 		    // exception time line 3 dates
-		    coded_str += '$ed3' + i + ':' + KM.www_rc.except_tline3_dates[index];
+		    coded_str += '$ed3' + i + ':' + KM.www_rc.except_tline3_dates[i];
 		    // exception time line 4 dates
-		    coded_str += '$ed4' + i + ':' + KM.www_rc.except_tline4_dates[index];
+		    coded_str += '$ed4' + i + ':' + KM.www_rc.except_tline4_dates[i];
 		    // exception time line 5 dates
-		    coded_str += '$ed5' + i + ':' + KM.www_rc.except_tline5_dates[index];
+		    coded_str += '$ed5' + i + ':' + KM.www_rc.except_tline5_dates[i];
 		    // exception time line 6 dates
-		    coded_str += '$ed6' + i + ':' + KM.www_rc.except_tline6_dates[index];
+		    coded_str += '$ed6' + i + ':' + KM.www_rc.except_tline6_dates[i];
 		    // exception time line 7 dates
-		    coded_str += '$ed7' + i + ':' + KM.www_rc.except_tline7_dates[index];
+		    coded_str += '$ed7' + i + ':' + KM.www_rc.except_tline7_dates[i];
 		
 		    // exception time line 1 
-		    coded_str += '$et1' + i + ':' + KM.www_rc.except_tline1[index];
+		    coded_str += '$et1' + i + ':' + KM.www_rc.except_tline1[i];
 		    // exception time line 2 
-		    coded_str += '$et2' + i + ':' + KM.www_rc.except_tline2[index];
+		    coded_str += '$et2' + i + ':' + KM.www_rc.except_tline2[i];
 		    // exception time line 3 
-		    coded_str += '$et3' + i + ':' + KM.www_rc.except_tline3[index];
+		    coded_str += '$et3' + i + ':' + KM.www_rc.except_tline3[i];
 		    // exception time line 4 
-		    coded_str += '$et4' + i + ':' + KM.www_rc.except_tline4[index];
+		    coded_str += '$et4' + i + ':' + KM.www_rc.except_tline4[i];
 		    // exception time line 5 
-		    coded_str += '$et5' + i + ':' + KM.www_rc.except_tline5[index];
+		    coded_str += '$et5' + i + ':' + KM.www_rc.except_tline5[i];
 		    // exception time line 6 
-		    coded_str += '$et6' + i + ':' + KM.www_rc.except_tline6[index];
+		    coded_str += '$et6' + i + ':' + KM.www_rc.except_tline6[i];
 		    // exception time line 7 
-		    coded_str += '$et7' + i + ':' + KM.www_rc.except_tline7[index];
+		    coded_str += '$et7' + i + ':' + KM.www_rc.except_tline7[i];
 		}
 	    }
 	      
@@ -7665,13 +7660,13 @@ KM.conf_sched_apply = function (sched) {
     var segments = (24 * 60) / 15;
     var tline, encoded;    
     
-    for (var index = 1; index < 8; index++) {
+    for (var line = 1; line < 8; line++) {
     
 	// read the raw segment data
 	tline = '';
 	for (var segment = 1; segment < segments + 1; segment++) {
 	    // a bodge, but an efficient one ... ouch !!!
-	    if (document.getElementById('tline_' + index + '_' + segment).src.indexOf('green.png') != -1) {
+	    if (document.getElementById('tline_' + line + '_' + segment).src.indexOf('green.png') != -1) {
 		tline += '1';
 	    } else {
 		tline += '0';
@@ -7683,13 +7678,22 @@ KM.conf_sched_apply = function (sched) {
 	for (var i = 1; i < 5; i++) {
 	     encoded += parseInt(tline.slice((i - 1) * 24, i * 24), 2).toString(16) + '#';
 	}
-	alert(encoded)
-	
+	KM.www_rc['sched_tline' + line][sched] = encoded;
     }
+    
+    KM.conf_config_track.sched_modified(sched);
+    KM.conf_config_track.sync();
 	
-    //////alert(tline)
 };
-   
+
+
+
+//sched_modified: function(i) {
+	    //sched_modified[i] = true;
+	//},
+  //  KM.conf_config_track.misc_modified();
+ //   KM.conf_config_track.sync()
+   //KM.www_rc['ptz_preset' + preset + '_x'][KM.config.camera] = KM.config.ptz_current_x;
      //// schedule and schedule exception config
     //sched_tline1: ['pad', '', '', '', '', '', '', '', ''],
     //sched_tline2: ['pad', '', '', '', '', '', '', '', ''],
