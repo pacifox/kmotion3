@@ -7388,7 +7388,7 @@ sched = 1;
     KM.conf_sched_weekday(sched, 7, 'Sunday') +
 
     '<div class="config_text_margin">' +
-	'<input type="button" id="sched_apply" OnClick="KM.conf_sched_apply(' + sched + ');" value="Apply Schedule Changes"> ' +
+	'<input type="button" id="sched_apply" disabled="disabled" OnClick="KM.conf_sched_apply(' + sched + ');" value="Apply Schedule Changes"> ' +
     '</div>';
     
     document.getElementById('config_html').innerHTML = html_str;
@@ -7459,13 +7459,15 @@ KM.conf_sched_tline = function (sched, index) {
     
     // convert 4 x 6 digit hex to 96 bit bin, truncating as necessary
     var tline = KM.www_rc['sched_tline' + index][sched];
-    var tmp;
-    var segments_data = '';
+    var tmp, tmp2, fill;
     
-    tmp1 = tline.split('#');
+    for (var i = 0; i < (segments / 4) ; i++) fill += '0';
+    var segments_data = '';
+    var tmp1 = tline.split('#');
+    
     for (var i = 0; i < 4; i++) {
-	tmp2 = parseInt('0x' + tmp1[i], 16).toString(2)
-	segments_data += tmp2.slice(0, 24);
+	tmp2 = parseInt('0x' + tmp1[i], 16).toString(2);
+	segments_data += (fill.substr(0, (segments / 4)- tmp2.length) + tmp2);
     };
     
     // construct the html
@@ -7643,8 +7645,8 @@ KM.conf_sched_highlight_apply = function () {
     // returns:
     //
     
-    document.getElementById('sched_apply').style.fontWeight = 'bold';
-    document.getElementById('sched_apply').style.color = KM.BLUE;
+    document.getElementById('sched_apply').disabled = false; 
+    document.getElementById('sched_apply').style.color = KM.RED;
 };
 
 
@@ -7659,7 +7661,7 @@ KM.conf_sched_apply = function (sched) {
     
     var segments = (24 * 60) / 15;
     var tline, encoded;    
-    
+
     for (var line = 1; line < 8; line++) {
     
 	// read the raw segment data
@@ -7684,7 +7686,24 @@ KM.conf_sched_apply = function (sched) {
     KM.conf_config_track.sched_modified(sched);
     KM.conf_config_track.sync();
 	
+    // reset the 'need to apply' warning
+    document.getElementById('sched_apply').disabled = true; 
+    document.getElementById('sched_apply').style.color = KM.DARK_GREY; 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
