@@ -7348,25 +7348,19 @@ KM.conf_schedule_html = function (sched) {
     // returns:
     //
     
-    
-sched = 1;    
-    
-    
-    
-    
     html_str = '<br>' +
     
     '<div class="sched_selector" style="width:952px;">' +
 	
-	    '<select id="feed_camera" onchange="KM.conf_feed_change();">' +
-		'<option value="1">Schedule 1</option>' +	
-		'<option value="2">Schedule 2</option>' +	
-		'<option value="3">Schedule 3</option>' +	
-		'<option value="4">Schedule 4</option>' +	
-		'<option value="5">Schedule 5</option>' +	
-		'<option value="6">Schedule 6</option>' +	
-		'<option value="7">Schedule 7</option>' +	
-		'<option value="8">Schedule 8</option>' +	
+	    '<select id="sched_select" onchange="KM.conf_sched_change();">' +
+		'<option>Schedule 1</option>' +	
+		'<option>Schedule 2</option>' +	
+		'<option>Schedule 3</option>' +	
+		'<option>Schedule 4</option>' +	
+		'<option>Schedule 5</option>' +	
+		'<option>Schedule 6</option>' +	
+		'<option>Schedule 7</option>' +	
+		'<option>Schedule 8</option>' +	
 	    '</select>' +
 	
 	    '<input type="button" id="sched_week"' +
@@ -7503,6 +7497,24 @@ KM.conf_sched_tline = function (sched, index) {
 };
     
     
+
+
+KM.conf_sched_change = function() {
+    var sched = document.getElementById('sched_select').selectedIndex;
+    KM.conf_schedule_html(sched);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 KM.sched_tline_clicked = function(index, segment) {
 
     // A function that inverts the clicked time line segment 
@@ -7693,11 +7705,39 @@ KM.conf_sched_apply = function (sched) {
 
 
 
+//KM.conf_feed_change = function () {
+
+    //// A function changes the current camera, its breaks good programing
+    //// practice by incrementing the session id and reloading the HTML from
+    //// within the HTML .... yuk !!
+    ////
+    //// expects:
+    ////
+    //// returns:
+    ////
+   
+    //KM.session_id.current++; // needed to kill the live feed daemon
+    //KM.config.camera = document.getElementById('feed_camera').selectedIndex + 1;
+    //KM.add_timeout_id(KM.MISC_JUMP, setTimeout(function () {KM.conf_feed_html(); }, 1));
+//};
 
 
 
 
 
+    //// returns:
+    ////
+    
+    //KM.session_id.current++;
+    //KM.conf_error_daemon(KM.session_id.current);
+    //KM.config.camera = document.getElementById('config_select').selectedIndex;
+    //document.getElementById('ptz_button').disabled = true;
+    //if (KM.config.camera === 0) {
+	//KM.conf_misc_html();
+    //} else {
+	//KM.conf_feed_html(KM.config.camera);
+    //}
+//};
 
 
 
