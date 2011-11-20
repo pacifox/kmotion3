@@ -84,6 +84,14 @@ def index(req):
     p4x ... PTZ preset 4 x
     p4y ... PTZ preset 4 y
     
+    st1 ... schedule time line 1
+    st2 ... schedule time line 2
+    st3 ... schedule time line 3
+    st4 ... schedule time line 4
+    st5 ... schedule time line 5
+    st6 ... schedule time line 6
+    st7 ... schedule time line 7
+    
     dif ... display feeds
     col ... color select
     dis ... display select

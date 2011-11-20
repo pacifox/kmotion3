@@ -640,11 +640,11 @@ ptz_track_type = 1
 [schedule1]
 tline1 = ffffff#ffffff#ffffff#ffffff#
 tline2 = 0#0#0#0#
-tline3 = 0#0#0#0#
-tline4 = ffffff#ffffff#ffffff#ffffff#
+tline3 = 1#0#0#0#
+tline4 = ffffff#dfffff#ffffff#ffffff#
 tline5 = ffffff#ffffff#ffffff#ffffff#
 tline6 = ffffff#87ffff#ffffff#ffffff#
-tline7 = ffffdf#ffffff#ffffff#ffffff#
+tline7 = fff7df#fb7fff#ffffff#ffffff#
 
 [schedule2]
 tline1 = ffffff#ffffff#ffffff#ffffff#
@@ -662,7 +662,7 @@ tline3 = ffffff#ffffff#ffffff#ffffff#
 tline4 = ffffff#ffffff#ffffff#ffffff#
 tline5 = ffffff#ffffff#ffffff#ffffff#
 tline6 = ffffff#ffffff#ffffff#ffffff#
-tline7 = ffffff#ffffff#ffffff#ffffff#
+tline7 = ffffff#f8ffff#ffffff#ffffff#
 
 [schedule4]
 tline1 = ffffff#ffffff#ffffff#ffffff#
@@ -697,16 +697,16 @@ tline2 = ffffff#ffffff#ffffff#ffffff#
 tline3 = ffffff#ffffff#ffffff#ffffff#
 tline4 = ffffff#ffffff#ffffff#ffffff#
 tline5 = ffffff#ffffff#ffffff#ffffff#
-tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6 = 0#0#0#0#
 tline7 = ffffff#ffffff#ffffff#ffffff#
 
 [schedule8]
-tline1 = ffffff#ffffff#ffffff#ffffff#
+tline1 = fffedd#ffffff#ffffff#ffffff#
 tline2 = ffffff#ffffff#ffffff#ffffff#
 tline3 = ffffff#ffffff#ffffff#ffffff#
 tline4 = ffffff#ffffff#ffffff#ffffff#
 tline5 = ffffff#ffffff#ffffff#ffffff#
-tline6 = ffffff#ffffff#ffffff#ffffff#
+tline6 = ffffff#fffdbf#ffffff#ffffff#
 tline7 = ffffff#ffffff#ffffff#ffffff#
 
 [schedule_except1]
