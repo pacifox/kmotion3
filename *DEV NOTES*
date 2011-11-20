@@ -55,3 +55,16 @@ Check with "max_mpeg_time = 300", does the archive list miss some files ?
      return apache2_group, int(grp.getgrnam(apache2_group)[2])
 
  Oh, and I created a symlink from /usr/sbin/apachectl to /usr/bin/apachectl.
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ look @ <option HTML, do i need value="" ??????????????
+ 
