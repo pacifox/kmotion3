@@ -1,5 +1,5 @@
 [dirs]
-ramdisk_dir = /dev/shm/kmotion_ramdisk
+ramdisk_dir = /home/dave/kmotion3/www/virtual_ramdisk
 
 [version]
 string = 3.00 Alpha
