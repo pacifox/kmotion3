@@ -638,13 +638,13 @@ ptz_step_y = 15
 ptz_track_type = 1
 
 [schedule1]
-tline1 = ffffff#ffffff#ffffff#ffffff#
-tline2 = 0#0#0#0#
-tline3 = 1#0#0#0#
-tline4 = ffffff#dfffff#ffffff#ffffff#
-tline5 = ffffff#ffffff#ffffff#ffffff#
-tline6 = ffffff#87ffff#ffffff#ffffff#
-tline7 = fff7df#fb7fff#ffffff#ffffff#
+tline1 = c00008#b00000#15a000#0#
+tline2 = 0#4150#480000#0#
+tline3 = 1#2140#0#0#
+tline4 = 0#200000#0#0#
+tline5 = 0#0#0#0#
+tline6 = 0#0#0#0#
+tline7 = 820#48000#0#0#
 
 [schedule2]
 tline1 = ffffff#ffffff#ffffff#ffffff#
@@ -840,7 +840,7 @@ func_f15_enabled = false
 func_f16_enabled = false
 images_dbase_dir = /home/dave/kmotion3/images_dbase
 msg =
-ramdisk_dir = /dev/shm/kmotion_ramdisk
+ramdisk_dir = /home/dave/kmotion3/www/virtual_ramdisk
 version = 3.00 Alpha
 version_latest = SVN
 
